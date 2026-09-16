@@ -80,6 +80,18 @@ ROWS = [
     ("HUMAN_FULL_DIST", "Full-text combined mean distinctiveness", 3.875,
      "human_validation/fulltext_human_validation_summary.json", "combined_mean_distinctiveness",
      "figures/human_validation/HF1_3_ratings_by_topic.png", "RQ5 / Human validation"),
+    ("META_LABELS", "Final reconciled metadata topic labels (4 topics)", "see file",
+     "human_validation/FINAL_TOPIC_LABELS.csv", "Final_Reconciled_Label (Representation=metadata)",
+     "-", "RQ5 / Manuscript topic naming"),
+    ("FULL_LABELS", "Final reconciled full-text topic labels (8 topics)", "see file",
+     "human_validation/FINAL_TOPIC_LABELS.csv", "Final_Reconciled_Label (Representation=fulltext)",
+     "-", "RQ5 / Manuscript topic naming"),
+    ("LABEL_RECONCILIATION", "Label reconciliation process and rationale", "see file",
+     "reports/TOPIC_LABEL_RECONCILIATION.md", "n/a (narrative report)",
+     "-", "RQ5 / Methods (topic labeling procedure)"),
+    ("META_HUMAN_PREF_DISAGREE", "Metadata raters' k preference (both, showing disagreement)",
+     "R1=5, R2=3", "human_validation/metadata_human_overall_preferences.csv", "preferred_k",
+     "figures/human_validation/HM3_preferred_topic_count.png", "RQ5 / Human validation"),
 ]
 
 COLUMNS = ["Result_ID", "Result description", "Value", "Source file", "Source column/key",

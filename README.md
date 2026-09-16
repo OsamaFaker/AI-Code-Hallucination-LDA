@@ -28,6 +28,15 @@ Title + abstract + author keywords (title+abstract only where keywords were unav
 24/66 studies). **Final model: k=4, structural-medoid seed 14.** Chosen as primary because
 metadata documents are far more length-homogeneous, and the metadata model shows higher
 cross-seed stability (0.66 vs. 0.54) and diversity (0.84 vs. 0.77) than the full-text model.
+
+Final reconciled topics (see "Human validation" below — human raters did not themselves select
+k=4; see `reports/TOPIC_LABEL_RECONCILIATION.md`):
+
+1. AI Code Verification, Vulnerability, and Developer Trust
+2. Requirements-Driven Prompting and Code Generation
+3. AI in Programming Education and Adoption
+4. API/Dependency Hallucination Mitigation
+
 See `reports/METADATA_LDA_REPORT.md`, `reports/METADATA_FINAL_K_VALIDATION.md`.
 
 ## Full-text analysis (secondary representation-sensitivity analysis)
@@ -36,8 +45,20 @@ Cleaned, section-restricted full text of the same 66 studies (Introduction-Concl
 references/boilerplate/headers removed). **Final model: k=8, structural-medoid seed 2**,
 retained as the most parsimonious representative of a broader near-equivalent region
 (k=8-15) whose topic structure was shown to be persistent, not as a uniquely optimal model.
-Shows a documented, non-trivial sensitivity to document length (see Limitations). See
-`reports/FULLTEXT_LDA_REPORT.md`, `reports/FULLTEXT_FINAL_K_VALIDATION.md`.
+Shows a documented, non-trivial sensitivity to document length (see Limitations).
+
+Final reconciled topics:
+
+1. Developer Trust and Experience with AI Coding Assistants
+2. Package Hallucination and Supply-Chain Security Risks
+3. Security and Safety-Critical Code Generation Benchmarks
+4. Hallucination Detection and Mitigation Methods
+5. LLM Coding Proficiency and Programming Tasks
+6. Programming Education, Learning, Feedback, and Assessment
+7. Code Quality, Vulnerability, Complexity, and Non-Determinism
+8. Bug Taxonomies and Practitioner-Reported Code Issues
+
+See `reports/FULLTEXT_LDA_REPORT.md`, `reports/FULLTEXT_FINAL_K_VALIDATION.md`.
 
 ## Preprocessing
 
@@ -66,8 +87,17 @@ Representative model = structural medoid (max mean aligned similarity across see
 Two independent raters, blinded to model identity, k, and any AI-drafted label, rated the
 metadata k-candidates (k=2,3,4,5) and the full-text final topics (k=8) for coherence,
 interpretability, and distinctiveness, and independently proposed labels. **Raters did not
-converge on a preferred metadata k** (Rater 1→k=5, Rater 2→k=3); this is reported, not hidden.
-See `reports/HUMAN_VALIDATION_REPORT.md`, `human_validation/`.
+converge on a preferred metadata k** (Rater 1→k=5, Rater 2→k=3); this is reported, not hidden —
+**human evaluation supported the semantic interpretability of the candidate topic structures
+but did not uniquely determine the preferred number of topics, so k=4 was retained primarily
+on quantitative-parsimony grounds, with human evaluation as complementary interpretive
+evidence** (never "human validation confirmed k=4"). Full-text human evaluation was generally
+positive on coherence (≈4.06/5) and interpretability (≈4.00/5) with somewhat weaker
+distinctiveness (≈3.88/5) for several fine-grained topics. Final topic labels (listed above)
+were subsequently **researcher-reconciled** from both raters' independently proposed labels —
+not claimed as verbatim rater consensus. See `reports/HUMAN_VALIDATION_REPORT.md`,
+`reports/TOPIC_LABEL_RECONCILIATION.md`, `human_validation/` (raw rater files preserved
+unaltered in `human_validation/Human_Result/`).
 
 ## Robustness
 
@@ -95,9 +125,28 @@ results/             every run-level metric, frozen values, provenance, validati
 human_validation/    blinded rating materials + completed rater data + consolidated summaries
 figures/             57 figures (PNG+PDF), registry, SHA-256 checksums
 reports/             all narrative reports and the frozen manuscript-values file
-models/              every fitted LdaModel (760+ for the definitive sweep alone)
+models/              every fitted LdaModel (760+ for the definitive sweep alone) - NOT in git, see below
 data/                metadata/full-text representations (full-text is NOT redistributed - see LICENSE)
 ```
+
+### `models/` is intentionally git-ignored
+
+`models/` (~203MB — every one of the 760+ fitted `LdaModel` objects from the definitive sweep,
+plus pilots/robustness/sensitivity fits) is excluded from version control via `.gitignore` and
+is **not** stored with Git LFS. It is fully regenerable, deterministically, from the frozen
+corpus, preprocessing configuration, seeds, final k, code, and pinned environment — there is
+nothing in `models/` that isn't reproducible from what *is* committed. To regenerate the two
+final models specifically (the ones referenced throughout `results/` and `reports/`):
+
+```bash
+.venv/Scripts/python src/definitive_k_sweep.py metadata 5 0.50 30 800 --alpha auto --eta auto --kmax 20
+.venv/Scripts/python src/definitive_k_sweep.py fulltext 4 0.75 30 800 --alpha auto --eta auto --kmax 20
+```
+
+This regenerates all 380 seeded models per representation (k=2-20 × 20 seeds), including the
+frozen medoid seeds (metadata seed 14, full-text seed 2) at `models/metadata/k04_seed14.model`
+and `models/fulltext/k08_seed02.model`. See the full ordered pipeline below to regenerate
+everything else these models feed into.
 
 ## Reproduction
 

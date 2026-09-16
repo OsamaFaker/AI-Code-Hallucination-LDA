@@ -17,10 +17,12 @@ require full text…”).
 
 ## Topic counts
 
-k_A (metadata) = 4 [provisional pending human validation — see
-`reports/METADATA_FINAL_K_VALIDATION.md`], k_B (full text) = 8 [provisional pending human
-validation — see `reports/FULLTEXT_FINAL_K_VALIDATION.md`, which also shows this structure is
-persistent across the k=8–15 near-equivalent region]. These were **not** forced to match — the
+k_A (metadata) = 4 [FINAL — see `reports/METADATA_FINAL_K_VALIDATION.md`], k_B (full text) = 8
+[FINAL — see `reports/FULLTEXT_FINAL_K_VALIDATION.md`, which also shows this structure is
+persistent across the k=8–15 near-equivalent region]. Both are corroborated by completed
+blinded human validation (`reports/HUMAN_VALIDATION_REPORT.md`; for metadata, corroboration is
+partial — the two raters preferred different k values from each other and from k=4). These
+were **not** forced to match — the
 protocol explicitly permits and anticipates k_A ≠ k_B, and treats disagreement as a legitimate
 reflection of differing thematic granularity (protocol Section 26), not a modeling failure —
 though, per the note above, part of this difference could also stem from the two
@@ -101,6 +103,6 @@ representation changes the recovered thematic structure, rather than presenting 
 equally definitive primary results. This recommendation is based on the quantitative
 robustness asymmetry already established, not on which representation "found more themes" —
 finding more themes at a larger k is an expected consequence of k, not evidence of superior
-validity. This role assignment is provisional and should be revisited if the pending human
-validation (`reports/METADATA_FINAL_K_VALIDATION.md`,
-`reports/FULLTEXT_FINAL_K_VALIDATION.md`) surfaces reasons to reconsider it.
+validity. Completed human validation did not surface a reason to reconsider this role
+assignment (`reports/METADATA_FINAL_K_VALIDATION.md`, `reports/FULLTEXT_FINAL_K_VALIDATION.md`,
+`reports/HUMAN_VALIDATION_REPORT.md`).

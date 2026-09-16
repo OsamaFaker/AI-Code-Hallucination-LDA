@@ -1,11 +1,12 @@
 # Analysis B — Full-Text LDA Report
 
-**k=8 is provisional**, selected by parsimony from the near-equivalent region k∈{8,9,12,13,
-14,15} and supported by a cross-k topic-persistence analysis, but pending blinded human
-validation — see `reports/FULLTEXT_FINAL_K_VALIDATION.md` and
-`reports/FINAL_K_DECISION_TABLE.md`. This report is also recommended to be read as a
-**secondary, representation-sensitivity analysis**, not an equally-weighted alternative to
-Analysis A — see `reports/CROSS_REPRESENTATION_REPORT.md`.
+**k=8 is FINAL.** Selected by parsimony from the near-equivalent region k∈{8,9,12,13,14,15}
+and corroborated by a cross-k topic-persistence analysis and completed blinded human validation
+(`reports/FULLTEXT_FINAL_K_VALIDATION.md`, `reports/HUMAN_VALIDATION_REPORT.md`) — never
+described as uniquely optimal. This report is also recommended to be read as a **secondary,
+representation-sensitivity analysis**, not an equally-weighted alternative to Analysis A — see
+`reports/CROSS_REPRESENTATION_REPORT.md`. Topic labels below are researcher-reconciled
+(`reports/TOPIC_LABEL_RECONCILIATION.md`).
 
 Corpus: same 66 primary studies as Analysis A. Representation: cleaned, section-restricted
 full text (Introduction/Background/Related Work/Methodology/Results/Discussion/Conclusion;
@@ -61,20 +62,22 @@ representation difference, not adjusted away.
 
 ## Final topics (Analysis B, k=8, seed=2)
 
-Full packets in `human_validation/fulltext/topic_XX_packet.json`; blank rating sheets in
-`human_validation/fulltext/topic_rating_sheet_rater{1,2}.csv`. **Labels below are AI-drafted,
-not human-validated** (protocol Section 22).
+Full packets in `human_validation/fulltext/topic_XX_packet.json` (note: those packets'
+`ai_draft_label` field is the original pre-rating draft, retained there for provenance only —
+superseded by the reconciled labels below). **Labels below are researcher-reconciled after two
+independent raters completed blinded evaluation of all 8 topics**
+(`reports/HUMAN_VALIDATION_REPORT.md`, `reports/TOPIC_LABEL_RECONCILIATION.md`).
 
-| Topic | Prevalence | Top probability terms | [AI-DRAFT] provisional label |
+| Topic | Prevalence | Top probability terms | Final reconciled label |
 |---|---:|---|---|
-| 0 | 0.115 | participant, copilot, developer, suggestion, experience, community, trust | Developer trust & community perception of AI coding tools |
-| 1 | 0.075 | package, hallucination, rate, grader, javascript, repository, malicious | Package hallucination & malicious/insecure dependency risk |
-| 2 | 0.063 | class, requirement, completion, api, signal, security, benchmark, attack | Security-focused benchmark evaluation of code completion |
-| 3 | 0.224 | hallucination, api, requirement, return, benchmark, token, self, project | API/dependency hallucination detection & mitigation frameworks |
-| 4 | 0.140 | chatgpt, exercise, topic, developer, project, pass, training, difficulty | Programming exercises, training tasks & skill assessment |
-| 5 | 0.185 | student, chatgpt, course, feedback, assignment, explanation, group | Programming education, instruction & feedback |
-| 6 | 0.123 | chatgpt, snippet, value, complexity, vulnerability, non, scenario, round | Code vulnerability, determinism & fix quality |
-| 7 | 0.075 | bug, pattern, participant, assistant, suggestion, buggy, sample, label | Bug patterns & developer-reported assistant issues |
+| 0 | 0.115 | participant, copilot, developer, suggestion, experience, community, trust | Developer Trust and Experience with AI Coding Assistants |
+| 1 | 0.075 | package, hallucination, rate, grader, javascript, repository, malicious | Package Hallucination and Supply-Chain Security Risks |
+| 2 | 0.063 | class, requirement, completion, api, signal, security, benchmark, attack | Security and Safety-Critical Code Generation Benchmarks |
+| 3 | 0.224 | hallucination, api, requirement, return, benchmark, token, self, project | Hallucination Detection and Mitigation Methods |
+| 4 | 0.140 | chatgpt, exercise, topic, developer, project, pass, training, difficulty | LLM Coding Proficiency and Programming Tasks |
+| 5 | 0.185 | student, chatgpt, course, feedback, assignment, explanation, group | Programming Education, Learning, Feedback, and Assessment |
+| 6 | 0.123 | chatgpt, snippet, value, complexity, vulnerability, non, scenario, round | Code Quality, Vulnerability, Complexity, and Non-Determinism |
+| 7 | 0.075 | bug, pattern, participant, assistant, suggestion, buggy, sample, label | Bug Taxonomies and Practitioner-Reported Code Issues |
 
 ## Full-text-only diagnostics (Section 24)
 

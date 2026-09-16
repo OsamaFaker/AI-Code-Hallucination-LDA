@@ -105,6 +105,39 @@ def main():
 
     transfer = (ROOT / "reports" / "FINAL_MANUSCRIPT_TRANSFER_TABLE.md")
     all_pass &= check("Manuscript transfer table exists", transfer.exists())
+
+    # --- Label reconciliation checks ---
+    labels_df = pd.read_csv(HV_DIR / "FINAL_TOPIC_LABELS.csv")
+    all_pass &= check("Final topic labels populated (4 metadata + 8 fulltext)",
+                       len(labels_df) == 12, f"{len(labels_df)} rows")
+    n_pending = (labels_df["Final_Reconciled_Label"] == "Pending researcher reconciliation").sum()
+    all_pass &= check("No topic labels remain 'Pending researcher reconciliation'",
+                       n_pending == 0, f"{n_pending} still pending")
+    n_ai_draft_final = labels_df["Final_Reconciled_Label"].astype(str).str.contains(
+        "AI-DRAFT", case=False).sum()
+    all_pass &= check("No AI-DRAFT marker in final reconciled labels", n_ai_draft_final == 0)
+    all_pass &= check("Reconciliation status correctly labeled (not 'Rater consensus')",
+                       (labels_df["Reconciliation_Status"] ==
+                        "Researcher reconciled after independent human rating").all())
+    all_pass &= check("Label reconciliation report exists",
+                       (ROOT / "reports" / "TOPIC_LABEL_RECONCILIATION.md").exists())
+
+    # --- Raw human-rating files present and untouched by this task ---
+    raw_rater_files = [
+        HV_DIR / "Human_Result" / "Metadata" / "2" / "candidate_rating_sheet_rater1_completed.csv",
+        HV_DIR / "Human_Result" / "Metadata" / "files" / "candidate_rating_sheet_rater2.csv",
+        HV_DIR / "Human_Result" / "Full_Text" / "candidate_rating_sheet_rater1_evaluated.csv",
+        HV_DIR / "Human_Result" / "Full_Text" / "files" / "candidate_rating_sheet_rater2.csv",
+    ]
+    for p in raw_rater_files:
+        all_pass &= check(f"Raw rater file present: {p.name}", p.exists())
+
+    # --- models/ intentionally git-ignored + regeneration command documented ---
+    gitignore_text = (ROOT / ".gitignore").read_text(encoding="utf-8")
+    all_pass &= check("models/ present in .gitignore", "models/" in gitignore_text)
+    readme_text = (ROOT / "README.md").read_text(encoding="utf-8")
+    all_pass &= check("README documents the models/ regeneration command",
+                       "definitive_k_sweep.py" in readme_text and "git-ignored" in readme_text)
     provenance = (RESULTS_DIR / "RESULT_PROVENANCE.csv")
     if provenance.exists():
         prov_df = pd.read_csv(provenance)

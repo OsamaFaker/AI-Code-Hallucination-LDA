@@ -47,9 +47,14 @@ interpretability evidence, not a decisive criterion. Full detail:
 
 ## Final metadata topic labels
 
-Not yet reconciled between raters — see `human_validation/FINAL_TOPIC_LABELS.csv`
-(`Final_Reconciled_Label` = "Pending researcher reconciliation" for all 4 topics). Raters'
-independent labels are recorded in the same file for reference.
+Researcher-reconciled from both raters' independently proposed labels (not verbatim rater
+consensus; see `reports/TOPIC_LABEL_RECONCILIATION.md`). Source:
+`human_validation/FINAL_TOPIC_LABELS.csv`.
+
+1. T0: AI Code Verification, Vulnerability, and Developer Trust
+2. T1: Requirements-Driven Prompting and Code Generation
+3. T2: AI in Programming Education and Adoption
+4. T3: API/Dependency Hallucination Mitigation
 
 ## Full-text analysis (secondary representation-sensitivity analysis)
 
@@ -91,6 +96,20 @@ coherence/interpretability evidence with weaker distinctiveness evidence for sev
 fine-grained topics — not as failed validation, and not as proof of 8 mutually exclusive
 categories.** Full detail: `reports/HUMAN_VALIDATION_REPORT.md`.
 
+## Final full-text topic labels
+
+Researcher-reconciled from both raters' independently proposed labels. Source:
+`human_validation/FINAL_TOPIC_LABELS.csv`.
+
+1. T0: Developer Trust and Experience with AI Coding Assistants
+2. T1: Package Hallucination and Supply-Chain Security Risks
+3. T2: Security and Safety-Critical Code Generation Benchmarks
+4. T3: Hallucination Detection and Mitigation Methods
+5. T4: LLM Coding Proficiency and Programming Tasks
+6. T5: Programming Education, Learning, Feedback, and Assessment
+7. T6: Code Quality, Vulnerability, Complexity, and Non-Determinism
+8. T7: Bug Taxonomies and Practitioner-Reported Code Issues
+
 ## Full-text length sensitivity (factual summary)
 
 Document length varies ~11.7x across the 66 full texts. Weak-to-moderate association between
@@ -128,8 +147,8 @@ metadata analysis, based on the robustness asymmetry above (not on topic count).
 4. Metadata k=4 is a quantitative-parsimony compromise not confirmed by either individual human
    rater (who disagreed with each other); full-text k=8 is the parsimonious representative of a
    broader persistent region, not a uniquely optimal solution.
-5. Final topic labels are not yet reconciled between the two human raters
-   (`human_validation/FINAL_TOPIC_LABELS.csv`).
+5. Final topic labels are researcher-reconciled from the two human raters' independent
+   proposals, not verbatim rater consensus (`reports/TOPIC_LABEL_RECONCILIATION.md`).
 6. This LDA analysis is statistically independent of the manual RQ1-RQ4 classification; it was
    not informed by RQ1-RQ4 at any stage before both models were frozen, and does not validate
    that classification.

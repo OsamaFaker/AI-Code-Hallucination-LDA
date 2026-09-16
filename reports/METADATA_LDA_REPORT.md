@@ -1,8 +1,12 @@
 # Analysis A — Metadata LDA Report (Title + Abstract + Author Keywords)
 
-**k=4 is provisional**, best-supported by quantitative evidence among candidates k∈{2,3,4,5}
-but pending blinded human validation — see `reports/METADATA_FINAL_K_VALIDATION.md` and
-`reports/FINAL_K_DECISION_TABLE.md`.
+**k=4 is FINAL.** It is the best-supported candidate by quantitative evidence among k∈{2,3,4,5}
+(see `reports/METADATA_FINAL_K_VALIDATION.md`). Blinded human validation is complete
+(`reports/HUMAN_VALIDATION_REPORT.md`) but **did not itself select k=4** — the two raters
+preferred different candidates (k=5 and k=3 respectively); k=4 was retained primarily on
+quantitative-parsimony grounds, with human evaluation as complementary interpretive evidence.
+Topic labels below are researcher-reconciled from both raters' independent labels
+(`reports/TOPIC_LABEL_RECONCILIATION.md`).
 
 Corpus: 66 primary studies (5 secondary studies excluded throughout; see
 `corpus/corpus_audit.md`). Representation: title + abstract, with author keywords appended
@@ -65,17 +69,20 @@ externally "high" or "good" value — no external coherence benchmark is claimed
 ## Final topics (Analysis A, k=4, seed=14)
 
 Full packets (top-20 probability terms, top-20 FREX terms, 10 top-loading studies/abstracts,
-prevalence) are in `human_validation/metadata/topic_XX_packet.json`; blank rating sheets for
-independent human raters are in `human_validation/metadata/topic_rating_sheet_rater{1,2}.csv`.
-**Labels below are AI-drafted, not human-validated, and must not be used in the manuscript
-until rated/ratified by at least two independent human evaluators (protocol Section 22).**
+prevalence) are in `human_validation/metadata/topic_XX_packet.json` (note: those packets'
+`ai_draft_label` field is the original pre-rating draft, retained there for provenance only —
+superseded by the reconciled labels below; see `reports/TOPIC_LABEL_RECONCILIATION.md`).
+**Labels below are researcher-reconciled after two independent raters completed blinded
+evaluation** (`reports/HUMAN_VALIDATION_REPORT.md`); reconciliation did not select k=4 (the
+raters did not agree on a preferred k — see that report) and did not alter any quantitative
+result.
 
-| Topic | Prevalence | Top probability terms | [AI-DRAFT] provisional label |
+| Topic | Prevalence | Top probability terms | Final reconciled label |
 |---|---:|---|---|
-| 0 | 0.254 | chatgpt, problem, hallucination, developer, type, copilot, dataset, tool | Hallucination benchmarking & code-correctness verification |
-| 1 | 0.062 | requirement, prompt, function, input, domain, critical, development, specific | Requirements-driven / safety-critical code generation |
-| 2 | 0.322 | chatgpt, student, tool, education, work, provide, assignment, feedback | AI in programming education |
-| 3 | 0.362 | hallucination, development, api, user, models, propose, complex, challenge | API/dependency hallucination and mitigation strategies |
+| 0 | 0.254 | chatgpt, problem, hallucination, developer, type, copilot, dataset, tool | AI Code Verification, Vulnerability, and Developer Trust |
+| 1 | 0.062 | requirement, prompt, function, input, domain, critical, development, specific | Requirements-Driven Prompting and Code Generation |
+| 2 | 0.322 | chatgpt, student, tool, education, work, provide, assignment, feedback | AI in Programming Education and Adoption |
+| 3 | 0.362 | hallucination, development, api, user, models, propose, complex, challenge | API/Dependency Hallucination Mitigation |
 
 ## Robustness (final model)
 

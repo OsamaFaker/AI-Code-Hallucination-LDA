@@ -24,16 +24,16 @@ summary: `results/fulltext/cross_k_topic_persistence_summary.csv`; heatmap:
 
 ## Persistence classification (mean best-match JS similarity across k=9..15)
 
-| k=8 topic | Provisional theme | Mean similarity | Classification |
+| k=8 topic | Final reconciled label | Mean similarity | Classification |
 |---|---|---:|---|
-| T0 | Developer trust & community perception | 0.599 | highly persistent |
-| T1 | Package hallucination / malicious dependency risk | 0.568 | highly persistent |
-| T2 | Security-focused benchmark evaluation | 0.500 | moderately persistent |
-| T3 | API/dependency hallucination detection & mitigation | 0.631 | highly persistent |
-| T4 | Programming exercises & skill assessment | 0.435 | moderately persistent |
-| T5 | Programming education & feedback | 0.638 | highly persistent |
-| T6 | Code vulnerability, determinism & fix quality | 0.627 | highly persistent |
-| T7 | Bug patterns & developer-reported issues | 0.580 | highly persistent |
+| T0 | Developer Trust and Experience with AI Coding Assistants | 0.599 | highly persistent |
+| T1 | Package Hallucination and Supply-Chain Security Risks | 0.568 | highly persistent |
+| T2 | Security and Safety-Critical Code Generation Benchmarks | 0.500 | moderately persistent |
+| T3 | Hallucination Detection and Mitigation Methods | 0.631 | highly persistent |
+| T4 | LLM Coding Proficiency and Programming Tasks | 0.435 | moderately persistent |
+| T5 | Programming Education, Learning, Feedback, and Assessment | 0.638 | highly persistent |
+| T6 | Code Quality, Vulnerability, Complexity, and Non-Determinism | 0.627 | highly persistent |
+| T7 | Bug Taxonomies and Practitioner-Reported Code Issues | 0.580 | highly persistent |
 
 **6 of 8 topics are highly persistent** (mean similarity ≥0.55) across the entire candidate
 region; the remaining 2 (T2, T4) are moderately persistent (0.40–0.55) but never unstable

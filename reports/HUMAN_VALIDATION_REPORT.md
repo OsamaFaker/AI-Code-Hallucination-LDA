@@ -90,11 +90,35 @@ Both raters independently proposed labels for every topic before any AI-drafted 
 shown to them (blinded packets in `human_validation/metadata_candidate_blinded/` and
 `human_validation/fulltext_final_blinded/`). Raw labels for every candidate model are in
 `human_validation/metadata_human_ratings_per_topic.csv` and
-`human_validation/fulltext_human_ratings_raw.csv`. Per-topic labels for the two **final**
-models (metadata k=4, full text k=8) are consolidated in
-`human_validation/FINAL_TOPIC_LABELS.csv`. **No formal reconciliation session between the two
-raters has occurred**; the `Final_Reconciled_Label` column is therefore marked "Pending
-researcher reconciliation" throughout, not populated with an invented consensus.
+`human_validation/fulltext_human_ratings_raw.csv` — **unchanged** by the reconciliation step
+below. Per-topic labels for the two **final** models (metadata k=4, full text k=8) are
+consolidated in `human_validation/FINAL_TOPIC_LABELS.csv`.
+
+## Final label reconciliation
+
+Researchers have since reconciled a `Final_Reconciled_Label` for each of the 4 metadata and 8
+full-text final topics, by examining the two raters' independently proposed labels together
+with each topic's top-probability terms, FREX/exclusive terms, and highest-loading studies.
+**This is a researcher-reconciled descriptive label, not a claim that the two raters
+independently produced identical wording** (`Reconciliation_Status` in
+`human_validation/FINAL_TOPIC_LABELS.csv` reads "Researcher reconciled after independent human
+rating", never "Rater consensus"). Reconciliation affected only descriptive naming — it did not
+alter any rating, the model selection, topic-word distributions, or any quantitative result
+(`results/FROZEN_FINAL_VALUES.json` re-verified unchanged). Full process and per-topic
+rationale: `reports/TOPIC_LABEL_RECONCILIATION.md`.
+
+Final reconciled labels:
+
+**Metadata (k=4):** T0 "AI Code Verification, Vulnerability, and Developer Trust"; T1
+"Requirements-Driven Prompting and Code Generation"; T2 "AI in Programming Education and
+Adoption"; T3 "API/Dependency Hallucination Mitigation".
+
+**Full text (k=8):** T0 "Developer Trust and Experience with AI Coding Assistants"; T1
+"Package Hallucination and Supply-Chain Security Risks"; T2 "Security and Safety-Critical Code
+Generation Benchmarks"; T3 "Hallucination Detection and Mitigation Methods"; T4 "LLM Coding
+Proficiency and Programming Tasks"; T5 "Programming Education, Learning, Feedback, and
+Assessment"; T6 "Code Quality, Vulnerability, Complexity, and Non-Determinism"; T7 "Bug
+Taxonomies and Practitioner-Reported Code Issues".
 
 ## What this does and does not establish
 

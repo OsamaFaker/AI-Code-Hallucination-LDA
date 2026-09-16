@@ -1,12 +1,13 @@
 # Manuscript-Ready Text (RQ5: LDA Topic Structure)
 
-**Status: provisional pending independent human topic validation** (protocol repair task
-Parts 2–3, 6, 8–9). Topic labels are marked `[AI-DRAFT]` and must be replaced with
-human-rated labels before submission; k_A=4 and k_B=8 are the best-supported values by
-quantitative evidence alone (`reports/METADATA_FINAL_K_VALIDATION.md`,
-`reports/FULLTEXT_FINAL_K_VALIDATION.md`) but are not final until blinded human ratings are
-collected. Update this file once `human_validation/FINAL_HUMAN_VALIDATED_TOPIC_LABELS.csv` is
-complete.
+**Status: superseded.** Human validation is complete and topic labels have been
+researcher-reconciled (k_A=4, k_B=8 — both FINAL). This draft is kept only as a prose
+reference; per the freeze task's own scoping, **the actual RQ5/methodology rewrite is a
+separate subsequent task and must draw only from** `reports/FROZEN_MANUSCRIPT_VALUES.md`,
+`human_validation/FINAL_TOPIC_LABELS.csv`, `reports/HUMAN_VALIDATION_REPORT.md`,
+`reports/FIGURE_INDEX.md`, and the frozen figures — not from this file. The placeholder
+bracketed notes below (`[Labels pending...]`) have been corrected to the final reconciled
+labels for accuracy, but the surrounding prose has not been rewritten in this task.
 
 ## Methodological text
 
@@ -36,8 +37,8 @@ complete.
 > judged inadequate because a single topic absorbed 71–73% of the corpus in both cases (an
 > under-differentiation failure mode), while k=4 achieved the most even topic-size distribution
 > among all four candidates and k=5 did not improve on k=4 by any measured criterion; k=4 is
-> therefore the best-supported value by quantitative evidence, pending confirmatory blinded
-> human rating. For Analysis B, the six candidate k values in the near-equivalent region
+> therefore the best-supported value by quantitative evidence, corroborated (not confirmed -
+> the two raters preferred different k values) by completed blinded human rating. For Analysis B, the six candidate k values in the near-equivalent region
 > (k=8,9,12,13,14,15) were compared via cross-k topic-persistence analysis: the k=8 solution's
 > topics were 75% highly persistent and 25% moderately persistent (none unstable) across the
 > entire candidate region, with additional topics at higher k predominantly subdividing rather
@@ -64,15 +65,16 @@ complete.
 ## RQ5 results text
 
 > Analysis A (metadata) yielded four topics (mean C_v=0.40, mean cross-seed stability=0.66):
-> hallucination benchmarking/correctness verification, requirements-driven/safety-critical code
-> generation, AI in programming education, and API/dependency hallucination and mitigation.
-> Analysis B (full text) yielded eight topics (mean C_v=0.40, mean cross-seed stability=0.54):
-> developer trust and community perception of AI coding tools, package hallucination and
-> malicious/insecure dependency risk, security-focused benchmark evaluation of code completion,
-> API/dependency hallucination detection and mitigation, programming exercises and skill
-> assessment, programming education and feedback, code vulnerability/determinism/fix quality,
-> and bug patterns/developer-reported assistant issues. [Labels pending final human rating;
-> replace with `human_validation/FINAL_HUMAN_VALIDATED_TOPIC_LABELS.csv` once complete.]
+> AI Code Verification, Vulnerability, and Developer Trust; Requirements-Driven Prompting and
+> Code Generation; AI in Programming Education and Adoption; and API/Dependency Hallucination
+> Mitigation. Analysis B (full text) yielded eight topics (mean C_v=0.40, mean cross-seed
+> stability=0.54): Developer Trust and Experience with AI Coding Assistants; Package
+> Hallucination and Supply-Chain Security Risks; Security and Safety-Critical Code Generation
+> Benchmarks; Hallucination Detection and Mitigation Methods; LLM Coding Proficiency and
+> Programming Tasks; Programming Education, Learning, Feedback, and Assessment; Code Quality,
+> Vulnerability, Complexity, and Non-Determinism; and Bug Taxonomies and Practitioner-Reported
+> Code Issues. (Labels are researcher-reconciled from two independent blinded raters' proposals;
+> see `human_validation/FINAL_TOPIC_LABELS.csv` and `reports/TOPIC_LABEL_RECONCILIATION.md`.)
 > Cross-representation comparison (after both models were independently frozen) showed modest
 > agreement on dominant-topic assignment across the 66 studies (Adjusted Rand Index=0.19,
 > Normalized Mutual Information=0.30). All four metadata topics showed partial correspondence
@@ -112,15 +114,18 @@ complete.
 > used) are not treated as independent validation of topic quality. Fourth, the selected number
 > of topics for each representation (k=4 metadata, k=8 full text) is the best-supported value
 > from quantitative evidence — a descriptive admissibility comparison across the near-equivalent
-> candidate region for metadata, and a cross-k topic-persistence analysis for full text — but
-> was confirmed, not merely proposed, only after independent human raters, blinded to model
-> identity, rated the candidate/final topic solutions; any residual disagreement between the
-> quantitative and human evidence is reported rather than resolved by re-weighting. Fifth, topic
-> labels reported here were drafted with AI assistance to accelerate human-rater orientation and
+> candidate region for metadata, and a cross-k topic-persistence analysis for full text.
+> Independent human raters, blinded to model identity, subsequently rated the candidate/final
+> topic solutions; for full text this rating corroborates the quantitative selection, but for
+> metadata the two raters preferred different k values from each other and from k=4, so k=4 is
+> reported as a quantitative-parsimony compromise supported by, not confirmed by, human
+> evaluation — this disagreement is reported rather than resolved by re-weighting. Fifth, topic
+> labels reported here were originally AI-drafted only to accelerate human-rater orientation and
 > were not shown to raters before their independent ratings and proposed labels were recorded;
-> the manuscript's topic labels reflect only labels subsequently rated or ratified by at least
-> two independent human evaluators using the structured, blinded rating procedure in the
-> accompanying reproducibility package. Finally, this LDA analysis is statistically independent
+> the manuscript's final topic labels are researcher-reconciled from the two independent
+> raters' own proposed labels (cross-checked against top-probability/FREX terms and
+> highest-loading studies), not the original AI drafts, and are not claimed to be verbatim
+> rater consensus (see `reports/TOPIC_LABEL_RECONCILIATION.md`). Finally, this LDA analysis is statistically independent
 > of, and complementary to, the manually derived RQ1–RQ4 classification: it was not informed by
 > RQ1–RQ4 categories at any stage prior to freezing the final models, and any qualitative
 > correspondence we note between LDA topics and RQ1–RQ4 categories should be read as an informal

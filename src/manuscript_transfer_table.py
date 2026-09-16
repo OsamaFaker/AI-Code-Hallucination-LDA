@@ -76,11 +76,11 @@ def main():
 
     preamble = (
         "# Final Manuscript Transfer Table\n\n"
-        "**Status: Selected k rows are provisional** — best-supported by quantitative evidence "
-        "(`reports/METADATA_FINAL_K_VALIDATION.md`, `reports/FULLTEXT_FINAL_K_VALIDATION.md`) "
-        "but not final until blinded human topic validation is complete "
-        "(`reports/FINAL_K_DECISION_TABLE.md`). All other rows are unaffected by that "
-        "dependency.\n\n"
+        "**Status: FINAL.** Both selected-k rows and all other rows are frozen and "
+        "corroborated by completed blinded human validation "
+        "(`reports/METADATA_FINAL_K_VALIDATION.md`, `reports/FULLTEXT_FINAL_K_VALIDATION.md`, "
+        "`reports/HUMAN_VALIDATION_REPORT.md`, `reports/FINAL_K_DECISION_TABLE.md`). Final "
+        "reconciled topic labels: `human_validation/FINAL_TOPIC_LABELS.csv`.\n\n"
     )
     out_dir = ROOT / "reports"
     out_dir.mkdir(exist_ok=True)

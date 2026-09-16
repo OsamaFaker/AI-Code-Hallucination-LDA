@@ -27,6 +27,17 @@
 [PASS] All registered figures exist on disk
 [PASS] Figure SHA-256 checksums exist
 [PASS] Manuscript transfer table exists
-[PASS] Result provenance file populated - 27 rows
+[PASS] Final topic labels populated (4 metadata + 8 fulltext) - 12 rows
+[PASS] No topic labels remain 'Pending researcher reconciliation' - 0 still pending
+[PASS] No AI-DRAFT marker in final reconciled labels
+[PASS] Reconciliation status correctly labeled (not 'Rater consensus')
+[PASS] Label reconciliation report exists
+[PASS] Raw rater file present: candidate_rating_sheet_rater1_completed.csv
+[PASS] Raw rater file present: candidate_rating_sheet_rater2.csv
+[PASS] Raw rater file present: candidate_rating_sheet_rater1_evaluated.csv
+[PASS] Raw rater file present: candidate_rating_sheet_rater2.csv
+[PASS] models/ present in .gitignore
+[PASS] README documents the models/ regeneration command
+[PASS] Result provenance file populated - 31 rows
 
 OVERALL: ALL CHECKS PASS

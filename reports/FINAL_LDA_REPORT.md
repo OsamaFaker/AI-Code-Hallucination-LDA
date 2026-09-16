@@ -28,17 +28,23 @@ result); see `results/validation_report.txt` for automated consistency checks an
   independent justification and was replaced by a descriptive, candidate-by-candidate
   admissibility comparison (`reports/METADATA_FINAL_K_VALIDATION.md`) plus a cross-k
   topic-persistence analysis for full text (`reports/FULLTEXT_FINAL_K_VALIDATION.md`) and
-  blinded human validation (see below). **k=4 (metadata) and k=8 (full text) remain the
-  best-supported values by all quantitative evidence gathered so far, but both are provisional
-  until blinded human ratings are collected** (materials ready in `human_validation/`).
+  completed blinded human validation (see below). **k=4 (metadata) and k=8 (full text) are
+  FINAL.**
 - **Cross-seed stability**, **structural-medoid seed selection**, **80%×100 subsampling**,
   **training-effort**, **dictionary**, **phrase**, and **domain-term sensitivity** were all
   run for both representations; full-text additionally received a **document-length
   diagnostic and length-balanced sensitivity model** (Section 24).
-- **Human validation packets** (top terms, FREX terms, top-loading studies, prevalence) plus
-  blank rating sheets for ≥2 independent raters were generated for every final topic
-  (`human_validation/`). AI-drafted labels are explicitly flagged
-  `[AI-DRAFT — NOT A VALIDATED HUMAN LABEL]` throughout and are **not** manuscript-ready.
+- **Human validation** is complete: two independent raters, blinded to model identity, k, and
+  any AI-drafted label, rated every candidate/final topic
+  (`reports/HUMAN_VALIDATION_REPORT.md`). For metadata, the two raters preferred different k
+  values from each other and from k=4 — **human validation did not confirm k=4**; k=4 was
+  retained primarily on quantitative-parsimony grounds. For full text, human ratings
+  corroborate the quantitative cross-k persistence result (combined coherence ≈4.06/5,
+  interpretability ≈4.00/5, distinctiveness ≈3.88/5). Final topic labels were subsequently
+  **researcher-reconciled** from both raters' independently proposed labels
+  (`reports/TOPIC_LABEL_RECONCILIATION.md`, `human_validation/FINAL_TOPIC_LABELS.csv`) — not
+  claimed as verbatim rater consensus. Raw rater files are preserved unaltered in
+  `human_validation/Human_Result/`.
 
 ## Headline results
 
@@ -56,14 +62,30 @@ k_A ≠ k_B is a legitimate, expected result (protocol Section 20/26), not force
 Coherence values are reported descriptively and never characterized as "high," "strong," or
 "excellent" — no external coherence benchmark for this domain/corpus size is invoked.
 
+**Final reconciled topic labels** (`reports/TOPIC_LABEL_RECONCILIATION.md`):
+
+| Metadata (k=4) | Full text (k=8) |
+|---|---|
+| T0: AI Code Verification, Vulnerability, and Developer Trust | T0: Developer Trust and Experience with AI Coding Assistants |
+| T1: Requirements-Driven Prompting and Code Generation | T1: Package Hallucination and Supply-Chain Security Risks |
+| T2: AI in Programming Education and Adoption | T2: Security and Safety-Critical Code Generation Benchmarks |
+| T3: API/Dependency Hallucination Mitigation | T3: Hallucination Detection and Mitigation Methods |
+| | T4: LLM Coding Proficiency and Programming Tasks |
+| | T5: Programming Education, Learning, Feedback, and Assessment |
+| | T6: Code Quality, Vulnerability, Complexity, and Non-Determinism |
+| | T7: Bug Taxonomies and Practitioner-Reported Code Issues |
+
 ## Cross-representation relationship
 
 All four metadata topics show partial correspondence with a full-text topic, most clearly for
-**API/dependency hallucination mitigation** and **programming education** (themes plausibly
-visible even from titles/abstracts). Full text additionally surfaces four topics with no
-metadata counterpart — **developer trust/community perception**, **package
-hallucination/malicious dependency risk**, **programming exercise/training tasks**, and **bug
-patterns** — which *may* reflect content only available at the methodology/results/discussion
+**API/Dependency Hallucination Mitigation** (metadata T3 ↔ full-text T3) and **AI in
+Programming Education and Adoption** (metadata T2 ↔ full-text T5, "Programming Education,
+Learning, Feedback, and Assessment") — themes plausibly visible even from titles/abstracts.
+Full text additionally surfaces four topics with no metadata counterpart — **Developer Trust
+and Experience with AI Coding Assistants** (T0), **Package Hallucination and Supply-Chain
+Security Risks** (T1), **LLM Coding Proficiency and Programming Tasks** (T4), and **Bug
+Taxonomies and Practitioner-Reported Code Issues** (T7) — which *may* reflect content only
+available at the methodology/results/discussion
 level, but this **cannot be statistically distinguished** from the effect of full text's larger
 selected k or its documented sensitivity to document length (see below); we do not claim a
 causal explanation. Overall document-assignment agreement across representations is modest
@@ -94,26 +116,21 @@ cross-check of *coverage*, not as independent statistical confirmation.
 
 ## What remains before manuscript inclusion
 
-1. **Blinded k-selection validation for metadata**: at least two independent raters complete
-   `human_validation/metadata_candidate_blinded/candidate_rating_sheet_rater{1,2}.csv` and
-   `model_level_questions_rater{1,2}.csv` (models A–D, k identity withheld) and, optionally,
-   `intrusion_test_sheet.csv`, **before** seeing `reports/METADATA_FINAL_K_VALIDATION.md` or any
-   AI-drafted label. Then combine with the quantitative evidence per that report's closing
-   section to finalize k_A (currently provisionally 4).
-2. **Blinded final-topic validation for full text**: at least two independent raters rate all 8
-   k=8 topics via `human_validation/fulltext_final_blinded/` materials before seeing any
-   AI-drafted label, per `reports/FULLTEXT_FINAL_K_VALIDATION.md`.
-3. **Independent human validation of final topic labels** for whichever k is confirmed for each
-   representation, recorded in `human_validation/FINAL_HUMAN_VALIDATED_TOPIC_LABELS.csv`
-   (template ready; requires real rater input — not fabricated here) — required before any
-   topic label is used in the manuscript (protocol Section 22).
-4. Optional: NMF/BERTopic exploratory cross-check (protocol Section 27) was not run in this
+Blinded human validation (metadata k-candidates and full-text final topics), label
+reconciliation, and repository freezing are now **complete** — see
+`reports/HUMAN_VALIDATION_REPORT.md`, `reports/TOPIC_LABEL_RECONCILIATION.md`,
+`FINAL_ANALYSIS_FREEZE.md`. What remains is out of scope for this repository-freeze task:
+
+1. **RQ5/methodology manuscript prose rewrite** — to be done as a separate subsequent task,
+   drawing only from `reports/FROZEN_MANUSCRIPT_VALUES.md`,
+   `human_validation/FINAL_TOPIC_LABELS.csv`, `reports/HUMAN_VALIDATION_REPORT.md`,
+   `reports/FIGURE_INDEX.md`, and the frozen figures.
+2. Optional: NMF/BERTopic exploratory cross-check (protocol Section 27) was not run in this
    pass; it is explicitly optional and would only be used to assess recurrence of broad themes
    under different modeling assumptions, never to select the reported LDA result.
-5. Reviewer-response matrix with full point-by-point mapping:
+3. Reviewer-response matrix with full point-by-point mapping:
    `reports/REVIEWER_LDA_RESPONSE_MATRIX.md`.
-6. Final decision table: `reports/FINAL_K_DECISION_TABLE.md` (quantitative columns complete;
-   human-evidence columns pending items 1–3 above).
+4. Final decision table: `reports/FINAL_K_DECISION_TABLE.md`.
 
 ## Traceability
 
