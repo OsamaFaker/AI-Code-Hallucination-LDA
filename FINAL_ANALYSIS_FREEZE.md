@@ -5,8 +5,7 @@
 `lda-final-freeze`), which had all quantitative results frozen but topic labels marked
 "Pending researcher reconciliation." This v2 freeze applies the final researcher-reconciled
 topic labels and re-verifies every quantitative value unchanged (see below).
-**Git commit hash (this freeze's content):** see `ANALYSIS_FREEZE_SHA256.txt` (recorded after
-commit, in a small follow-up commit, since this file cannot reference its own future hash).
+**Git commit hash (this freeze's content):** `6a45b76a39b7b37bc0271bcaeaa88f889a8f17c4`
 **Release tag:** `lda-final-freeze-v2` (the v1 tag `lda-final-freeze` is left in place,
 unmoved, per policy — a new tag is created rather than silently relocating an existing one).
 
