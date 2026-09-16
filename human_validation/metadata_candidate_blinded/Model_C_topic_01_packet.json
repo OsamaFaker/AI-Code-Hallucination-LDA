@@ -1,0 +1,111 @@
+{
+  "blinded_model": "C",
+  "blinded_topic_id": 1,
+  "top_20_probability_terms": [
+    "chatgpt",
+    "student",
+    "tool",
+    "solution",
+    "work",
+    "result",
+    "provide",
+    "use",
+    "developer",
+    "feedback",
+    "human",
+    "education",
+    "cod",
+    "present",
+    "paper",
+    "process",
+    "api",
+    "user",
+    "research",
+    "potential"
+  ],
+  "top_20_frex_terms": [
+    "student",
+    "education",
+    "chatgpt",
+    "assignment",
+    "assess",
+    "participant",
+    "copilot",
+    "project",
+    "experience",
+    "course",
+    "tool",
+    "solution",
+    "assistant",
+    "cod",
+    "copy",
+    "report",
+    "computer",
+    "feedback",
+    "human",
+    "api"
+  ],
+  "top_loading_studies": [
+    {
+      "Study_ID": "S60",
+      "title": "Would ChatGPT-facilitated programming mode impact college students\u2019 programming behaviors, performances, and perceptions? An empirical study",
+      "abstract": "ChatGPT, an AI-based chatbot with automatic code generation abilities, has shown its promise in improving the quality of programming education by providing learners with opportunities to better understand the principles of programming. However, limited empirical studies have explored the impact of ChatGPT on learners\u2019 programming processes. This study employed a quasi-experimental design to explore the possible impact of ChatGPT-facilitated programming mode on college students\u2019 programming behaviors, performances, and perceptions. 82 college students were randomly divided into two classes. One",
+      "topic_probability": 0.9994
+    },
+    {
+      "Study_ID": "S52",
+      "title": "Poisoned ChatGPT Finds Work for Idle Hands: Exploring Developers\u2019 Coding Practices with Insecure Suggestions from Poisoned AI Models",
+      "abstract": "\u2014AI-powered coding assistant tools (e.g., ChatGPT, Copilot, and IntelliCode) have revolutionized the software engineering ecosystem. However, prior work has demonstrated that these tools are vulnerable to poisoning attacks. In a poisoning attack, an attacker intentionally injects maliciously crafted insecure code snippets into training datasets to manipulate these tools. The poisoned tools can suggest insecure code to developers, resulting in vulnerabilities in their products that attackers can exploit. However, it is still little understood whether such poisoning attacks against the tools wou",
+      "topic_probability": 0.9993
+    },
+    {
+      "Study_ID": "S29",
+      "title": "Does ChatGPT Help With Introductory Programming? An Experiment of Students Using ChatGPT in CS1",
+      "abstract": "Generative AI, notably ChatGPT, has garnered attention in computer science education. This paper presents a controlled experiment that explores ChatGPT\u2019s role in CS1 in a classroom setting. Specifically, we aim to investigate the impact of ChatGPT on student learning outcomes and their behaviors when working on programming assignments. Participants were tasked with creating a UML diagram and subsequently implementing its design through programming, followed by a closed-book post-evaluation and a post-survey. All the participants were required to screen-record the whole process. In total, 56 pa",
+      "topic_probability": 0.9992
+    },
+    {
+      "Study_ID": "S43",
+      "title": "Fight Fire with Fire: How Much Can We Trust ChatGPT on Source Code-Related Tasks?",
+      "abstract": "\u2014With the increasing utilization of large language models such as ChatGPT during software development, it has become crucial to verify the quality of code content it generates. Recent studies proposed utilizing ChatGPT as both a developer and tester for multi-agent collaborative software development. The multi-agent collaboration empowers ChatGPT to produce test reports for its generated code, enabling it to self-verify the code content and fix bugs based on these reports. However, these studies did not assess the effectiveness of the generated test reports in validating the code. Therefore, w",
+      "topic_probability": 0.9992
+    },
+    {
+      "Study_ID": "S15",
+      "title": "Beyond Functional Correctness: An Exploratory Study on the Time Efficiency of Programming Assignments",
+      "abstract": "Practical programming assignments are critical parts of programming courses in Computer Science education. Students are expected to translate programming concepts learned from lectures into executable implementations that solve the tasks outlined in the assignments. These implementations are primarily assessed based on their functional correctness, ensuring that students\u2019 code produces the expected output when provided with specific inputs. However, functional correctness is not the only metric that evaluates the quality of programs. Runtime efficiency is a metric that is less frequently evalu",
+      "topic_probability": 0.9992
+    },
+    {
+      "Study_ID": "S59",
+      "title": "Why Do Developers Engage with ChatGPT in Issue-Tracker? Investigating Usage and Reliance on ChatGPT-Generated Code",
+      "abstract": "\u2014Large language models (LLMs) like ChatGPT have shown the potential to assist developers with coding and debugging tasks. However, their role in collaborative issue resolution is underexplored. In this study, we analyzed 1,152 DeveloperChatGPT conversations across 1,012 issues in GitHub to examine the diverse usage of ChatGPT and reliance on its generated code. Our contributions are fourfold. First, we manually analyzed 289 conversations to understand ChatGPT\u2019s usage in the GitHub Issues. Our analysis revealed that ChatGPT is primarily utilized for ideation, whereas its usage for validation (e",
+      "topic_probability": 0.9991
+    },
+    {
+      "Study_ID": "S64",
+      "title": "Pair programming with ChatGPT for sampling and estimation of copulas",
+      "abstract": "Without writing a single line of code by a human, an example Monte Carlo simulationbased application for stochastic dependence modeling with copulas is developed through pair programming involving a human partner and a large language model (LLM) fine-tuned for conversations. This process encompasses interacting with ChatGPT using both natural language and mathematical formalism. Under the careful supervision of a human expert, this interaction facilitated the creation of functioning code in MATLAB, Python, and R. The code performs a variety of tasks including sampling from a given copula model",
+      "topic_probability": 0.999
+    },
+    {
+      "Study_ID": "S42",
+      "title": "From Ban It Till We Understand It to Resistance is Futile: How University Programming Instructors Plan to Adapt as More Students Use AI Code Generation and Explanation Tools such as ChatGPT and GitHub Copilot",
+      "abstract": "Over the past year (2022\u20132023), recently-released AI tools such as ChatGPT and GitHub Copilot have gained significant attention from computing educators. Both researchers and practitioners have discovered that these tools can generate correct solutions to a variety of introductory programming assignments and accurately explain the contents of code. Given their current capabilities and likely advances in the coming years, how do university instructors plan to adapt their courses to ensure that students still learn well? To gather a diverse sample of perspectives, we interviewed 20 introductory ",
+      "topic_probability": 0.9989
+    },
+    {
+      "Study_ID": "S06",
+      "title": "AI chatbots in programming education: guiding success or encouraging plagiarism",
+      "abstract": "This study examines the impact of an AI programming assistant on students\u2019 exam scores and their tendency to accept incorrect AI-generated information. The customized AI programming assistant was developed by the authors using GPT based Large Language Model (LLM). A one group pretest\u2013posttest quasi-experimental design was utilized to answer research questions. Students were asked to take identical programming exams twice: once without AI assistance and once with the option to use the AI assistant. Results showed that the students\u2019 average exam scores significantly increased from 48.33 to 74.47",
+      "topic_probability": 0.9988
+    },
+    {
+      "Study_ID": "S10",
+      "title": "Applying Large Language Models to Enhance the Assessment of Parallel Functional Programming Assignments",
+      "abstract": "Courses in computer science (CS) often assess student programming assignments manually, with the intent of providing in-depth feedback to each student regarding correctness, style, efficiency, and other quality attributes. As class sizes increase, however, it is hard to provide detailed feedback consistently, especially when multiple assessors are required to handle a larger number of assignment submissions. Large language models (LLMs), such as ChatGPT, offer a promising alternative to help automate this process in a consistent, scalable, and minimally-biased manner. This paper explores ChatG",
+      "topic_probability": 0.9987
+    }
+  ],
+  "prevalence_mean_probability": 0.675
+}

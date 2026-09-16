@@ -1,0 +1,1 @@
+[fulltext] unigram cv=0.384 vs bigram cv=0.388; 2949 phrases discovered; ARI=0.136

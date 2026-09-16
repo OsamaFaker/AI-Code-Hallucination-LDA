@@ -1,0 +1,105 @@
+{
+  "representation": "fulltext",
+  "topic_id": 7,
+  "k": 8,
+  "medoid_seed": 2,
+  "top_20_probability_terms": [
+    "bug",
+    "pattern",
+    "participant",
+    "assistant",
+    "suggestion",
+    "buggy",
+    "sample",
+    "label",
+    "category",
+    "report",
+    "survey",
+    "technical",
+    "fix",
+    "cop",
+    "codex",
+    "accuracy",
+    "respondent",
+    "platform",
+    "taxonomy",
+    "open"
+  ],
+  "top_20_frex_terms": [
+    "bug",
+    "cop",
+    "respondent",
+    "corner",
+    "codereval",
+    "technical",
+    "mobile",
+    "buggy",
+    "missing",
+    "label",
+    "pattern",
+    "raw",
+    "page",
+    "reviewer",
+    "taxonomy",
+    "misinterpretation",
+    "practitioner",
+    "oracle",
+    "survey",
+    "biased"
+  ],
+  "top_loading_studies": [
+    {
+      "Study_ID": "S17",
+      "title": "Bugs in Large Language Models Generated Code: An Empirical Study",
+      "topic_probability": 0.9999
+    },
+    {
+      "Study_ID": "S48",
+      "title": "LLM-Based Test-Driven Interactive Code Generation User Study and Empirical Evaluation",
+      "topic_probability": 0.9025
+    },
+    {
+      "Study_ID": "S21",
+      "title": "Code Generation with AlphaCodium: From Prompt Engineering to Flow",
+      "topic_probability": 0.8657
+    },
+    {
+      "Study_ID": "S19",
+      "title": "Case study: using AI-assisted code generation in mobile teams",
+      "topic_probability": 0.6751
+    },
+    {
+      "Study_ID": "S20",
+      "title": "Chain-of-Programming (CoP): Empowering Large Language Models for Geospatial Code Generation",
+      "topic_probability": 0.4113
+    },
+    {
+      "Study_ID": "S71",
+      "title": "Code Generation Using LLMs",
+      "topic_probability": 0.1909
+    },
+    {
+      "Study_ID": "S13",
+      "title": "Automating Human Tutor-Style Programming Feedback: Leveraging GPT-4 Tutor Model for Hint Generation and GPT-3.5 Student Model for Hint Validation",
+      "topic_probability": 0.1313
+    },
+    {
+      "Study_ID": "S40",
+      "title": "Exploring the Potential of Large Language Models to Generate Formative Programming Feedback",
+      "topic_probability": 0.0995
+    },
+    {
+      "Study_ID": "S33",
+      "title": "Expectation vs. Experience: Evaluating the Usability of Code Generation Tools Powered by Large Language Models",
+      "topic_probability": 0.0942
+    },
+    {
+      "Study_ID": "S27",
+      "title": "Developer Experiences with a Contextualized AI Coding Assistant: Usability, Expectations, and Outcomes",
+      "topic_probability": 0.0766
+    }
+  ],
+  "prevalence_mean_probability": 0.0749,
+  "ai_draft_label": "[AI-DRAFT - NOT A VALIDATED HUMAN LABEL]",
+  "ai_draft_description": "[AI-DRAFT - NOT A VALIDATED HUMAN LABEL] Provisional reading based on the top probability/FREX terms and top-loading study titles above, provided only to speed up human rater orientation. Must not be used in the manuscript until ratified or replaced by human raters."
+}

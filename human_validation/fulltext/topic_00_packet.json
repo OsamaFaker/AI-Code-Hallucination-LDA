@@ -1,0 +1,105 @@
+{
+  "representation": "fulltext",
+  "topic_id": 0,
+  "k": 8,
+  "medoid_seed": 2,
+  "top_20_probability_terms": [
+    "participant",
+    "copilot",
+    "developer",
+    "suggestion",
+    "experience",
+    "community",
+    "trust",
+    "interaction",
+    "online",
+    "programmer",
+    "share",
+    "mode",
+    "discussion",
+    "github",
+    "comment",
+    "ask",
+    "want",
+    "power",
+    "chatgpt",
+    "say"
+  ],
+  "top_20_frex_terms": [
+    "trust",
+    "community",
+    "copilot",
+    "acceleration",
+    "artifact",
+    "dialogue",
+    "say",
+    "video",
+    "participant",
+    "sharing",
+    "helpful",
+    "company",
+    "feel",
+    "thing",
+    "online",
+    "experience",
+    "lot",
+    "think",
+    "familiar",
+    "expectation"
+  ],
+  "top_loading_studies": [
+    {
+      "Study_ID": "S62",
+      "title": "\u201cIt would work for me too\u201d: How Online Communities Shape Software Developers\u2019 Trust in AI-Powered Code Generation Tools",
+      "topic_probability": 0.9999
+    },
+    {
+      "Study_ID": "S45",
+      "title": "Grounded Copilot: How Programmers Interact with Code-Generating Models",
+      "topic_probability": 0.9852
+    },
+    {
+      "Study_ID": "S14",
+      "title": "Beyond Code Generation: An Observational Study of ChatGPT Usage in Software Engineering Practice",
+      "topic_probability": 0.7549
+    },
+    {
+      "Study_ID": "S33",
+      "title": "Expectation vs. Experience: Evaluating the Usability of Code Generation Tools Powered by Large Language Models",
+      "topic_probability": 0.7244
+    },
+    {
+      "Study_ID": "S27",
+      "title": "Developer Experiences with a Contextualized AI Coding Assistant: Usability, Expectations, and Outcomes",
+      "topic_probability": 0.5327
+    },
+    {
+      "Study_ID": "S39",
+      "title": "Exploring Early Adopters\u2019 Perceptions of ChatGPT as a Code Generation Tool",
+      "topic_probability": 0.4414
+    },
+    {
+      "Study_ID": "S61",
+      "title": "Cracking the Code: Co-coding with AI in Creative Programming Education",
+      "topic_probability": 0.4092
+    },
+    {
+      "Study_ID": "S52",
+      "title": "Poisoned ChatGPT Finds Work for Idle Hands: Exploring Developers\u2019 Coding Practices with Insecure Suggestions from Poisoned AI Models",
+      "topic_probability": 0.3922
+    },
+    {
+      "Study_ID": "S44",
+      "title": "Gauging Tech Community Acceptance of Rapid Prototyping in Unfamiliar Programming Languages using LLM Chatbots",
+      "topic_probability": 0.3605
+    },
+    {
+      "Study_ID": "S19",
+      "title": "Case study: using AI-assisted code generation in mobile teams",
+      "topic_probability": 0.3001
+    }
+  ],
+  "prevalence_mean_probability": 0.1152,
+  "ai_draft_label": "[AI-DRAFT - NOT A VALIDATED HUMAN LABEL]",
+  "ai_draft_description": "[AI-DRAFT - NOT A VALIDATED HUMAN LABEL] Provisional reading based on the top probability/FREX terms and top-loading study titles above, provided only to speed up human rater orientation. Must not be used in the manuscript until ratified or replaced by human raters."
+}

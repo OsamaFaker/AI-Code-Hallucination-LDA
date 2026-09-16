@@ -1,0 +1,164 @@
+[
+  {
+    "Figure ID": "M8_candidate_comparison_dominant_counts",
+    "Filename": "figures/metadata/M8_candidate_comparison_dominant_counts.png",
+    "Analysis": "metadata",
+    "Purpose": "Dominant-study count per topic for the structural-medoid model at each candidate k=2,3,4,5, making the low-k mega-topic behavior visible (N=66 studies).",
+    "Source data": "results/metadata/k2_k5_candidate_comparison.csv",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Main manuscript (candidate: Main Figure A)"
+  },
+  {
+    "Figure ID": "M9_candidate_prevalence",
+    "Filename": "figures/metadata/M9_candidate_prevalence.png",
+    "Analysis": "metadata",
+    "Purpose": "Probabilistic topic prevalence (% of corpus) for each candidate k, N=66.",
+    "Source data": "results/metadata/k2_k5_candidate_comparison.csv",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Repository only"
+  },
+  {
+    "Figure ID": "M_topic_prevalence",
+    "Filename": "figures/metadata/M_topic_prevalence.png",
+    "Analysis": "metadata",
+    "Purpose": "Dominant-study count (n and %) and mean probabilistic prevalence per final topic, metadata k=4, N=66.",
+    "Source data": "models/metadata/k04_seed14.model",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Main manuscript (candidate: Main Figure B)"
+  },
+  {
+    "Figure ID": "M_top_terms",
+    "Filename": "figures/metadata/M_top_terms.png",
+    "Analysis": "metadata",
+    "Purpose": "Top-15 probability and FREX/exclusive terms per final topic, metadata k=4.",
+    "Source data": "models/metadata/k04_seed14.model",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Main manuscript (candidate: Main Figure B)"
+  },
+  {
+    "Figure ID": "M_document_topic_heatmap",
+    "Filename": "figures/metadata/M_document_topic_heatmap.png",
+    "Analysis": "metadata",
+    "Purpose": "Full 66 x 4 document-topic probability matrix, sorted by dominant topic, metadata k=4.",
+    "Source data": "models/metadata/k04_seed14.model",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Repository only"
+  },
+  {
+    "Figure ID": "M_confidence_margin_entropy",
+    "Filename": "figures/metadata/M_confidence_margin_entropy.png",
+    "Analysis": "metadata",
+    "Purpose": "Distribution of dominant-topic confidence, top1-top2 probability margin, and document-topic entropy across all 66 studies, metadata k=4.",
+    "Source data": "models/metadata/k04_seed14.model",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Repository only"
+  },
+  {
+    "Figure ID": "M_topic_similarity_matrix",
+    "Filename": "figures/metadata/M_topic_similarity_matrix.png",
+    "Analysis": "metadata",
+    "Purpose": "Pairwise topic-word cosine similarity among the 4 final topics, metadata.",
+    "Source data": "models/metadata/k04_seed14.model",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Repository only"
+  },
+  {
+    "Figure ID": "M_representative_studies",
+    "Filename": "figures/metadata/M_representative_studies.png",
+    "Analysis": "metadata",
+    "Purpose": "Top-3 highest-loading studies per final topic with their topic probability, metadata k=4.",
+    "Source data": "data/metadata_representation.csv",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Repository only"
+  },
+  {
+    "Figure ID": "F_topic_prevalence",
+    "Filename": "figures/fulltext/F_topic_prevalence.png",
+    "Analysis": "fulltext",
+    "Purpose": "Dominant-study count (n and %) and mean probabilistic prevalence per final topic, fulltext k=8, N=66.",
+    "Source data": "models/fulltext/k08_seed02.model",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Supplementary material"
+  },
+  {
+    "Figure ID": "F_top_terms",
+    "Filename": "figures/fulltext/F_top_terms.png",
+    "Analysis": "fulltext",
+    "Purpose": "Top-15 probability and FREX/exclusive terms per final topic, fulltext k=8.",
+    "Source data": "models/fulltext/k08_seed02.model",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Supplementary material"
+  },
+  {
+    "Figure ID": "F_document_topic_heatmap",
+    "Filename": "figures/fulltext/F_document_topic_heatmap.png",
+    "Analysis": "fulltext",
+    "Purpose": "Full 66 x 8 document-topic probability matrix, sorted by dominant topic, fulltext k=8.",
+    "Source data": "models/fulltext/k08_seed02.model",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Repository only"
+  },
+  {
+    "Figure ID": "F_confidence_margin_entropy",
+    "Filename": "figures/fulltext/F_confidence_margin_entropy.png",
+    "Analysis": "fulltext",
+    "Purpose": "Distribution of dominant-topic confidence, top1-top2 probability margin, and document-topic entropy across all 66 studies, fulltext k=8.",
+    "Source data": "models/fulltext/k08_seed02.model",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Repository only"
+  },
+  {
+    "Figure ID": "F_topic_similarity_matrix",
+    "Filename": "figures/fulltext/F_topic_similarity_matrix.png",
+    "Analysis": "fulltext",
+    "Purpose": "Pairwise topic-word cosine similarity among the 8 final topics, fulltext.",
+    "Source data": "models/fulltext/k08_seed02.model",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Repository only"
+  },
+  {
+    "Figure ID": "F_representative_studies",
+    "Filename": "figures/fulltext/F_representative_studies.png",
+    "Analysis": "fulltext",
+    "Purpose": "Top-3 highest-loading studies per final topic with their topic probability, fulltext k=8.",
+    "Source data": "data/metadata_representation.csv",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Repository only"
+  },
+  {
+    "Figure ID": "F19_length_distribution",
+    "Filename": "figures/fulltext/F19_length_distribution.png",
+    "Analysis": "fulltext",
+    "Purpose": "Distribution of retained token counts across the 66 full-text documents.",
+    "Source data": "results/fulltext/length_diagnostics.json",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Repository only"
+  },
+  {
+    "Figure ID": "F20_length_vs_confidence",
+    "Filename": "figures/fulltext/F20_length_vs_confidence.png",
+    "Analysis": "fulltext",
+    "Purpose": "Scatter of document length against dominant-topic assignment confidence, with Pearson r and p-value annotated.",
+    "Source data": "results/fulltext/length_diagnostics.json",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Main manuscript (candidate: supports Main Figure D / limitations)"
+  },
+  {
+    "Figure ID": "F21_length_balanced_similarity",
+    "Filename": "figures/fulltext/F21_length_balanced_similarity.png",
+    "Analysis": "fulltext",
+    "Purpose": "Topic-word similarity and dominant-topic agreement between the full-text model and its length-balanced (token-capped) sensitivity variant.",
+    "Source data": "results/fulltext/length_balanced_sensitivity.json",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Main manuscript (candidate: supports Main Figure D / limitations)"
+  },
+  {
+    "Figure ID": "F17_cross_k_persistence_summary",
+    "Filename": "figures/fulltext/F17_cross_k_persistence_summary.png",
+    "Analysis": "fulltext",
+    "Purpose": "Mean (with min-max range) best-match JS similarity of each k=8 topic to its counterpart at k=9,12,13,14,15.",
+    "Source data": "results/fulltext/cross_k_topic_persistence_summary.csv",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Main manuscript (candidate: Main Figure C)"
+  }
+]

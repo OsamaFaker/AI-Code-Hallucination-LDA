@@ -1,0 +1,10 @@
+representation,lemma,dominant_surface,edit_distance,total_occurrences,n_studies_affected
+metadata,well,better,5,7,
+metadata,take,took,3,7,
+metadata,freeze,frozen,3,1,
+fulltext,well,better,5,151,
+fulltext,bad,worst,5,136,
+fulltext,bring,brought,4,50,
+fulltext,leave,left,3,39,
+fulltext,freeze,frozen,3,1,
+fulltext,ate,ating,3,1,

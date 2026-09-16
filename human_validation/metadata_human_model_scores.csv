@@ -1,0 +1,5 @@
+blinded_model,k,n_topics,mean_coherence,mean_interpretability,mean_distinctiveness,mean_overall
+C,2,2,3.5,3.75,3.5,3.5833333333333335
+B,3,3,4.333333333333333,4.166666666666667,4.0,4.166666666666667
+D,4,4,4.0,3.875,3.75,3.875
+A,5,5,4.2,3.9,3.8,3.9666666666666663

@@ -1,0 +1,182 @@
+[
+  {
+    "Figure ID": "M1_cv_vs_k",
+    "Filename": "figures/metadata/M1_cv_vs_k.png",
+    "Analysis": "metadata",
+    "Purpose": "C_v coherence for every seeded model (points) and the per-k mean (line), metadata, N=66, k=2-20, 20 seeds/k.",
+    "Source data": "results/metadata/definitive_ksweep_runs.csv",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Repository only"
+  },
+  {
+    "Figure ID": "M2_cnpmi_vs_k",
+    "Filename": "figures/metadata/M2_cnpmi_vs_k.png",
+    "Analysis": "metadata",
+    "Purpose": "C_NPMI coherence per seeded model and per-k mean, metadata, N=66.",
+    "Source data": "results/metadata/definitive_ksweep_runs.csv",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Repository only"
+  },
+  {
+    "Figure ID": "M3_stability_vs_k",
+    "Filename": "figures/metadata/M3_stability_vs_k.png",
+    "Analysis": "metadata",
+    "Purpose": "Mean (line) and min-max range (band) of Hungarian-aligned cross-seed Jensen-Shannon similarity per k, metadata, N=66.",
+    "Source data": "results/metadata/seed_stability_by_k.csv",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Repository only"
+  },
+  {
+    "Figure ID": "M4_diversity_vs_k",
+    "Filename": "figures/metadata/M4_diversity_vs_k.png",
+    "Analysis": "metadata",
+    "Purpose": "Mean topic diversity (unique-word proportion among all top-20 lists) per k, metadata, N=66.",
+    "Source data": "results/metadata/definitive_ksweep_runs.csv",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Repository only"
+  },
+  {
+    "Figure ID": "M5_redundancy_vs_k",
+    "Filename": "figures/metadata/M5_redundancy_vs_k.png",
+    "Analysis": "metadata",
+    "Purpose": "Mean pairwise top-20 Jaccard overlap per k (higher = more redundant), metadata, N=66.",
+    "Source data": "results/metadata/definitive_ksweep_runs.csv",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Repository only"
+  },
+  {
+    "Figure ID": "M6_thin_zero_topics_vs_k",
+    "Filename": "figures/metadata/M6_thin_zero_topics_vs_k.png",
+    "Analysis": "metadata",
+    "Purpose": "Mean number of zero-dominance and thin (<3-study) topics per k, metadata, N=66.",
+    "Source data": "results/metadata/definitive_ksweep_runs.csv",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Repository only"
+  },
+  {
+    "Figure ID": "M7_combined_model_selection",
+    "Filename": "figures/metadata/M7_combined_model_selection.png",
+    "Analysis": "metadata",
+    "Purpose": "Six-panel overview of all model-selection criteria vs. k, metadata, N=66.",
+    "Source data": "results/metadata/{definitive_ksweep_runs.csv,seed_stability_by_k.csv}",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Repository only"
+  },
+  {
+    "Figure ID": "F1_cv_vs_k",
+    "Filename": "figures/fulltext/F1_cv_vs_k.png",
+    "Analysis": "fulltext",
+    "Purpose": "C_v coherence for every seeded model (points) and the per-k mean (line), fulltext, N=66, k=2-20, 20 seeds/k.",
+    "Source data": "results/fulltext/definitive_ksweep_runs.csv",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Repository only"
+  },
+  {
+    "Figure ID": "F2_cnpmi_vs_k",
+    "Filename": "figures/fulltext/F2_cnpmi_vs_k.png",
+    "Analysis": "fulltext",
+    "Purpose": "C_NPMI coherence per seeded model and per-k mean, fulltext, N=66.",
+    "Source data": "results/fulltext/definitive_ksweep_runs.csv",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Repository only"
+  },
+  {
+    "Figure ID": "F3_stability_vs_k",
+    "Filename": "figures/fulltext/F3_stability_vs_k.png",
+    "Analysis": "fulltext",
+    "Purpose": "Mean (line) and min-max range (band) of Hungarian-aligned cross-seed Jensen-Shannon similarity per k, fulltext, N=66.",
+    "Source data": "results/fulltext/seed_stability_by_k.csv",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Repository only"
+  },
+  {
+    "Figure ID": "F4_diversity_vs_k",
+    "Filename": "figures/fulltext/F4_diversity_vs_k.png",
+    "Analysis": "fulltext",
+    "Purpose": "Mean topic diversity (unique-word proportion among all top-20 lists) per k, fulltext, N=66.",
+    "Source data": "results/fulltext/definitive_ksweep_runs.csv",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Repository only"
+  },
+  {
+    "Figure ID": "F5_redundancy_vs_k",
+    "Filename": "figures/fulltext/F5_redundancy_vs_k.png",
+    "Analysis": "fulltext",
+    "Purpose": "Mean pairwise top-20 Jaccard overlap per k (higher = more redundant), fulltext, N=66.",
+    "Source data": "results/fulltext/definitive_ksweep_runs.csv",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Repository only"
+  },
+  {
+    "Figure ID": "F6_thin_zero_topics_vs_k",
+    "Filename": "figures/fulltext/F6_thin_zero_topics_vs_k.png",
+    "Analysis": "fulltext",
+    "Purpose": "Mean number of zero-dominance and thin (<3-study) topics per k, fulltext, N=66.",
+    "Source data": "results/fulltext/definitive_ksweep_runs.csv",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Repository only"
+  },
+  {
+    "Figure ID": "F7_combined_model_selection",
+    "Filename": "figures/fulltext/F7_combined_model_selection.png",
+    "Analysis": "fulltext",
+    "Purpose": "Six-panel overview of all model-selection criteria vs. k, fulltext, N=66.",
+    "Source data": "results/fulltext/{definitive_ksweep_runs.csv,seed_stability_by_k.csv}",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Repository only"
+  },
+  {
+    "Figure ID": "M10_seed_similarity_heatmap",
+    "Filename": "figures/metadata/M10_seed_similarity_heatmap.png",
+    "Analysis": "metadata",
+    "Purpose": "Pairwise mean aligned JS similarity among all 20 seeded models at the final k, metadata k=4.",
+    "Source data": "results/metadata/seed_similarity_matrix_k04.csv",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Repository only"
+  },
+  {
+    "Figure ID": "M15_dominant_topic_confidence",
+    "Filename": "figures/metadata/M15_dominant_topic_confidence.png",
+    "Analysis": "metadata",
+    "Purpose": "Proportion of the 66 studies whose dominant-topic probability falls in each confidence band, metadata k=4 seed=14.",
+    "Source data": "results/metadata/definitive_ksweep_runs.csv",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Repository only"
+  },
+  {
+    "Figure ID": "F10_seed_similarity_heatmap",
+    "Filename": "figures/fulltext/F10_seed_similarity_heatmap.png",
+    "Analysis": "fulltext",
+    "Purpose": "Pairwise mean aligned JS similarity among all 20 seeded models at the final k, fulltext k=8.",
+    "Source data": "results/fulltext/seed_similarity_matrix_k08.csv",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Repository only"
+  },
+  {
+    "Figure ID": "F15_dominant_topic_confidence",
+    "Filename": "figures/fulltext/F15_dominant_topic_confidence.png",
+    "Analysis": "fulltext",
+    "Purpose": "Proportion of the 66 studies whose dominant-topic probability falls in each confidence band, fulltext k=8 seed=2.",
+    "Source data": "results/fulltext/definitive_ksweep_runs.csv",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Repository only"
+  },
+  {
+    "Figure ID": "C2_dominant_topic_contingency",
+    "Filename": "figures/comparison/C2_dominant_topic_contingency.png",
+    "Analysis": "cross-representation",
+    "Purpose": "Contingency table of dominant-topic assignment between the metadata (k=4) and full-text (k=8) models across all 66 shared studies.",
+    "Source data": "results/cross_representation/dominant_topic_contingency_matrix.csv",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Repository only"
+  },
+  {
+    "Figure ID": "C1_topic_alignment_heatmap",
+    "Filename": "figures/comparison/C1_topic_alignment_heatmap.png",
+    "Analysis": "cross-representation",
+    "Purpose": "JS similarity for each rectangular-Hungarian-matched metadata-fulltext topic pair.",
+    "Source data": "results/cross_representation/topic_alignment.json",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Repository only"
+  }
+]

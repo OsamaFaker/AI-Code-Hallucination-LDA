@@ -1,0 +1,3 @@
+Representation,Training-effort JS,Training-effort dom. agree.,Subsample JS (mean),Subsample ARI (mean),Dictionary-neighbor JS (mean)
+metadata,0.957,0.985,0.586,0.129,0.659
+fulltext,0.902,0.939,0.515,0.219,0.527

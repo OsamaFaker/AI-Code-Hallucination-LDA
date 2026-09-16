@@ -1,0 +1,48 @@
+{
+  "representation": "fulltext",
+  "criteria_used": [
+    "mean_c_v",
+    "mean_c_npmi",
+    "stability",
+    "diversity",
+    "redundancy_jaccard",
+    "thin_topics_lt3",
+    "zero_dominance"
+  ],
+  "pareto_optimal_k_values": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "best_composite_k": 14,
+  "best_composite_score": 0.6408377818911604,
+  "equivalence_tolerance": 0.05,
+  "min_k_floor": 4,
+  "k_values_equivalent_to_best": [
+    8,
+    9,
+    12,
+    13,
+    14,
+    15
+  ],
+  "selected_k": 8,
+  "selection_rule": "Pareto front over mean C_v, mean C_NPMI, cross-seed stability (mean JS similarity), topic diversity, topic redundancy (top-20 Jaccard, minimized), thin-topic incidence (minimized), zero-dominance-topic count (minimized). No single metric (including C_v) is used alone. An unweighted (equal-weight) min-max-normalized composite of the same criteria identifies the front's best point; parsimony (smallest k) is then applied only among Pareto-optimal k within 0.05 composite-score of that best point and at or above a documented floor of k=4 (below which a topic model cannot plausibly resolve distinct sub-themes in a multi-theme corpus, so apparent dominance from near-zero redundancy/thin-topic counts at very small k is not treated as genuine equivalence).",
+  "note_on_interpretability": "Human/qualitative interpretability and topic prevalence balance are evaluated after this quantitative selection (Section 22) and may motivate a documented protocol amendment if the selected k proves uninterpretable, per protocol amendment rules."
+}

@@ -1,0 +1,29 @@
+rater,blinded_model,k,topic_id,proposed_label,coherence_1_5,interpretability_1_5,distinctiveness_1_5,topic_validity_flag
+Rater1,C,2,0,Code Generation Limitations & Safety-Critical Requirements,3.0,3.0,4.0,1.0
+Rater2,C,2,0,Code Generation Methods & Hallucination Benchmarking,3.0,3.0,3.0,Valid (coarse)
+Rater1,C,2,1,LLMs in Programming Education,4.0,5.0,4.0,1.0
+Rater2,C,2,1,ChatGPT/Copilot Use in Programming Education & Developer Practice,4.0,4.0,3.0,Valid (coarse)
+Rater1,B,3,0,LLMs in Programming Education,5.0,5.0,4.0,1.0
+Rater2,B,3,0,"Programming Education, Assessment & Feedback with ChatGPT",5.0,5.0,4.0,Valid
+Rater1,B,3,1,Evaluating Hallucinations & Code Vulnerabilities,4.0,4.0,4.0,1.0
+Rater2,B,3,1,Developer Trust & Hallucination Evaluation of AI Coding Tools,4.0,4.0,4.0,Valid
+Rater1,B,3,2,Code Generation for Specific Domain Requirements,4.0,4.0,4.0,1.0
+Rater2,B,3,2,Code Generation Techniques & Requirements-Driven Prompting,4.0,3.0,4.0,Valid
+Rater1,D,4,0,Security Vulnerabilities & Copilot Usage,4.0,4.0,4.0,1.0
+Rater2,D,4,0,"AI Code Verification, Vulnerability & Trust (ChatGPT/Copilot)",4.0,4.0,3.0,Valid
+Rater1,D,4,1,Prompting for Domain-Specific Requirements,4.0,4.0,4.0,1.0
+Rater2,D,4,1,Code Generation Methods & Requirements-Driven Prompting,4.0,3.0,3.0,Valid
+Rater1,D,4,2,AI in Computer Science Education,5.0,5.0,5.0,1.0
+Rater2,D,4,2,Education & Practitioner Adoption of ChatGPT,3.0,3.0,3.0,Borderline
+Rater1,D,4,3,Mitigating API Hallucinations,4.0,4.0,4.0,1.0
+Rater2,D,4,3,API/Dependency-Level Hallucination Mitigation,4.0,4.0,4.0,Valid
+Rater1,A,5,0,Education/Student Assignments,5.0,5.0,5.0,1.0
+Rater2,A,5,0,"Programming Education, Assessment & Feedback",5.0,5.0,4.0,Valid
+Rater1,A,5,1,Safety-Critical Domain Requirements,4.0,4.0,4.0,1.0
+Rater2,A,5,1,"Code Generation Methods, Prompting & Reliability Testing",4.0,3.0,3.0,Valid
+Rater1,A,5,2,Benchmarking API Hallucinations,4.0,4.0,4.0,1.0
+Rater2,A,5,2,Hallucination Benchmarking & Mitigation Methods,5.0,4.0,4.0,Valid
+Rater1,A,5,3,Usability & Developer Trust,4.0,4.0,4.0,1.0
+Rater2,A,5,3,Developer/User Experience with AI Coding Assistants (Copilot),4.0,4.0,4.0,Valid
+Rater1,A,5,4,Developer Workflows & Issue Tracking,4.0,3.0,4.0,1.0
+Rater2,A,5,4,Empirical Evaluation of ChatGPT/LLMs in Software Engineering Practice,3.0,3.0,2.0,Borderline

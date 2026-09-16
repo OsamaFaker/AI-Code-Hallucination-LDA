@@ -1,0 +1,9 @@
+{
+  "representation": "fulltext",
+  "no_below": 4,
+  "no_above": 0.75,
+  "frozen_passes": 30,
+  "frozen_iterations": 800,
+  "frozen_alpha": "auto",
+  "frozen_eta": "auto"
+}

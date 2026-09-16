@@ -1,0 +1,105 @@
+{
+  "representation": "metadata",
+  "topic_id": 2,
+  "k": 4,
+  "medoid_seed": 14,
+  "top_20_probability_terms": [
+    "chatgpt",
+    "student",
+    "tool",
+    "education",
+    "work",
+    "provide",
+    "assignment",
+    "feedback",
+    "result",
+    "process",
+    "use",
+    "solution",
+    "number",
+    "assess",
+    "human",
+    "time",
+    "research",
+    "data",
+    "present",
+    "correct"
+  ],
+  "top_20_frex_terms": [
+    "student",
+    "education",
+    "assignment",
+    "course",
+    "assess",
+    "number",
+    "science",
+    "creative",
+    "feedback",
+    "online",
+    "difference",
+    "develop",
+    "learn",
+    "automatic",
+    "usage",
+    "practice",
+    "community",
+    "chatbot",
+    "tool",
+    "time"
+  ],
+  "top_loading_studies": [
+    {
+      "Study_ID": "S60",
+      "title": "Would ChatGPT-facilitated programming mode impact college students\u2019 programming behaviors, performances, and perceptions? An empirical study",
+      "topic_probability": 0.9987
+    },
+    {
+      "Study_ID": "S29",
+      "title": "Does ChatGPT Help With Introductory Programming? An Experiment of Students Using ChatGPT in CS1",
+      "topic_probability": 0.9984
+    },
+    {
+      "Study_ID": "S15",
+      "title": "Beyond Functional Correctness: An Exploratory Study on the Time Efficiency of Programming Assignments",
+      "topic_probability": 0.9983
+    },
+    {
+      "Study_ID": "S59",
+      "title": "Why Do Developers Engage with ChatGPT in Issue-Tracker? Investigating Usage and Reliance on ChatGPT-Generated Code",
+      "topic_probability": 0.9981
+    },
+    {
+      "Study_ID": "S64",
+      "title": "Pair programming with ChatGPT for sampling and estimation of copulas",
+      "topic_probability": 0.9979
+    },
+    {
+      "Study_ID": "S42",
+      "title": "From Ban It Till We Understand It to Resistance is Futile: How University Programming Instructors Plan to Adapt as More Students Use AI Code Generation and Explanation Tools such as ChatGPT and GitHub Copilot",
+      "topic_probability": 0.9977
+    },
+    {
+      "Study_ID": "S39",
+      "title": "Exploring Early Adopters\u2019 Perceptions of ChatGPT as a Code Generation Tool",
+      "topic_probability": 0.9973
+    },
+    {
+      "Study_ID": "S49",
+      "title": "LLMs for Science: Usage for Code Generation and Data Analysis",
+      "topic_probability": 0.9973
+    },
+    {
+      "Study_ID": "S62",
+      "title": "\u201cIt would work for me too\u201d: How Online Communities Shape Software Developers\u2019 Trust in AI-Powered Code Generation Tools",
+      "topic_probability": 0.9969
+    },
+    {
+      "Study_ID": "S44",
+      "title": "Gauging Tech Community Acceptance of Rapid Prototyping in Unfamiliar Programming Languages using LLM Chatbots",
+      "topic_probability": 0.9966
+    }
+  ],
+  "prevalence_mean_probability": 0.3221,
+  "ai_draft_label": "[AI-DRAFT - NOT A VALIDATED HUMAN LABEL]",
+  "ai_draft_description": "[AI-DRAFT - NOT A VALIDATED HUMAN LABEL] Provisional reading based on the top probability/FREX terms and top-loading study titles above, provided only to speed up human rater orientation. Must not be used in the manuscript until ratified or replaced by human raters."
+}

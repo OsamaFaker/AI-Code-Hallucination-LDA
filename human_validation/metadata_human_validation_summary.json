@@ -1,0 +1,56 @@
+{
+  "rater1_preferred_model": "A",
+  "rater1_preferred_k": 5,
+  "rater2_preferred_model": "B",
+  "rater2_preferred_k": 3,
+  "quantitative_selected_k": 4,
+  "raters_agree_on_k": false,
+  "model_scores": [
+    {
+      "blinded_model": "C",
+      "k": 2,
+      "n_topics": 2,
+      "mean_coherence": 3.5,
+      "mean_interpretability": 3.75,
+      "mean_distinctiveness": 3.5,
+      "mean_overall": 3.5833333333333335
+    },
+    {
+      "blinded_model": "B",
+      "k": 3,
+      "n_topics": 3,
+      "mean_coherence": 4.333333333333333,
+      "mean_interpretability": 4.166666666666667,
+      "mean_distinctiveness": 4.0,
+      "mean_overall": 4.166666666666667
+    },
+    {
+      "blinded_model": "D",
+      "k": 4,
+      "n_topics": 4,
+      "mean_coherence": 4.0,
+      "mean_interpretability": 3.875,
+      "mean_distinctiveness": 3.75,
+      "mean_overall": 3.875
+    },
+    {
+      "blinded_model": "A",
+      "k": 5,
+      "n_topics": 5,
+      "mean_coherence": 4.2,
+      "mean_interpretability": 3.9,
+      "mean_distinctiveness": 3.8,
+      "mean_overall": 3.9666666666666663
+    }
+  ],
+  "intrusion_word_accuracy": {
+    "Rater1": 1.0,
+    "Rater2": 1.0
+  },
+  "intrusion_doc_accuracy": {
+    "Rater1": 1.0,
+    "Rater2": 1.0
+  },
+  "rater1_intrusion_items_completed": 2,
+  "rater2_intrusion_items_completed": 14
+}

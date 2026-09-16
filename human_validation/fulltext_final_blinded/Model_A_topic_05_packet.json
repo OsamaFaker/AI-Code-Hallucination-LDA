@@ -1,0 +1,111 @@
+{
+  "blinded_model": "A",
+  "blinded_topic_id": 5,
+  "top_20_probability_terms": [
+    "student",
+    "chatgpt",
+    "course",
+    "feedback",
+    "assignment",
+    "explanation",
+    "group",
+    "education",
+    "learning",
+    "class",
+    "project",
+    "score",
+    "grade",
+    "attempt",
+    "fix",
+    "experience",
+    "educational",
+    "instructor",
+    "pattern",
+    "diagram"
+  ],
+  "top_20_frex_terms": [
+    "student",
+    "assignment",
+    "lecture",
+    "teacher",
+    "uml",
+    "course",
+    "education",
+    "educational",
+    "learner",
+    "tutor",
+    "hint",
+    "diagram",
+    "inefficient",
+    "instructor",
+    "explanation",
+    "college",
+    "grade",
+    "teaching",
+    "maintenance",
+    "exam"
+  ],
+  "top_loading_studies": [
+    {
+      "Study_ID": "S60",
+      "title": "Would ChatGPT-facilitated programming mode impact college students\u2019 programming behaviors, performances, and perceptions? An empirical study",
+      "abstract": "ChatGPT, an AI-based chatbot with automatic code generation abilities, has shown its promise in improving the quality of programming education by providing learners with opportunities to better understand the principles of programming. However, limited empirical studies have explored the impact of ChatGPT on learners\u2019 programming processes. This study employed a quasi-experimental design to explore the possible impact of ChatGPT-facilitated programming mode on college students\u2019 programming behaviors, performances, and perceptions. 82 college students were randomly divided into two classes. One",
+      "topic_probability": 0.9999
+    },
+    {
+      "Study_ID": "S16",
+      "title": "Bridging the Theory-Practice Gap in a Maintenance Programming Course: An Experience Report",
+      "abstract": "This paper presents our experience in teaching a maintenance programming course with the aim of bridging the gap between theory and practice, a recurring issue in previous course offerings. To achieve this goal, we implemented active learning strategies within an active learning classroom setting and redesigned the project work. Our approach involves peer learning and teamwork activities to cover various aspects of legacy code maintenance. For the project work, we adopted an open-ended approach that allowed students to choose their legacy code projects, which could be opensource software or a ",
+      "topic_probability": 0.9646
+    },
+    {
+      "Study_ID": "S35",
+      "title": "Explaining Code Examples in Introductory Programming Courses: LLM vs Humans",
+      "abstract": "Worked examples, which present an explained code for solving typical programming problems are among the most popular types of learning content in programming classes. Most approaches and tools for presenting these examples to students are based on line-by-line explanations of the example code. However, instructors rarely have time to provide explanations for many examples typically used in a programming class. In this paper, we assess the feasibility of using LLMs to generate code explanations for passive and active example exploration systems. To achieve this goal, we compare the code explana",
+      "topic_probability": 0.955
+    },
+    {
+      "Study_ID": "S15",
+      "title": "Beyond Functional Correctness: An Exploratory Study on the Time Efficiency of Programming Assignments",
+      "abstract": "Practical programming assignments are critical parts of programming courses in Computer Science education. Students are expected to translate programming concepts learned from lectures into executable implementations that solve the tasks outlined in the assignments. These implementations are primarily assessed based on their functional correctness, ensuring that students\u2019 code produces the expected output when provided with specific inputs. However, functional correctness is not the only metric that evaluates the quality of programs. Runtime efficiency is a metric that is less frequently evalu",
+      "topic_probability": 0.9452
+    },
+    {
+      "Study_ID": "S06",
+      "title": "AI chatbots in programming education: guiding success or encouraging plagiarism",
+      "abstract": "This study examines the impact of an AI programming assistant on students\u2019 exam scores and their tendency to accept incorrect AI-generated information. The customized AI programming assistant was developed by the authors using GPT based Large Language Model (LLM). A one group pretest\u2013posttest quasi-experimental design was utilized to answer research questions. Students were asked to take identical programming exams twice: once without AI assistance and once with the option to use the AI assistant. Results showed that the students\u2019 average exam scores significantly increased from 48.33 to 74.47",
+      "topic_probability": 0.9437
+    },
+    {
+      "Study_ID": "S54",
+      "title": "The Future of Grading Programming Assignments in Education: The Role of ChatGPT in Automating the Assessment and Feedback Process",
+      "abstract": "This research evaluated ChatGPT\u2019s potential as a tool for grading programming tasks, exploring its capability to understand and assess code quality. The study took place over a 15-week Python programming course with 67 students of the Cognitive Science program. Nine different assign ments were assessed by both a teacher and the ChatGPT system, and the grading differences were recorded. The teacher\u2019s grades were higher than those generated by ChatGPT. Despite this, there was a strong positive correlation between these grades, suggesting consistency in grading. Nonetheless, the repeatability of ",
+      "topic_probability": 0.9212
+    },
+    {
+      "Study_ID": "S29",
+      "title": "Does ChatGPT Help With Introductory Programming? An Experiment of Students Using ChatGPT in CS1",
+      "abstract": "Generative AI, notably ChatGPT, has garnered attention in computer science education. This paper presents a controlled experiment that explores ChatGPT\u2019s role in CS1 in a classroom setting. Specifically, we aim to investigate the impact of ChatGPT on student learning outcomes and their behaviors when working on programming assignments. Participants were tasked with creating a UML diagram and subsequently implementing its design through programming, followed by a closed-book post-evaluation and a post-survey. All the participants were required to screen-record the whole process. In total, 56 pa",
+      "topic_probability": 0.8865
+    },
+    {
+      "Study_ID": "S40",
+      "title": "Exploring the Potential of Large Language Models to Generate Formative Programming Feedback",
+      "abstract": "\u2014Ever since the emergence of large language models (LLMs) and related applications, such as ChatGPT, its performance and error analysis for programming tasks have been subject to research. In this work-in-progress paper, we explore the potential of such LLMs for computing educators and learners, as we analyze the feedback it generates to a given input containing program code. In particular, we aim at (1) exploring how an LLM like ChatGPT responds to students seeking help with their introductory programming tasks, and (2) identifying feedback types in its responses. To achieve these goals, we u",
+      "topic_probability": 0.8458
+    },
+    {
+      "Study_ID": "S13",
+      "title": "Automating Human Tutor-Style Programming Feedback: Leveraging GPT-4 Tutor Model for Hint Generation and GPT-3.5 Student Model for Hint Validation",
+      "abstract": "Generative AI and large language models hold great promise in enhancing programming education by automatically generating individualized feedback for students. We investigate the role of generative AI models in providing human tutor-style programming hints to help students resolve errors in their buggy programs. Recent works have benchmarked state-of-the-art models for various feedback generation scenarios; however, their overall quality is still inferior to human tutors and not yet ready for real-world deployment. In this paper, we seek to push the limits of generative AI models toward provid",
+      "topic_probability": 0.8329
+    },
+    {
+      "Study_ID": "S55",
+      "title": "Toward a New Era of Rapid Development: Assessing GPT-4-Vision\u2019s Capabilities in UML-Based Code Generation",
+      "abstract": "The emergence of advanced neural networks has opened up new ways in automated code generation from conceptual models, promising to enhance software development processes. This paper presents a preliminary evaluation of GPT-4-Vision, a state-of-the-art deep learning model, and its capabilities in transforming Unified Modeling Language (UML) class diagrams into fully operating Java class files. In our study, we used exported images of 18 class diagrams comprising 10 single-class and 8 multi-class diagrams. We used 3 different prompts for each input, and we manually evaluated the results. We crea",
+      "topic_probability": 0.7561
+    }
+  ],
+  "prevalence_mean_probability": 0.1847
+}

@@ -1,0 +1,164 @@
+[
+  {
+    "Figure ID": "R1_subsampling_topic_similarity_js",
+    "Filename": "figures/robustness/R1_subsampling_topic_similarity_js.png",
+    "Analysis": "robustness",
+    "Purpose": "Distribution of Topic similarity (JS) across 100 repetitions of 80% document subsampling, both representations.",
+    "Source data": "results/{metadata,fulltext}/subsampling_80pct_100reps.csv",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Repository only"
+  },
+  {
+    "Figure ID": "R2_subsampling_ari",
+    "Filename": "figures/robustness/R2_subsampling_ari.png",
+    "Analysis": "robustness",
+    "Purpose": "Distribution of Adjusted Rand Index across 100 repetitions of 80% document subsampling, both representations.",
+    "Source data": "results/{metadata,fulltext}/subsampling_80pct_100reps.csv",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Repository only"
+  },
+  {
+    "Figure ID": "R3_subsampling_nmi",
+    "Filename": "figures/robustness/R3_subsampling_nmi.png",
+    "Analysis": "robustness",
+    "Purpose": "Distribution of Normalized Mutual Information across 100 repetitions of 80% document subsampling, both representations.",
+    "Source data": "results/{metadata,fulltext}/subsampling_80pct_100reps.csv",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Repository only"
+  },
+  {
+    "Figure ID": "R4_training_effort_sensitivity",
+    "Filename": "figures/robustness/R4_training_effort_sensitivity.png",
+    "Analysis": "robustness",
+    "Purpose": "Topic-word JS similarity and dominant-topic agreement between the frozen training budget (passes=30, iterations=800) and a 3x boosted budget, both representations.",
+    "Source data": "results/{metadata,fulltext}/training_effort_sensitivity.json",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Repository only"
+  },
+  {
+    "Figure ID": "R5_dictionary_sensitivity",
+    "Filename": "figures/robustness/R5_dictionary_sensitivity.png",
+    "Analysis": "robustness",
+    "Purpose": "Topic-word similarity between the frozen dictionary config and each neighboring no_below/no_above value, both representations.",
+    "Source data": "results/{metadata,fulltext}/dictionary_sensitivity.csv",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Repository only"
+  },
+  {
+    "Figure ID": "R6_hf_term_sensitivity",
+    "Filename": "figures/robustness/R6_hf_term_sensitivity.png",
+    "Analysis": "robustness",
+    "Purpose": "Coherence and document-assignment agreement between retaining vs. removing ubiquitous domain terms, both representations.",
+    "Source data": "results/{metadata,fulltext}/domain_term_sensitivity.json",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Repository only"
+  },
+  {
+    "Figure ID": "R7_phrase_sensitivity",
+    "Filename": "figures/robustness/R7_phrase_sensitivity.png",
+    "Analysis": "robustness",
+    "Purpose": "Coherence and document-assignment agreement between unigram-only and unigram+bigram tokenization, both representations.",
+    "Source data": "results/{metadata,fulltext}/phrase_sensitivity.json",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Repository only"
+  },
+  {
+    "Figure ID": "R8_robustness_evidence_matrix",
+    "Filename": "figures/robustness/R8_robustness_evidence_matrix.png",
+    "Analysis": "robustness",
+    "Purpose": "Consolidated robustness metrics for both representations, reported as actual values (no subjective good/bad scoring).",
+    "Source data": "results/{metadata,fulltext}/*",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Repository only"
+  },
+  {
+    "Figure ID": "HM1_ratings_by_candidate_model",
+    "Filename": "figures/human_validation/HM1_ratings_by_candidate_model.png",
+    "Analysis": "metadata human validation",
+    "Purpose": "Combined (2-rater) mean coherence/interpretability/distinctiveness per blinded metadata candidate model (k=2,3,4,5).",
+    "Source data": "human_validation/metadata_human_model_scores.csv",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Repository only"
+  },
+  {
+    "Figure ID": "HM2_rater_comparison_by_model",
+    "Filename": "figures/human_validation/HM2_rater_comparison_by_model.png",
+    "Analysis": "metadata human validation",
+    "Purpose": "Per-rater mean overall rating by candidate k, showing Rater 1 scoring systematically higher than Rater 2.",
+    "Source data": "human_validation/metadata_human_ratings_per_topic.csv",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Repository only"
+  },
+  {
+    "Figure ID": "HM3_preferred_topic_count",
+    "Filename": "figures/human_validation/HM3_preferred_topic_count.png",
+    "Analysis": "metadata human validation",
+    "Purpose": "Each rater's single preferred candidate model, making explicit that the two raters preferred different k values and neither chose k=4.",
+    "Source data": "human_validation/metadata_human_overall_preferences.csv",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Main manuscript (candidate: Main Figure A, paired with M8)"
+  },
+  {
+    "Figure ID": "HF1_3_ratings_by_topic",
+    "Filename": "figures/human_validation/HF1_3_ratings_by_topic.png",
+    "Analysis": "fulltext human validation",
+    "Purpose": "Combined mean coherence, interpretability, and distinctiveness per full-text final topic (k=8).",
+    "Source data": "human_validation/fulltext_human_ratings_per_topic.csv",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Main manuscript (candidate: supports Main Figure B/D)"
+  },
+  {
+    "Figure ID": "HF4_rater_comparison",
+    "Filename": "figures/human_validation/HF4_rater_comparison.png",
+    "Analysis": "fulltext human validation",
+    "Purpose": "Per-rater mean overall rating by full-text topic.",
+    "Source data": "human_validation/fulltext_human_ratings_raw.csv",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Repository only"
+  },
+  {
+    "Figure ID": "HF5_combined_profile",
+    "Filename": "figures/human_validation/HF5_combined_profile.png",
+    "Analysis": "fulltext human validation",
+    "Purpose": "Radar plot of combined coherence/interpretability/distinctiveness across all 8 full-text topics.",
+    "Source data": "human_validation/fulltext_human_ratings_per_topic.csv",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Repository only"
+  },
+  {
+    "Figure ID": "C3_similarity_comparison",
+    "Filename": "figures/comparison/C3_similarity_comparison.png",
+    "Analysis": "cross-representation",
+    "Purpose": "JS similarity, cosine, and top-20 Jaccard for each matched metadata-fulltext topic pair.",
+    "Source data": "results/cross_representation/topic_alignment.json",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Repository only"
+  },
+  {
+    "Figure ID": "C4_aligned_prevalence_comparison",
+    "Filename": "figures/comparison/C4_aligned_prevalence_comparison.png",
+    "Analysis": "cross-representation",
+    "Purpose": "Mean topic prevalence for each matched metadata-fulltext topic pair.",
+    "Source data": "models/{metadata,fulltext}/*.model",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Repository only"
+  },
+  {
+    "Figure ID": "C5_representation_metrics_comparison",
+    "Filename": "figures/comparison/C5_representation_metrics_comparison.png",
+    "Analysis": "cross-representation",
+    "Purpose": "Cross-seed stability, topic diversity, subsampling similarity, and training-effort stability compared across representations.",
+    "Source data": "results/{metadata,fulltext}/*",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Main manuscript (candidate: Main Figure D)"
+  },
+  {
+    "Figure ID": "C6_topic_correspondence_network",
+    "Filename": "figures/comparison/C6_topic_correspondence_network.png",
+    "Analysis": "cross-representation",
+    "Purpose": "Network diagram of metadata-to-fulltext topic correspondence, edge weight scaled by JS similarity (weak connections shown thin/faint, not exaggerated).",
+    "Source data": "results/cross_representation/topic_alignment.json",
+    "Script": "src/generate_all_figures.py",
+    "Recommended destination": "Repository only"
+  }
+]

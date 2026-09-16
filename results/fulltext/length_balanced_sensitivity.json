@@ -1,0 +1,7 @@
+{
+  "token_cap_per_document": 2400,
+  "mean_js_similarity_to_full": 0.44553634933637193,
+  "ari_vs_full": 0.1633209771979805,
+  "nmi_vs_full": 0.39808966102549986,
+  "dominant_topic_agreement": 0.3333333333333333
+}

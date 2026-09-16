@@ -1,0 +1,13 @@
+Representation,Topic_ID,Rater_1_Label,Rater_2_Label,Final_Reconciled_Label,Notes
+metadata,0,Security Vulnerabilities & Copilot Usage,"AI Code Verification, Vulnerability & Trust (ChatGPT/Copilot)",Pending researcher reconciliation,"Model D = k=4 (quantitatively selected). Raters did not converge on a preferred k overall (Rater1->k=5, Rater2->k=3); these are their independent labels for the k=4 solution specifically."
+metadata,1,Prompting for Domain-Specific Requirements,Code Generation Methods & Requirements-Driven Prompting,Pending researcher reconciliation,"Model D = k=4 (quantitatively selected). Raters did not converge on a preferred k overall (Rater1->k=5, Rater2->k=3); these are their independent labels for the k=4 solution specifically."
+metadata,2,AI in Computer Science Education,Education & Practitioner Adoption of ChatGPT,Pending researcher reconciliation,"Model D = k=4 (quantitatively selected). Raters did not converge on a preferred k overall (Rater1->k=5, Rater2->k=3); these are their independent labels for the k=4 solution specifically."
+metadata,3,Mitigating API Hallucinations,API/Dependency-Level Hallucination Mitigation,Pending researcher reconciliation,"Model D = k=4 (quantitatively selected). Raters did not converge on a preferred k overall (Rater1->k=5, Rater2->k=3); these are their independent labels for the k=4 solution specifically."
+fulltext,0,Developer Experience & Trust,Developer Community Trust & Experience with AI Coding Assistants,Pending researcher reconciliation,
+fulltext,1,Package Hallucinations & Security,Package Hallucination & Supply-Chain/Malicious Code Risks,Pending researcher reconciliation,
+fulltext,2,Secure Class-Level Generation,"Code Security, Safety-Critical & Class-Level Completion Benchmarks",Pending researcher reconciliation,
+fulltext,3,Hallucination Mitigation,"Hallucination Detection & Mitigation Methods (Benchmarks, Self-Consistency, RAG)",Pending researcher reconciliation,
+fulltext,4,General Coding Proficiency,LLM Proficiency on Coding Exercises & Competitive-Programming Benchmarks,Pending researcher reconciliation,
+fulltext,5,Computing Education & Learning,"Programming Education: Student Learning, Feedback & Assessment",Pending researcher reconciliation,
+fulltext,6,Code Complexity & Determinism,"Code Quality Metrics: Vulnerability (CWE), Complexity & Non-Determinism",Pending researcher reconciliation,
+fulltext,7,Bug Taxonomies & Interactive Fixing,Bug Taxonomy & Practitioner Survey of Code Defects/Patterns,Pending researcher reconciliation,

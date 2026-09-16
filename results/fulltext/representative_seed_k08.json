@@ -1,0 +1,7 @@
+{
+  "representation": "fulltext",
+  "k": 8,
+  "medoid_seed": 2,
+  "medoid_mean_similarity": 0.5540601873538784,
+  "n_seeds_considered": 20
+}

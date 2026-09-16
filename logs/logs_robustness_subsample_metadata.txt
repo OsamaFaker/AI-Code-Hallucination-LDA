@@ -1,0 +1,6 @@
+[metadata] subsampling 20/100 (13s)
+[metadata] subsampling 40/100 (16s)
+[metadata] subsampling 60/100 (19s)
+[metadata] subsampling 80/100 (21s)
+[metadata] subsampling 100/100 (24s)
+[metadata] subsampling DONE 100 reps in 24s: JS=0.586 ARI=0.129

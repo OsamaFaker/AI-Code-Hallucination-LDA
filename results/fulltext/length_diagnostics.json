@@ -1,0 +1,29 @@
+{
+  "token_length_stats": {
+    "mean": 3717.4242424242425,
+    "median": 3473.5,
+    "sd": 2176.336970208693,
+    "iqr": 2430.0,
+    "min": 1008,
+    "max": 11822,
+    "ratio_max_to_min": 11.728174603174603
+  },
+  "length_vs_dominant_topic_anova_F": 2.2800239990235776,
+  "length_vs_dominant_topic_anova_p": 0.040231502607139466,
+  "length_vs_confidence_pearson_r": 0.24941891714305658,
+  "length_vs_confidence_pearson_p": 0.04342343593776621,
+  "top5_longest_studies": [
+    "S50",
+    "S17",
+    "S62",
+    "S08",
+    "S52"
+  ],
+  "top5_shortest_studies": [
+    "S71",
+    "S49",
+    "S07",
+    "S11",
+    "S35"
+  ]
+}

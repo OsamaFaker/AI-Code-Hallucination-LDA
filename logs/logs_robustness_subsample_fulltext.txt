@@ -1,0 +1,6 @@
+[fulltext] subsampling 20/100 (11s)
+[fulltext] subsampling 40/100 (17s)
+[fulltext] subsampling 60/100 (25s)
+[fulltext] subsampling 80/100 (31s)
+[fulltext] subsampling 100/100 (37s)
+[fulltext] subsampling DONE 100 reps in 37s: JS=0.515 ARI=0.219

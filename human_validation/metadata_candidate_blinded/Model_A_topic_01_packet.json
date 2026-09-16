@@ -1,0 +1,111 @@
+{
+  "blinded_model": "A",
+  "blinded_topic_id": 1,
+  "top_20_probability_terms": [
+    "requirement",
+    "prompt",
+    "function",
+    "input",
+    "domain",
+    "critical",
+    "development",
+    "specific",
+    "output",
+    "program",
+    "state",
+    "quality",
+    "overall",
+    "test",
+    "method",
+    "functional",
+    "set",
+    "algorithm",
+    "description",
+    "result"
+  ],
+  "top_20_frex_terms": [
+    "requirement",
+    "input",
+    "function",
+    "critical",
+    "overall",
+    "domain",
+    "output",
+    "algorithm",
+    "state",
+    "prompt",
+    "value",
+    "description",
+    "specific",
+    "set",
+    "parameter",
+    "industry",
+    "functional",
+    "limit",
+    "implement",
+    "standard"
+  ],
+  "top_loading_studies": [
+    {
+      "Study_ID": "S08",
+      "title": "An Empirical Study of the Code Generation of Safety-Critical Software Using LLMs",
+      "abstract": "In the digital era of increasing software complexity, improving the development efficiency of safety-critical software is a challenging task faced by academia and industry in domains such as nuclear energy, aviation, the automotive industry, and rail transportation. Recently, people have been excited about using pre-trained large language models (LLMs) such as ChatGPT and GPT-4 to generate code. Professionals in the safety-critical software field are intrigued by the code generation capabilities of LLMs. However, there is currently a lack of systematic case studies in this area. Aiming at the ",
+      "topic_probability": 0.9999
+    },
+    {
+      "Study_ID": "S53",
+      "title": "Test-Driven Development and LLM-based Code Generation",
+      "abstract": "Recent Large Language Models (LLMs) have demonstrated significant capabilities in generating code snippets directly from problem statements. This increasingly automated process mirrors traditional human-led software development, where code is often written in response to a requirement. Historically, Test-Driven Development (TDD) has proven its merit, requiring developers to write tests before the functional code, ensuring alignment with the initial problem statements. Applying TDD principles to LLM-based code generation offers one distinct benefit: it enables developers to verify the correctne",
+      "topic_probability": 0.4733
+    },
+    {
+      "Study_ID": "S09",
+      "title": "An Empirical Study of the Non-determinism of ChatGPT in Code Generation",
+      "abstract": "There has been a recent explosion of research on Large Language Models (LLMs) for software engineering tasks, in particular code generation. However, results from LLMs can be highly unstable; nondeterministically returning very different code for the same prompt. Such non-determinism affects the correctness and consistency of the generated code, undermines developers\u2019 trust in LLMs, and yields low reproducibility in LLM-based papers. Nevertheless, there is no work investigating how serious this non-determinism threat is. To fill this gap, this paper conducts an empirical study on the non-deter",
+      "topic_probability": 0.4498
+    },
+    {
+      "Study_ID": "S21",
+      "title": "Code Generation with AlphaCodium: From Prompt Engineering to Flow",
+      "abstract": "Code generation problems differ from common natural language problems - they require matching the exact syntax of the target language, identifying happy paths and edge cases, paying attention to numerous small details in the problem spec, and addressing other code-specific issues and requirements. Hence, many of the optimizations and tricks that have been successful in natural language generation may not be effective for code tasks. In this work, we propose a new approach to code generation by LLMs, which we call AlphaCodium - a test-based, multistage, code-oriented iterative flow, that improv",
+      "topic_probability": 0.4325
+    },
+    {
+      "Study_ID": "S31",
+      "title": "Enhancing Large Language Models in Coding Through Multi-Perspective Self-Consistency",
+      "abstract": "Large language models (LLMs) have exhibited remarkable ability in code generation. However, generating the correct solution in a single attempt still remains a challenge. Prior works utilize verification properties in software engineering to verify and re-rank solutions in a majority voting manner. But the assumption behind them that generated verification properties have better qualities than solutions may not always hold. In this paper, we treat them equally as different perspectives of LLMs\u2019 reasoning processes. We propose the Multi-Perspective Self-Consistency (MPSC) framework incorporatin",
+      "topic_probability": 0.4208
+    },
+    {
+      "Study_ID": "S02",
+      "title": "A Two-Stage Code Generation Method using Large Language Models",
+      "abstract": "Large language models are capable of generating source code in a zero-shot manner to develop programs that meet user functional requirements. However, when faced with scenarios involving complex business requirements, the generated source code may fail to satisfy user needs. Addressing the challenge of understanding software requirements, we propose a two-stage code generation approach. Initially, the large language model generates pseudocode based on the user\u2019s functional requirements, refined through an iterative process with user feedback. Subsequently, the model generates source code based",
+      "topic_probability": 0.3972
+    },
+    {
+      "Study_ID": "S43",
+      "title": "Fight Fire with Fire: How Much Can We Trust ChatGPT on Source Code-Related Tasks?",
+      "abstract": "\u2014With the increasing utilization of large language models such as ChatGPT during software development, it has become crucial to verify the quality of code content it generates. Recent studies proposed utilizing ChatGPT as both a developer and tester for multi-agent collaborative software development. The multi-agent collaboration empowers ChatGPT to produce test reports for its generated code, enabling it to self-verify the code content and fix bugs based on these reports. However, these studies did not assess the effectiveness of the generated test reports in validating the code. Therefore, w",
+      "topic_probability": 0.3551
+    },
+    {
+      "Study_ID": "S11",
+      "title": "Applying RLAIF for Code Generation with API-usage in Lightweight LLMs",
+      "abstract": "Reinforcement Learning from AI Feedback (RLAIF) has demonstrated significant potential across various domains, including mitigating harm in LLM outputs, enhancing text summarization, and mathematical reasoning. This paper introduces an RLAIF framework for improving the code generation abilities of lightweight (<1B parameters) LLMs. We specifically focus on code generation tasks that require writing appropriate API calls, which is challenging due to the well-known issue of hallucination in LLMs. Our framework extracts AI feedback from a larger LLM (e.g., GPT3.5) through a specialized prompting ",
+      "topic_probability": 0.3546
+    },
+    {
+      "Study_ID": "S03",
+      "title": "A Closer Look at Different Difficulty Levels Code Generation Abilities of ChatGPT",
+      "abstract": "\u2014Code generation aims to generate source code implementing human requirements illustrated with natural language specifications. With the rapid development of intelligent software engineering, automated code generation has become a hot research topic in both artificial intelligence and software engineering, and researchers have made significant achievements on code generation. More recently, large language models (LLMs) have demonstrated outstanding performance on code generation tasks, such as ChatGPT released by OpenAI presents the fantastic potential on automated code generation. However, th",
+      "topic_probability": 0.2984
+    },
+    {
+      "Study_ID": "S26",
+      "title": "De-Hallucinator: Iterative Grounding for LLM-Based Code Completion",
+      "abstract": "Large languages models (LLMs) trained on datasets of publicly available source code have established a new state-of-the-art in code completion. However, these models are mostly unaware of the code that already exists within a specific project, preventing the models from making good use of existing APIs. Instead, LLMs often invent, or \u201challucinate\u201d, non-existent APIs or produce variants of already existing code. Although the API information is available to IDEs, the input size limit of LLMs prevents code completion techniques from including all relevant context into the prompt. This paper prese",
+      "topic_probability": 0.2759
+    }
+  ],
+  "prevalence_mean_probability": 0.0966
+}

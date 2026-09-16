@@ -1,0 +1,2 @@
+blinded_model,rater_id,contains_redundant_topics,merges_different_themes,splits_one_theme_unnecessarily,every_topic_substantively_meaningful,notes
+A,,Yes (Minor overlap between Topics 1/3 and 2/6),Yes (Topic 1 mixes security with automated grading),No,Yes,"The eight-topic structure captures the dominant research domains well. Topic 4 is slightly broad, and Topic 1 inappropriately combines malicious package hallucination concepts with automated educational assessment."

@@ -1,0 +1,105 @@
+{
+  "representation": "metadata",
+  "topic_id": 1,
+  "k": 4,
+  "medoid_seed": 14,
+  "top_20_probability_terms": [
+    "requirement",
+    "prompt",
+    "function",
+    "input",
+    "domain",
+    "critical",
+    "development",
+    "specific",
+    "state",
+    "quality",
+    "output",
+    "overall",
+    "method",
+    "program",
+    "functional",
+    "test",
+    "algorithm",
+    "set",
+    "description",
+    "value"
+  ],
+  "top_20_frex_terms": [
+    "requirement",
+    "function",
+    "domain",
+    "input",
+    "overall",
+    "critical",
+    "state",
+    "description",
+    "functional",
+    "value",
+    "algorithm",
+    "set",
+    "parameter",
+    "specific",
+    "industry",
+    "prompt",
+    "limit",
+    "standard",
+    "output",
+    "implement"
+  ],
+  "top_loading_studies": [
+    {
+      "Study_ID": "S08",
+      "title": "An Empirical Study of the Code Generation of Safety-Critical Software Using LLMs",
+      "topic_probability": 0.9999
+    },
+    {
+      "Study_ID": "S02",
+      "title": "A Two-Stage Code Generation Method using Large Language Models",
+      "topic_probability": 0.4807
+    },
+    {
+      "Study_ID": "S11",
+      "title": "Applying RLAIF for Code Generation with API-usage in Lightweight LLMs",
+      "topic_probability": 0.3563
+    },
+    {
+      "Study_ID": "S21",
+      "title": "Code Generation with AlphaCodium: From Prompt Engineering to Flow",
+      "topic_probability": 0.3325
+    },
+    {
+      "Study_ID": "S53",
+      "title": "Test-Driven Development and LLM-based Code Generation",
+      "topic_probability": 0.3202
+    },
+    {
+      "Study_ID": "S20",
+      "title": "Chain-of-Programming (CoP): Empowering Large Language Models for Geospatial Code Generation",
+      "topic_probability": 0.2387
+    },
+    {
+      "Study_ID": "S03",
+      "title": "A Closer Look at Different Difficulty Levels Code Generation Abilities of ChatGPT",
+      "topic_probability": 0.2088
+    },
+    {
+      "Study_ID": "S51",
+      "title": "On Mitigating Code LLM Hallucinations with API Documentation",
+      "topic_probability": 0.205
+    },
+    {
+      "Study_ID": "S22",
+      "title": "Code Hallucination",
+      "topic_probability": 0.174
+    },
+    {
+      "Study_ID": "S58",
+      "title": "We Have a Package for You! A Comprehensive Analysis of Package Hallucinations by Code Generating LLMs",
+      "topic_probability": 0.1255
+    }
+  ],
+  "prevalence_mean_probability": 0.0623,
+  "ai_draft_label": "[AI-DRAFT - NOT A VALIDATED HUMAN LABEL]",
+  "ai_draft_description": "[AI-DRAFT - NOT A VALIDATED HUMAN LABEL] Provisional reading based on the top probability/FREX terms and top-loading study titles above, provided only to speed up human rater orientation. Must not be used in the manuscript until ratified or replaced by human raters."
+}

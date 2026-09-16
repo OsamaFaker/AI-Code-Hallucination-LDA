@@ -1,0 +1,111 @@
+{
+  "blinded_model": "A",
+  "blinded_topic_id": 4,
+  "top_20_probability_terms": [
+    "chatgpt",
+    "exercise",
+    "topic",
+    "developer",
+    "project",
+    "pass",
+    "training",
+    "difficulty",
+    "testing",
+    "file",
+    "application",
+    "leetcode",
+    "usage",
+    "google",
+    "accuracy",
+    "web",
+    "api",
+    "conversation",
+    "chat",
+    "fig"
+  ],
+  "top_20_frex_terms": [
+    "exercise",
+    "bing",
+    "sentiment",
+    "bard",
+    "pseudocode",
+    "competition",
+    "milestone",
+    "refactoring",
+    "topic",
+    "login",
+    "proficiency",
+    "reaction",
+    "refactor",
+    "refactore",
+    "coverage",
+    "clean",
+    "brevity",
+    "early",
+    "pseudo",
+    "acceptance"
+  ],
+  "top_loading_studies": [
+    {
+      "Study_ID": "S63",
+      "title": "Java Web Programming with ChatGPT",
+      "abstract": "\u2014With the rapid development of artificial intelligence (AI), ChatGPT is an important technical breakthrough in the field of natural language processing (NLP). ChatGPT, as a large-scale language model, focuses on the task of conversation generation and has attracted wide attention in academia and industry. Meanwhile, it brings opportunities and challenges to Java Web programming. Compared with previous studies that investigated the ability of ChatGPT to solve smallscale Java programming problems that emphasized basic concepts, this paper explores how well ChatGPT can produce sequential Java cod",
+      "topic_probability": 0.9918
+    },
+    {
+      "Study_ID": "S12",
+      "title": "Automated Programming Exercise Generation in the Era of Large Language Models",
+      "abstract": "\u2014Lecturers are increasingly attempting to use large language models (LLMs) to simplify and make the creation of exercises for students more efficient. Efforts are also being made to automate the exercise creation process in software engineering (SE) education. This study explores the use of advanced LLMs, including GPT-4 and LaMDA, for automated programming exercise creation in higher education and compares the results with related work using GPT-3.5-turbo. Utilizing applications such as ChatGPT, Bing AI Chat, and Google Bard, we identify LLMs capable of initiating different exercise designs. ",
+      "topic_probability": 0.9904
+    },
+    {
+      "Study_ID": "S56",
+      "title": "Unmasking the giant: A comprehensive evaluation of ChatGPT's proficiency in coding algorithms and data structures",
+      "abstract": "The transformative influence of Large Language Models (LLMs) is profoundly reshaping the Artificial Intelli- gence (AI) technology domain. Notably, ChatGPT distinguishes itself within these models, demonstrating remarkable performance in multi-turn conversations and exhibiting code proficiency across an array of languages. In this paper, we carry out a comprehensive evaluation of ChatGPT\u2019s coding capabilities based on what is to date the largest catalog of coding challenges. Our focus is on the python programming language and problems centered on data structures and algorithms, two topics at t",
+      "topic_probability": 0.8859
+    },
+    {
+      "Study_ID": "S28",
+      "title": "Digital Rubber Duck: Leveraging Large Language Models for Extreme Programming",
+      "abstract": "\u2014The recent prevalence of Large Language models (LLMs), e.g., GPT-3.5 and GPT-4, has brought about a new age of man-computer symbiosis, where LLMs are employed for a litany of creative, constructive, scientific, or otherwise contentgenerative tasks, e.g., as general chatbot assistants, writing editors, digital subject matter experts, programming consultants, and so on. Of interest to software engineers is the concept of \u201crubber duck debugging\u201d, which is the act of expressing code, lineby-line, in natural language, to an inanimate object, e.g., a rubber duck, for the purpose of elucidating pote",
+      "topic_probability": 0.8085
+    },
+    {
+      "Study_ID": "S41",
+      "title": "Extending the Frontier of ChatGPT: Code Generation and Debugging",
+      "abstract": "\u2014Large language models (LLMs), trained on vast corpora, have emerged as a groundbreaking innovation in the realm of question-answering and conversational agents. Among these LLMs, ChatGPT has pioneered a new phase in AI, adeptly handling varied tasks from writing essays and biographies to solving complex mathematical problems. However, assessing the performance of ChatGPT\u2019s output poses a challenge, particularly in scenarios where queries lack clear objective criteria for correctness. We delve into the efficacy of ChatGPT (GPT-4) in generating correct code for programming problems, examining b",
+      "topic_probability": 0.6951
+    },
+    {
+      "Study_ID": "S03",
+      "title": "A Closer Look at Different Difficulty Levels Code Generation Abilities of ChatGPT",
+      "abstract": "\u2014Code generation aims to generate source code implementing human requirements illustrated with natural language specifications. With the rapid development of intelligent software engineering, automated code generation has become a hot research topic in both artificial intelligence and software engineering, and researchers have made significant achievements on code generation. More recently, large language models (LLMs) have demonstrated outstanding performance on code generation tasks, such as ChatGPT released by OpenAI presents the fantastic potential on automated code generation. However, th",
+      "topic_probability": 0.6591
+    },
+    {
+      "Study_ID": "S07",
+      "title": "AI-assisted coding: Experiments with GPT-4",
+      "abstract": "Artificial intelligence (AI) tools based on large language models have acheived human-level performance on some computer programming tasks. We report several experiments using GPT-4 to generate computer code. These experiments demonstrate that AI code generation using the current generation of tools, while powerful, requires substantial human validation to ensure accurate performance. We also demonstrate that GPT-4 refactoring of existing code can significantly improve that code along several established metrics for code quality, and we show that GPT-4 can generate tests with substantial cover",
+      "topic_probability": 0.5507
+    },
+    {
+      "Study_ID": "S02",
+      "title": "A Two-Stage Code Generation Method using Large Language Models",
+      "abstract": "Large language models are capable of generating source code in a zero-shot manner to develop programs that meet user functional requirements. However, when faced with scenarios involving complex business requirements, the generated source code may fail to satisfy user needs. Addressing the challenge of understanding software requirements, we propose a two-stage code generation approach. Initially, the large language model generates pseudocode based on the user\u2019s functional requirements, refined through an iterative process with user feedback. Subsequently, the model generates source code based",
+      "topic_probability": 0.5419
+    },
+    {
+      "Study_ID": "S59",
+      "title": "Why Do Developers Engage with ChatGPT in Issue-Tracker? Investigating Usage and Reliance on ChatGPT-Generated Code",
+      "abstract": "\u2014Large language models (LLMs) like ChatGPT have shown the potential to assist developers with coding and debugging tasks. However, their role in collaborative issue resolution is underexplored. In this study, we analyzed 1,152 DeveloperChatGPT conversations across 1,012 issues in GitHub to examine the diverse usage of ChatGPT and reliance on its generated code. Our contributions are fourfold. First, we manually analyzed 289 conversations to understand ChatGPT\u2019s usage in the GitHub Issues. Our analysis revealed that ChatGPT is primarily utilized for ideation, whereas its usage for validation (e",
+      "topic_probability": 0.4814
+    },
+    {
+      "Study_ID": "S49",
+      "title": "LLMs for Science: Usage for Code Generation and Data Analysis",
+      "abstract": "Large language models (LLMs) have been touted to enable increased productivity in many areas of today's work life. Scientific research as an area of work is no exception: The potential of LLM-based tools to assist in the daily work of scientists has become a highly discussed topic across disciplines. However, we are only at the very onset of this subject of study. It is still unclear how the potential of LLMs will materialize in research practice. With this study, we give first empirical evidence on the use of LLMs in the research process. We have investigated a set of use cases for LLMbased t",
+      "topic_probability": 0.4345
+    }
+  ],
+  "prevalence_mean_probability": 0.1398
+}

@@ -1,0 +1,17 @@
+{
+  "representation": "metadata",
+  "grid_cells_total": 36,
+  "grid_cells_admissible_stable_region": 12,
+  "max_stability_in_grid": 0.5955619225743382,
+  "min_thin_topics_in_grid": 1.8,
+  "max_diversity_in_grid": 0.6699999999999999,
+  "selected_no_below": 5,
+  "selected_no_above": 0.5,
+  "selected_vocab_size": 397.0,
+  "selected_mean_c_v": 0.3832040907110439,
+  "selected_mean_c_npmi": -0.1358279787295628,
+  "selected_stability": 0.5761291060017032,
+  "selected_diversity": 0.6544444444444445,
+  "selected_thin_topics": 1.8,
+  "rule": "Admissible = within 0.05 of max stability, within 1.0 thin-topic of the grid minimum, within 0.10 of max diversity (coherence excluded from admissibility). Among admissible cells, closest (normalized Euclidean) to conventional defaults no_below=5/no_above=0.50, tie-broken by higher stability."
+}

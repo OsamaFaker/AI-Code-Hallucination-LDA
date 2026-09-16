@@ -1,0 +1,1 @@
+[metadata] unigram cv=0.387 vs bigram cv=0.350; 386 phrases discovered; ARI=0.064

@@ -1,0 +1,10 @@
+# Copyrighted extracted full text - must not be redistributed (protocol Section 6)
+data/fulltext_texts/
+
+# Local environment
+.venv/
+__pycache__/
+*.pyc
+
+# Saved model artifacts (large, regenerable from protocol + seeds)
+models/

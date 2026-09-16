@@ -1,0 +1,13 @@
+{
+  "n_topics": 8,
+  "n_raters": 2,
+  "combined_mean_coherence": 4.0625,
+  "combined_mean_interpretability": 4.0,
+  "combined_mean_distinctiveness": 3.875,
+  "rater1_mean_coherence": 4.5,
+  "rater2_mean_coherence": 3.625,
+  "rater1_mean_interpretability": 4.5,
+  "rater2_mean_interpretability": 3.5,
+  "rater1_mean_distinctiveness": 4.25,
+  "rater2_mean_distinctiveness": 3.5
+}

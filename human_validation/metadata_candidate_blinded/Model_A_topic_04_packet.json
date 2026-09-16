@@ -1,0 +1,111 @@
+{
+  "blinded_model": "A",
+  "blinded_topic_id": 4,
+  "top_20_probability_terms": [
+    "chatgpt",
+    "problem",
+    "development",
+    "developer",
+    "test",
+    "engineering",
+    "paper",
+    "self",
+    "research",
+    "demonstrate",
+    "issue",
+    "performance",
+    "human",
+    "solution",
+    "empirical",
+    "evaluation",
+    "report",
+    "dataset",
+    "multi",
+    "different"
+  ],
+  "top_20_frex_terms": [
+    "self",
+    "multi",
+    "report",
+    "problem",
+    "rapid",
+    "chatgpt",
+    "conversation",
+    "platform",
+    "chatbot",
+    "usage",
+    "debugging",
+    "reveal",
+    "intelligence",
+    "workflow",
+    "empirical",
+    "solve",
+    "snippet",
+    "experience",
+    "facilitate",
+    "artificial"
+  ],
+  "top_loading_studies": [
+    {
+      "Study_ID": "S34",
+      "title": "Experiences and Challenges in AI-Driven Modular Software Development Using Large Language Models for Code Generation",
+      "abstract": "The development of a modular software platform using large language models (LLMs) for code generation presents unique opportunities and challenges. This paper explores the experiences and difficulties encountered during the creation of an AIdriven business intelligence platform built with LLM assistance. By using an iterative approach to generate modular code, the project aimed to accelerate development and automate routine tasks. However, challenges such as inconsistency in the generated code, hallucinations, lack of long-term memory, and integration complexities emerged. These limitations ne",
+      "topic_probability": 0.9988
+    },
+    {
+      "Study_ID": "S59",
+      "title": "Why Do Developers Engage with ChatGPT in Issue-Tracker? Investigating Usage and Reliance on ChatGPT-Generated Code",
+      "abstract": "\u2014Large language models (LLMs) like ChatGPT have shown the potential to assist developers with coding and debugging tasks. However, their role in collaborative issue resolution is underexplored. In this study, we analyzed 1,152 DeveloperChatGPT conversations across 1,012 issues in GitHub to examine the diverse usage of ChatGPT and reliance on its generated code. Our contributions are fourfold. First, we manually analyzed 289 conversations to understand ChatGPT\u2019s usage in the GitHub Issues. Our analysis revealed that ChatGPT is primarily utilized for ideation, whereas its usage for validation (e",
+      "topic_probability": 0.9984
+    },
+    {
+      "Study_ID": "S56",
+      "title": "Unmasking the giant: A comprehensive evaluation of ChatGPT's proficiency in coding algorithms and data structures",
+      "abstract": "The transformative influence of Large Language Models (LLMs) is profoundly reshaping the Artificial Intelli- gence (AI) technology domain. Notably, ChatGPT distinguishes itself within these models, demonstrating remarkable performance in multi-turn conversations and exhibiting code proficiency across an array of languages. In this paper, we carry out a comprehensive evaluation of ChatGPT\u2019s coding capabilities based on what is to date the largest catalog of coding challenges. Our focus is on the python programming language and problems centered on data structures and algorithms, two topics at t",
+      "topic_probability": 0.9978
+    },
+    {
+      "Study_ID": "S63",
+      "title": "Java Web Programming with ChatGPT",
+      "abstract": "\u2014With the rapid development of artificial intelligence (AI), ChatGPT is an important technical breakthrough in the field of natural language processing (NLP). ChatGPT, as a large-scale language model, focuses on the task of conversation generation and has attracted wide attention in academia and industry. Meanwhile, it brings opportunities and challenges to Java Web programming. Compared with previous studies that investigated the ability of ChatGPT to solve smallscale Java programming problems that emphasized basic concepts, this paper explores how well ChatGPT can produce sequential Java cod",
+      "topic_probability": 0.9977
+    },
+    {
+      "Study_ID": "S39",
+      "title": "Exploring Early Adopters\u2019 Perceptions of ChatGPT as a Code Generation Tool",
+      "abstract": "\u2014ChatGPT is an artificial intelligence chatbot developed by OpenAI, able of interacting in a conversational way by taking into account successive input prompts. Among many possible uses, ChatGPT has been found to possess code generation capabilities, being able to generate code snippets and assist developers in their programming tasks. This paper performs a qualitative exploration of perceptions of early adopters regarding the use of ChatGPT for code generation, acknowledging the substantial impact this tool can have in the software development landscape. We collected a diverse set of discussi",
+      "topic_probability": 0.9977
+    },
+    {
+      "Study_ID": "S48",
+      "title": "LLM-Based Test-Driven Interactive Code Generation User Study and Empirical Evaluation",
+      "abstract": "\u2014Large language models (LLMs) have shown great potential in automating significant aspects of coding by producing natural code from informal natural language (NL) intent. However, given NL is informal, it does not lend easily to checking that the generated code correctly satisfies the user intent. In this paper, we propose a novel interactive workflow TICODER for guided intent clarification (i.e., partial formalization) through tests to support the generation of more accurate code suggestions. Through a mixed methods user study with 15 programmers, we present an empirical evaluation of the eff",
+      "topic_probability": 0.9975
+    },
+    {
+      "Study_ID": "S18",
+      "title": "Can ChatGPT Support Developers? An Empirical Evaluation of Large Language Models for Code Generation",
+      "abstract": "Large language models (LLMs) have demonstrated notable proficiency in code generation, with numerous prior studies showing their promising capabilities in various development scenarios. However, these studies mainly provide evaluations in research settings, which leaves a significant gap in understanding how effectively LLMs can support developers in real-world. To address this, we conducted an empirical analysis of conversations in DevGPT, a dataset collected from developers\u2019 conversations with ChatGPT (captured with the Share Link feature on platforms such as GitHub). Our empirical findings ",
+      "topic_probability": 0.9972
+    },
+    {
+      "Study_ID": "S44",
+      "title": "Gauging Tech Community Acceptance of Rapid Prototyping in Unfamiliar Programming Languages using LLM Chatbots",
+      "abstract": "Large Language Model (LLM) chatbots such as ChatGPT possess information not only about human languages but also computer languages. It is now possible to perform programming and software design tasks with assistance from ChatGPT. We are particularly interested in how the software development community views the use of LLM chatbots in rapid prototyping using unfamiliar programming languages. In four different tech events, several example scenarios of how a tech-savvy engineer could use ChatGPT to prototype apps in unfamiliar programming languages were demonstrated, including a health education ",
+      "topic_probability": 0.9971
+    },
+    {
+      "Study_ID": "S07",
+      "title": "AI-assisted coding: Experiments with GPT-4",
+      "abstract": "Artificial intelligence (AI) tools based on large language models have acheived human-level performance on some computer programming tasks. We report several experiments using GPT-4 to generate computer code. These experiments demonstrate that AI code generation using the current generation of tools, while powerful, requires substantial human validation to ensure accurate performance. We also demonstrate that GPT-4 refactoring of existing code can significantly improve that code along several established metrics for code quality, and we show that GPT-4 can generate tests with substantial cover",
+      "topic_probability": 0.9966
+    },
+    {
+      "Study_ID": "S14",
+      "title": "Beyond Code Generation: An Observational Study of ChatGPT Usage in Software Engineering Practice",
+      "abstract": "terms. We also propose a theoretical framework for how the (i) purpose of the interaction, (ii) internal factors (e.g., the user\u2019s personality), and (iii) external factors (e.g., company policy) together shape the experience (in terms of perceived usefulness and trust). We envision that our framework can be used by future research to further the academic discussion on LLM usage by software engineering practitioners, and to serve as a reference point for the design of future empirical LLM research in this domain.",
+      "topic_probability": 0.9941
+    }
+  ],
+  "prevalence_mean_probability": 0.3004
+}

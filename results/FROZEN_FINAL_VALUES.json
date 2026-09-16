@@ -1,0 +1,54 @@
+{
+  "freeze_status": "VERIFIED - all computed values match expected table within tolerance",
+  "tolerance": 0.001,
+  "metrics": {
+    "N": {
+      "metadata": 66,
+      "fulltext": 66
+    },
+    "Final k": {
+      "metadata": 4,
+      "fulltext": 8
+    },
+    "Vocabulary size": {
+      "metadata": 397,
+      "fulltext": 2626
+    },
+    "Seeds per k": {
+      "metadata": 20,
+      "fulltext": 20
+    },
+    "Definitive k-sweep models": {
+      "metadata": 380,
+      "fulltext": 380
+    },
+    "Structural-medoid seed": {
+      "metadata": 14,
+      "fulltext": 2
+    },
+    "Mean C_v at final k": {
+      "metadata": 0.4035,
+      "fulltext": 0.3958
+    },
+    "Mean C_NPMI": {
+      "metadata": -0.1042,
+      "fulltext": -0.0432
+    },
+    "Mean cross-seed JS stability": {
+      "metadata": 0.661,
+      "fulltext": 0.5432
+    },
+    "Mean topic diversity": {
+      "metadata": 0.8425,
+      "fulltext": 0.7669
+    },
+    "80% subsampling topic similarity": {
+      "metadata": 0.5858,
+      "fulltext": 0.5151
+    },
+    "80% subsampling ARI": {
+      "metadata": 0.1287,
+      "fulltext": 0.2192
+    }
+  }
+}

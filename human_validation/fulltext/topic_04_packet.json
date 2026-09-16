@@ -1,0 +1,105 @@
+{
+  "representation": "fulltext",
+  "topic_id": 4,
+  "k": 8,
+  "medoid_seed": 2,
+  "top_20_probability_terms": [
+    "chatgpt",
+    "exercise",
+    "topic",
+    "developer",
+    "project",
+    "pass",
+    "training",
+    "difficulty",
+    "testing",
+    "file",
+    "application",
+    "leetcode",
+    "usage",
+    "google",
+    "accuracy",
+    "web",
+    "api",
+    "conversation",
+    "chat",
+    "fig"
+  ],
+  "top_20_frex_terms": [
+    "exercise",
+    "bing",
+    "sentiment",
+    "bard",
+    "pseudocode",
+    "competition",
+    "milestone",
+    "refactoring",
+    "topic",
+    "login",
+    "proficiency",
+    "reaction",
+    "refactor",
+    "refactore",
+    "coverage",
+    "clean",
+    "brevity",
+    "early",
+    "pseudo",
+    "acceptance"
+  ],
+  "top_loading_studies": [
+    {
+      "Study_ID": "S63",
+      "title": "Java Web Programming with ChatGPT",
+      "topic_probability": 0.9918
+    },
+    {
+      "Study_ID": "S12",
+      "title": "Automated Programming Exercise Generation in the Era of Large Language Models",
+      "topic_probability": 0.9904
+    },
+    {
+      "Study_ID": "S56",
+      "title": "Unmasking the giant: A comprehensive evaluation of ChatGPT's proficiency in coding algorithms and data structures",
+      "topic_probability": 0.8859
+    },
+    {
+      "Study_ID": "S28",
+      "title": "Digital Rubber Duck: Leveraging Large Language Models for Extreme Programming",
+      "topic_probability": 0.8085
+    },
+    {
+      "Study_ID": "S41",
+      "title": "Extending the Frontier of ChatGPT: Code Generation and Debugging",
+      "topic_probability": 0.6951
+    },
+    {
+      "Study_ID": "S03",
+      "title": "A Closer Look at Different Difficulty Levels Code Generation Abilities of ChatGPT",
+      "topic_probability": 0.6591
+    },
+    {
+      "Study_ID": "S07",
+      "title": "AI-assisted coding: Experiments with GPT-4",
+      "topic_probability": 0.5507
+    },
+    {
+      "Study_ID": "S02",
+      "title": "A Two-Stage Code Generation Method using Large Language Models",
+      "topic_probability": 0.5419
+    },
+    {
+      "Study_ID": "S59",
+      "title": "Why Do Developers Engage with ChatGPT in Issue-Tracker? Investigating Usage and Reliance on ChatGPT-Generated Code",
+      "topic_probability": 0.4814
+    },
+    {
+      "Study_ID": "S49",
+      "title": "LLMs for Science: Usage for Code Generation and Data Analysis",
+      "topic_probability": 0.4345
+    }
+  ],
+  "prevalence_mean_probability": 0.1398,
+  "ai_draft_label": "[AI-DRAFT - NOT A VALIDATED HUMAN LABEL]",
+  "ai_draft_description": "[AI-DRAFT - NOT A VALIDATED HUMAN LABEL] Provisional reading based on the top probability/FREX terms and top-loading study titles above, provided only to speed up human rater orientation. Must not be used in the manuscript until ratified or replaced by human raters."
+}

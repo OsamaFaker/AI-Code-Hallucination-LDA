@@ -1,0 +1,15 @@
+blinded_model,topic_id,word_intrusion_correct_answer,document_intrusion_correct_answer
+C,0,chatgpt,"S60: Would ChatGPT-facilitated programming mode impact college students’ programming behaviors, performances, and perceptions? An empirical study"
+C,1,requirement,S08: An Empirical Study of the Code Generation of Safety-Critical Software Using LLMs
+B,0,requirement,S08: An Empirical Study of the Code Generation of Safety-Critical Software Using LLMs
+B,1,requirement,S08: An Empirical Study of the Code Generation of Safety-Critical Software Using LLMs
+B,2,chatgpt,S54: The Future of Grading Programming Assignments in Education: The Role of ChatGPT in Automating the Assessment and Feedback Process
+D,0,requirement,S08: An Empirical Study of the Code Generation of Safety-Critical Software Using LLMs
+D,1,chatgpt,"S60: Would ChatGPT-facilitated programming mode impact college students’ programming behaviors, performances, and perceptions? An empirical study"
+D,2,problem,S08: An Empirical Study of the Code Generation of Safety-Critical Software Using LLMs
+D,3,requirement,S08: An Empirical Study of the Code Generation of Safety-Critical Software Using LLMs
+A,0,requirement,S08: An Empirical Study of the Code Generation of Safety-Critical Software Using LLMs
+A,1,tool,S54: The Future of Grading Programming Assignments in Education: The Role of ChatGPT in Automating the Assessment and Feedback Process
+A,2,tool,S08: An Empirical Study of the Code Generation of Safety-Critical Software Using LLMs
+A,3,chatgpt,S08: An Empirical Study of the Code Generation of Safety-Critical Software Using LLMs
+A,4,hallucination,S08: An Empirical Study of the Code Generation of Safety-Critical Software Using LLMs
