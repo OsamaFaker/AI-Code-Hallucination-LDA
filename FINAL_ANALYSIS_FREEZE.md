@@ -100,6 +100,23 @@ section have not been rewritten. The next task should draw only from
 `reports/FROZEN_MANUSCRIPT_VALUES.md`, `human_validation/FINAL_TOPIC_LABELS.csv`,
 `reports/HUMAN_VALIDATION_REPORT.md`, `reports/FIGURE_INDEX.md`, and the frozen figures.
 
+## Deployment addendum (2026-09-17): GitHub publication + figure-registry path fix
+
+Published to `https://github.com/OsamaFaker/AI-Code-Hallucination-LDA` (branch `main`, tags
+`lda-final-freeze` and `lda-final-freeze-v2` both pushed pointing to their original commits,
+unmoved). During remote verification, `figures/FIGURE_SHA256.csv` was found to use
+Windows-backslash paths instead of git/GitHub forward-slash paths (hash **values** were always
+correct; only the path **keys** were malformed) — fixed via `src/build_figure_checksums.py`
+and logged in `protocol/protocol_amendments.md`. This is a verification-tooling fix, not a
+re-freeze of analytical content, so no new version number or tag was created for it; it is
+included in the commit(s) following `6a45b76a39b7b37bc0271bcaeaa88f889a8f17c4` on `main`.
+Updated checksum: `figures/FIGURE_SHA256.csv` =
+`93801b23d6e8a112a9e6728061b9a72e1e14355a44d0c858d1422dd72031dd1`. Every tracked file (380) and
+every figure (114 PNG+PDF files) was independently re-downloaded from GitHub's raw content and
+SHA-256-verified against the committed git blob, with zero missing files and zero mismatches —
+see `reports/REMOTE_FILE_VERIFICATION.md`, `reports/REMOTE_FIGURE_VERIFICATION.md`,
+`reports/GITHUB_DEPLOYMENT_VERIFICATION.md`.
+
 ## Statement of record
 
 > This freeze contains the final analytical outputs, human-validation evidence, reconciled

@@ -66,6 +66,22 @@ traceability, even though they do not change the frozen methodology itself.
   changes a decision rule after observing its output on real data; the change is a general
   correction to the selection procedure's logic, not a choice tuned to produce a particular k.
 
+## 2026-09-17 — Figure-checksum registry path-format fix (implementation error)
+
+- **Issue:** `figures/FIGURE_SHA256.csv` was generated on Windows using `str(Path)` directly,
+  producing backslash-separated paths (e.g. `figures\metadata\M8_....png`) instead of the
+  forward-slash paths used by git/GitHub (`figures/metadata/M8_....png`). All 114 SHA-256
+  **values** were correct; only the path **keys** were wrong, which caused every figure to
+  fail an automated remote-verification lookup during the GitHub-deployment task despite the
+  actual file content being byte-identical between local and remote.
+- **Fix:** `src/build_figure_checksums.py` (new, using `Path.as_posix()`) regenerates
+  `figures/FIGURE_SHA256.csv` with portable forward-slash paths. Re-verified 114/114 figures
+  PASS against both the corrected registry and the live GitHub remote
+  (`reports/REMOTE_FIGURE_VERIFICATION.md`).
+- **Justification:** implementation error discovered during GitHub-deployment verification,
+  corrected per the protocol's explicit allowance for implementation-error fixes. No figure
+  content, hash value, or analytical result changed.
+
 ## 2026-09-16 — Removal of the k≥4 floor; replaced with descriptive admissibility + blinded human validation
 
 - **Original rule (2026-09-14 amendment above):** parsimony applies only among Pareto-optimal
