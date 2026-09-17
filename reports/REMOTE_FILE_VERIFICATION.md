@@ -1,15 +1,15 @@
 # Remote File Verification
 
-**Method:** every one of the 380 git-tracked files was independently downloaded from `raw.githubusercontent.com/OsamaFaker/AI-Code-Hallucination-LDA/main/<path>` via a direct HTTPS byte fetch (not GitHub's web UI, not git itself) and compared by SHA-256 against the committed **git blob** content (`git show HEAD:<path>`), not the raw working-tree file. This distinction matters: this Windows checkout has `core.autocrlf=true`, so working-tree text files are checked out with CRLF line endings while the stored git blob (and what GitHub actually serves) uses LF. An initial pass comparing raw working-tree bytes against the remote incorrectly flagged 187 files as mismatches for this reason alone; comparing against the git blob (spot-verified byte-identical to both the remote download and `git diff main origin/main`, which itself reports zero differences) resolves this. See `src/verify_remote.py`.
+**Method:** every one of the 385 git-tracked files was independently downloaded from `raw.githubusercontent.com/OsamaFaker/AI-Code-Hallucination-LDA/main/<path>` via a direct HTTPS byte fetch and compared by SHA-256 against the committed **git blob** content (`git show HEAD:<path>`), not the raw working-tree file. This distinction matters: this Windows checkout has `core.autocrlf=true`, so working-tree text files are checked out with CRLF line endings while the stored git blob (and what GitHub actually serves) uses LF. An initial pass comparing raw working-tree bytes against the remote incorrectly flagged 187 files as mismatches for this reason alone; comparing against the git blob (spot-verified byte-identical to both the remote download and `git diff main origin/main`, which itself reports zero differences) resolves this. A separate, later run immediately after a push also showed one transient mismatch (`FINAL_ANALYSIS_FREEZE.md`) caused by GitHub's raw-content CDN cache not yet having propagated the new push; re-checking ~10 seconds later (and independently confirming via `git diff origin/main`, which showed zero difference) resolved it. This final run reflects the fully propagated, stable remote state. See `src/verify_remote.py`.
 
-**Result: 380/380 PASS, 0 missing, 0 hash mismatches.**
+**Result: 385/385 PASS, 0 missing, 0 hash mismatches.**
 
 | Local file | Remote exists | Local hash (git blob) | Remote hash | Status |
 |---|---|---|---|---|
 | `.gitignore` | True | `76c6235dec9c...` | `76c6235dec9c...` | **PASS** |
 | `ANALYSIS_FREEZE_SHA256.txt` | True | `ff2972a96cb1...` | `ff2972a96cb1...` | **PASS** |
 | `CITATION.cff` | True | `2a1fbf22f70d...` | `2a1fbf22f70d...` | **PASS** |
-| `FINAL_ANALYSIS_FREEZE.md` | True | `74316b5c65bd...` | `74316b5c65bd...` | **PASS** |
+| `FINAL_ANALYSIS_FREEZE.md` | True | `620bd54135db...` | `620bd54135db...` | **PASS** |
 | `LICENSE` | True | `2d0a24a52211...` | `2d0a24a52211...` | **PASS** |
 | `README.md` | True | `df6072c2663b...` | `df6072c2663b...` | **PASS** |
 | `corpus/corpus_audit.md` | True | `136ebda3d7a7...` | `136ebda3d7a7...` | **PASS** |
@@ -21,7 +21,7 @@
 | `extraction/extraction_quality_report.md` | True | `3854226096d5...` | `3854226096d5...` | **PASS** |
 | `extraction/fulltext_extraction.csv` | True | `692819645ebc...` | `692819645ebc...` | **PASS** |
 | `extraction/metadata_extraction.csv` | True | `23b34b3fb130...` | `23b34b3fb130...` | **PASS** |
-| `figures/FIGURE_SHA256.csv` | True | `ad72c5a89105...` | `ad72c5a89105...` | **PASS** |
+| `figures/FIGURE_SHA256.csv` | True | `5ee8ba6e7de3...` | `5ee8ba6e7de3...` | **PASS** |
 | `figures/comparison/C1_topic_alignment_heatmap.pdf` | True | `daf91c519fbd...` | `daf91c519fbd...` | **PASS** |
 | `figures/comparison/C1_topic_alignment_heatmap.png` | True | `3e24b3d522e0...` | `3e24b3d522e0...` | **PASS** |
 | `figures/comparison/C2_dominant_topic_contingency.pdf` | True | `5d2edb6028be...` | `5d2edb6028be...` | **PASS** |
@@ -250,7 +250,7 @@
 | `preprocessing/metadata/spacy_stopwords.txt` | True | `f1ed43383348...` | `f1ed43383348...` | **PASS** |
 | `preprocessing/metadata_high_frequency_terms.csv` | True | `6a421043b997...` | `6a421043b997...` | **PASS** |
 | `protocol/LDA_66_dual_representation_protocol.md` | True | `b7d2e1b5c3eb...` | `b7d2e1b5c3eb...` | **PASS** |
-| `protocol/protocol_amendments.md` | True | `48ebddcb386c...` | `48ebddcb386c...` | **PASS** |
+| `protocol/protocol_amendments.md` | True | `3b540573b8a0...` | `3b540573b8a0...` | **PASS** |
 | `protocol/protocol_sha256.txt` | True | `9b75b46856aa...` | `9b75b46856aa...` | **PASS** |
 | `reports/CROSS_REPRESENTATION_REPORT.md` | True | `37a66f6fc831...` | `37a66f6fc831...` | **PASS** |
 | `reports/ENVIRONMENT_SNAPSHOT.md` | True | `31aa02a1b74d...` | `31aa02a1b74d...` | **PASS** |
@@ -266,6 +266,8 @@
 | `reports/METADATA_FINAL_K_VALIDATION.md` | True | `971b3b471b50...` | `971b3b471b50...` | **PASS** |
 | `reports/METADATA_LDA_REPORT.md` | True | `c7a5330ee0ca...` | `c7a5330ee0ca...` | **PASS** |
 | `reports/RECOMMENDED_MANUSCRIPT_FIGURES.md` | True | `537b2516bf15...` | `537b2516bf15...` | **PASS** |
+| `reports/REMOTE_FIGURE_VERIFICATION.md` | True | `207573268855...` | `207573268855...` | **PASS** |
+| `reports/REMOTE_FILE_VERIFICATION.md` | True | `e797d13d5148...` | `e797d13d5148...` | **PASS** |
 | `reports/REPRODUCIBILITY_REPORT.md` | True | `c30ad876f591...` | `c30ad876f591...` | **PASS** |
 | `reports/REVIEWER_LDA_RESPONSE_MATRIX.md` | True | `33f1f056dbe4...` | `33f1f056dbe4...` | **PASS** |
 | `reports/ROBUSTNESS_REPORT.md` | True | `1b8ae6f22d4b...` | `1b8ae6f22d4b...` | **PASS** |
@@ -349,10 +351,12 @@
 | `results/metadata/subsampling_80pct_100reps.csv` | True | `44f135b7e4f3...` | `44f135b7e4f3...` | **PASS** |
 | `results/metadata/subsampling_80pct_summary.json` | True | `07930060641d...` | `07930060641d...` | **PASS** |
 | `results/metadata/training_effort_sensitivity.json` | True | `6dcb2142d2ea...` | `6dcb2142d2ea...` | **PASS** |
+| `results/remote_file_verification.csv` | True | `a87792c23c32...` | `a87792c23c32...` | **PASS** |
 | `results/robustness_evidence_matrix.csv` | True | `04782eec168d...` | `04782eec168d...` | **PASS** |
 | `results/validation_report.txt` | True | `da14127a092d...` | `da14127a092d...` | **PASS** |
 | `src/_gen_notebooks.py` | True | `2179629b0cf8...` | `2179629b0cf8...` | **PASS** |
 | `src/blinded_candidate_packets.py` | True | `365ec770f3dd...` | `365ec770f3dd...` | **PASS** |
+| `src/build_figure_checksums.py` | True | `bff1f6c8247b...` | `bff1f6c8247b...` | **PASS** |
 | `src/build_provenance.py` | True | `26828fccb324...` | `26828fccb324...` | **PASS** |
 | `src/candidate_k_comparison.py` | True | `c28b3a2f8135...` | `c28b3a2f8135...` | **PASS** |
 | `src/corpus_audit.py` | True | `651c0ba9f8d4...` | `651c0ba9f8d4...` | **PASS** |
@@ -386,3 +390,4 @@
 | `src/stage1_dictionary_sweep.py` | True | `7100ea86be73...` | `7100ea86be73...` | **PASS** |
 | `src/stage2_convergence_pilot.py` | True | `5f817d8fea94...` | `5f817d8fea94...` | **PASS** |
 | `src/validate_repository.py` | True | `040b82c9ecae...` | `040b82c9ecae...` | **PASS** |
+| `src/verify_remote.py` | True | `22f692758b4f...` | `22f692758b4f...` | **PASS** |
