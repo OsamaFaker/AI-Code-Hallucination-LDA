@@ -111,7 +111,7 @@ and logged in `protocol/protocol_amendments.md`. This is a verification-tooling 
 re-freeze of analytical content, so no new version number or tag was created for it; it is
 included in the commit(s) following `6a45b76a39b7b37bc0271bcaeaa88f889a8f17c4` on `main`.
 Updated checksum: `figures/FIGURE_SHA256.csv` =
-`93801b23d6e8a112a9e6728061b9a72e1e14355a44d0c858d1422dd72031dd1`. Every tracked file (380) and
+`93801b23d6e8a112a9e6728061b9a72e1e14355a44d0c858d1422dd72031dd1`. Every tracked file (385) and
 every figure (114 PNG+PDF files) was independently re-downloaded from GitHub's raw content and
 SHA-256-verified against the committed git blob, with zero missing files and zero mismatches —
 see `reports/REMOTE_FILE_VERIFICATION.md`, `reports/REMOTE_FIGURE_VERIFICATION.md`,

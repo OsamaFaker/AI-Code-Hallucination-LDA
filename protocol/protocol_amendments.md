@@ -66,6 +66,21 @@ traceability, even though they do not change the frozen methodology itself.
   changes a decision rule after observing its output on real data; the change is a general
   correction to the selection procedure's logic, not a choice tuned to produce a particular k.
 
+## 2026-09-17 — Stale deployment-count correction in FINAL_ANALYSIS_FREEZE.md (documentation only)
+
+Corrected a stale deployment-file count in `FINAL_ANALYSIS_FREEZE.md` from 380 to 385 tracked
+files. The deployment addendum had been written referencing an earlier verification pass (380
+tracked files, before `reports/REMOTE_FILE_VERIFICATION.md`,
+`reports/REMOTE_FIGURE_VERIFICATION.md`, `reports/GITHUB_DEPLOYMENT_VERIFICATION.md`, and
+`src/verify_remote.py`/`src/build_figure_checksums.py` were themselves added to the tracked
+set); the final verified deployment count is 385, as already correctly stated elsewhere
+(`reports/GITHUB_DEPLOYMENT_VERIFICATION.md`, `reports/REMOTE_FILE_VERIFICATION.md`). This is a
+**documentation-only correction and does not affect any analytical result, topic model,
+human-validation result, figure, or frozen numerical value** — the distinct, correct "380
+models per representation" analytical value (definitive k-sweep model count) is unrelated and
+unchanged. `ANALYSIS_FREEZE_SHA256.txt` regenerated to match the corrected
+`FINAL_ANALYSIS_FREEZE.md`.
+
 ## 2026-09-17 — Figure-checksum registry path-format fix (implementation error)
 
 - **Issue:** `figures/FIGURE_SHA256.csv` was generated on Windows using `str(Path)` directly,
