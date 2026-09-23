@@ -1,3 +1,0 @@
-representation,original_token,erroneous_lemma,corrected_lemma,affected_studies,occurrences,justification
-metadata,datum,datum,data,12,33,"Deterministic, corpus-wide: spaCy's lemmatizer maps the common English noun 'data' to the classical-Latin singular 'datum', which never occurs as a surface form in this software-engineering corpus and would fragment a high-frequency, topically important term across two lemmas."
-fulltext,datum,datum,data,65,676,"Deterministic, corpus-wide: spaCy's lemmatizer maps the common English noun 'data' to the classical-Latin singular 'datum', which never occurs as a surface form in this software-engineering corpus and would fragment a high-frequency, topically important term across two lemmas."

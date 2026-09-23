@@ -1,7 +1,0 @@
-[fulltext] 6/36 combos done (469s elapsed)
-[fulltext] 12/36 combos done (514s elapsed)
-[fulltext] 18/36 combos done (627s elapsed)
-[fulltext] 24/36 combos done (679s elapsed)
-[fulltext] 30/36 combos done (774s elapsed)
-[fulltext] 36/36 combos done (821s elapsed)
-[fulltext] DONE in 821s -> C:\Users\osama\Desktop\SMR_Major Revision\Final Copy\LDA\LDA_66_Dual_Representation\results\fulltext\stage1_dictionary_threshold_sweep.csv

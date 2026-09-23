@@ -1,9 +1,0 @@
-blinded_model,rater_id,contains_redundant_topics,merges_different_themes,splits_one_theme_unnecessarily,every_topic_substantively_meaningful,notes,k
-C,Rater1,0.0,1.0,0.0,0.0,Merges safety-critical requirements with hallucinations. Too broad.,2
-B,Rater1,0.0,1.0,0.0,1.0,"Better balance, but slightly compresses developer workflows, vulnerabilities, and hallucinations.",3
-D,Rater1,0.0,0.0,1.0,1.0,"Good coverage, though it splits hallucinations and vulnerabilities which are related.",4
-A,Rater1,0.0,0.0,0.0,1.0,Excellent granularity. Isolates distinct areas without unnecessary splitting.,5
-C,Rater2,No,Yes,No,Yes,Only 2 topics; each is meaningful at a high level but clearly merges distinguishable sub-themes (education vs. developer trust in Topic 1; safety-critical/general code-gen technique vs. hallucination benchmarking in Topic 0). Too coarse to separate key constructs.,2
-B,Rater2,No,No,No,Yes,"Three topics (education, trust/hallucination-evaluation, code-gen technique) are each coherent and mutually distinct. Best coverage-to-simplicity balance of the four models.",3
-D,Rater2,Somewhat,Somewhat,Somewhat,Mostly,"Topic 1 (methods/requirements) is nearly redundant with what a 3-topic solution already captures. Topic 2 mixes classroom education with workplace adoption/perception studies. Splitting hallucination into Topic 0 (trust/vulnerability) and Topic 3 (API/mitigation benchmarking) is arguably useful, but adds complexity without full separation.",4
-A,Rater2,Yes,No,Yes,Mostly,"Topics 0 and 2 (education; hallucination benchmarking) are clean and distinct. Topic 4 overlaps substantially with Topics 1 and 3, functioning as a residual 'general empirical evaluation' topic rather than a clearly separate construct — suggests the developer-experience/reliability theme is over-split across three topics (1, 3, 4).",5

@@ -1,2 +1,0 @@
-[fulltext] training-effort sensitivity: JS=0.902 dominant_agree=0.939
-[fulltext] dictionary sensitivity computed for 4 neighbors

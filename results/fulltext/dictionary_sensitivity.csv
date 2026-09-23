@@ -1,5 +1,0 @@
-varied_param,no_below,no_above,vocab_size,mean_js_similarity_to_base
-no_below,3,0.75,3178,0.5363386245552835
-no_below,5,0.75,2251,0.5655407239131645
-no_above,4,0.7,2585,0.4872011537954182
-no_above,4,0.8,2656,0.5172165276890353

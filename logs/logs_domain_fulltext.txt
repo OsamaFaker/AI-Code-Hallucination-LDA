@@ -1,1 +1,0 @@
-[fulltext] HF-A cv=0.384 vs HF-B cv=0.444; ARI=0.097 NMI=0.404; removed 4 terms

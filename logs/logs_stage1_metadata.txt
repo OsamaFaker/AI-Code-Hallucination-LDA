@@ -1,7 +1,0 @@
-[metadata] 6/36 combos done (52s elapsed)
-[metadata] 12/36 combos done (58s elapsed)
-[metadata] 18/36 combos done (95s elapsed)
-[metadata] 24/36 combos done (119s elapsed)
-[metadata] 30/36 combos done (176s elapsed)
-[metadata] 36/36 combos done (233s elapsed)
-[metadata] DONE in 235s -> C:\Users\osama\Desktop\SMR_Major Revision\Final Copy\LDA\LDA_66_Dual_Representation\results\metadata\stage1_dictionary_threshold_sweep.csv
