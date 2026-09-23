@@ -1,0 +1,14 @@
+﻿Wrote C:\Users\osama\Desktop\SMR_Major Revision\Final Copy\LDA\results\metadata\interpretation_packet_k2.md
+Wrote C:\Users\osama\Desktop\SMR_Major Revision\Final Copy\LDA\results\metadata\interpretation_packet_k3.md
+Wrote C:\Users\osama\Desktop\SMR_Major Revision\Final Copy\LDA\results\metadata\interpretation_packet_k4.md
+Wrote C:\Users\osama\Desktop\SMR_Major Revision\Final Copy\LDA\results\metadata\interpretation_packet_k5.md
+Wrote C:\Users\osama\Desktop\SMR_Major Revision\Final Copy\LDA\human_validation\metadata\ANSWER_KEY_do_not_share_with_raters.md (analyst-only)
+Wrote C:\Users\osama\Desktop\SMR_Major Revision\Final Copy\LDA\human_validation\metadata\blinded_comparison_packet.md
+[metadata] Stage 6 packets complete for finalists k=[2, 3, 4, 5]
+Wrote C:\Users\osama\Desktop\SMR_Major Revision\Final Copy\LDA\results\fulltext\interpretation_packet_k2.md
+Wrote C:\Users\osama\Desktop\SMR_Major Revision\Final Copy\LDA\results\fulltext\interpretation_packet_k3.md
+Wrote C:\Users\osama\Desktop\SMR_Major Revision\Final Copy\LDA\results\fulltext\interpretation_packet_k4.md
+Wrote C:\Users\osama\Desktop\SMR_Major Revision\Final Copy\LDA\results\fulltext\interpretation_packet_k5.md
+Wrote C:\Users\osama\Desktop\SMR_Major Revision\Final Copy\LDA\human_validation\fulltext\ANSWER_KEY_do_not_share_with_raters.md (analyst-only)
+Wrote C:\Users\osama\Desktop\SMR_Major Revision\Final Copy\LDA\human_validation\fulltext\blinded_comparison_packet.md
+[fulltext] Stage 6 packets complete for finalists k=[2, 3, 4, 5]

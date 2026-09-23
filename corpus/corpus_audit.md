@@ -1,5 +1,13 @@
 # Corpus Audit
 
+The systematic mapping review contains 71 included studies: 66 primary and
+five secondary studies. The LDA analysis uses the 66 primary studies only;
+secondary studies are excluded because they synthesize evidence from primary
+research and are not treated as independent analytical units. See
+`corpus/corpus_manifest.csv` for the full 71-study manifest with the
+`included_in_lda` flag, and `corpus/primary_studies_manifest.csv` for the
+66-study LDA analytical corpus with extraction-status detail.
+
 ## Counts
 
 - Total included studies (71_Final_SMR + Master Data): 71

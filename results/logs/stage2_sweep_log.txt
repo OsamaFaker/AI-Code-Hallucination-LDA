@@ -1,0 +1,105 @@
+﻿.\.venv\Scripts\python.exe : C:\Users\osama\Desktop\SMR_Major Revision\Final 
+Copy\LDA\.venv\Lib\site-packages\scipy\spatial\distance.py:1290: RuntimeWarning: invalid value encountered in sqrt
+At line:2 char:1
++ .\.venv\Scripts\python.exe src\stage2_sweep.py *> results\stage2_swee ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (C:\Users\osama\...untered in sqrt:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  return np.sqrt(js / 2.0)
+[metadata] Stage 1 frozen config: HF-B bigrams=False no_below=6 no_above=0.4 vocab=208
+[metadata] prior alpha=auto eta=auto -> mean_cv=0.3445 mean_stability=0.50638 (32.9s)
+[metadata] prior alpha=auto eta=symmetric -> mean_cv=0.3445 mean_stability=0.50638 (30.6s)
+[metadata] prior alpha=symmetric eta=auto -> mean_cv=0.34605 mean_stability=0.50361 (34.7s)
+[metadata] prior alpha=symmetric eta=symmetric -> mean_cv=0.34605 mean_stability=0.50361 (43.4s)
+[metadata] prior alpha=0.05 eta=auto -> mean_cv=0.3437 mean_stability=0.50934 (28.8s)
+[metadata] prior alpha=0.05 eta=symmetric -> mean_cv=0.3437 mean_stability=0.50934 (33.6s)
+[metadata] prior alpha=0.1 eta=auto -> mean_cv=0.33964 mean_stability=0.50917 (34.1s)
+[metadata] prior alpha=0.1 eta=symmetric -> mean_cv=0.33964 mean_stability=0.50917 (33.6s)
+[metadata] prior alpha=0.25 eta=auto -> mean_cv=0.3475 mean_stability=0.50044 (35.7s)
+[metadata] prior alpha=0.25 eta=symmetric -> mean_cv=0.3475 mean_stability=0.50044 (44.7s)
+[metadata] prior alpha=0.5 eta=auto -> mean_cv=0.36589 mean_stability=0.48876 (49.0s)
+[metadata] prior alpha=0.5 eta=symmetric -> mean_cv=0.36589 mean_stability=0.48876 (40.3s)
+[metadata] prior alpha=1.0 eta=auto -> mean_cv=0.3767 mean_stability=0.4883 (30.2s)
+[metadata] prior alpha=1.0 eta=symmetric -> mean_cv=0.3767 mean_stability=0.4883 (29.9s)
+[metadata] convergence fits done for passes=10 iterations=200 (6.7s)
+[metadata] convergence fits done for passes=10 iterations=400 (7.3s)
+[metadata] convergence fits done for passes=20 iterations=200 (11.7s)
+[metadata] convergence fits done for passes=30 iterations=200 (15.7s)
+[metadata] convergence fits done for passes=10 iterations=800 (7.4s)
+[metadata] convergence fits done for passes=20 iterations=400 (12.3s)
+[metadata] convergence fits done for passes=50 iterations=200 (25.8s)
+[metadata] convergence fits done for passes=10 iterations=1200 (8.1s)
+[metadata] convergence fits done for passes=30 iterations=400 (16.5s)
+[metadata] convergence fits done for passes=20 iterations=800 (12.1s)
+[metadata] convergence fits done for passes=50 iterations=400 (27.1s)
+[metadata] convergence fits done for passes=20 iterations=1200 (11.5s)
+[metadata] convergence fits done for passes=30 iterations=800 (16.2s)
+[metadata] convergence fits done for passes=30 iterations=1200 (16.1s)
+[metadata] convergence fits done for passes=50 iterations=800 (25.4s)
+[metadata] convergence fits done for passes=50 iterations=1200 (25.6s)
+[metadata] convergence passes=10 iterations=200 -> JS_vs_next=0.93305 dom_agree_vs_next=0.94646
+[metadata] convergence passes=10 iterations=400 -> JS_vs_next=0.89738 dom_agree_vs_next=0.91414
+[metadata] convergence passes=20 iterations=200 -> JS_vs_next=0.96826 dom_agree_vs_next=0.97778
+[metadata] convergence passes=30 iterations=200 -> JS_vs_next=0.8675 dom_agree_vs_next=0.89798
+[metadata] convergence passes=10 iterations=800 -> JS_vs_next=0.92448 dom_agree_vs_next=0.9404
+[metadata] convergence passes=20 iterations=400 -> JS_vs_next=0.88424 dom_agree_vs_next=0.91515
+[metadata] convergence passes=50 iterations=200 -> JS_vs_next=0.84919 dom_agree_vs_next=0.88081
+[metadata] convergence passes=10 iterations=1200 -> JS_vs_next=0.89866 dom_agree_vs_next=0.9202
+[metadata] convergence passes=30 iterations=400 -> JS_vs_next=0.93622 dom_agree_vs_next=0.96263
+[metadata] convergence passes=20 iterations=800 -> JS_vs_next=0.91465 dom_agree_vs_next=0.94949
+[metadata] convergence passes=50 iterations=400 -> JS_vs_next=0.9084 dom_agree_vs_next=0.93838
+[metadata] convergence passes=20 iterations=1200 -> JS_vs_next=0.95999 dom_agree_vs_next=0.97374
+[metadata] convergence passes=30 iterations=800 -> JS_vs_next=0.97947 dom_agree_vs_next=0.98788
+[metadata] convergence passes=30 iterations=1200 -> JS_vs_next=0.95469 dom_agree_vs_next=0.97374
+[metadata] convergence passes=50 iterations=800 -> JS_vs_next=0.97587 dom_agree_vs_next=0.98687
+[metadata] convergence passes=50 iterations=1200 -> JS_vs_next=None dom_agree_vs_next=None
+[metadata] STAGE 2 DONE in 12.7 min
+[fulltext] Stage 1 frozen config: HF-A bigrams=False no_below=6 no_above=0.4 vocab=1503
+[fulltext] prior alpha=auto eta=auto -> mean_cv=0.32144 mean_stability=0.46744 (152.2s)
+[fulltext] prior alpha=auto eta=symmetric -> mean_cv=0.32144 mean_stability=0.46744 (152.3s)
+[fulltext] prior alpha=symmetric eta=auto -> mean_cv=0.32173 mean_stability=0.46684 (151.8s)
+[fulltext] prior alpha=symmetric eta=symmetric -> mean_cv=0.32173 mean_stability=0.46684 (150.8s)
+[fulltext] prior alpha=0.05 eta=auto -> mean_cv=0.32167 mean_stability=0.46643 (156.2s)
+[fulltext] prior alpha=0.05 eta=symmetric -> mean_cv=0.32167 mean_stability=0.46643 (170.5s)
+[fulltext] prior alpha=0.1 eta=auto -> mean_cv=0.32167 mean_stability=0.46669 (226.3s)
+[fulltext] prior alpha=0.1 eta=symmetric -> mean_cv=0.32167 mean_stability=0.46669 (227.8s)
+[fulltext] prior alpha=0.25 eta=auto -> mean_cv=0.32191 mean_stability=0.46684 (225.1s)
+[fulltext] prior alpha=0.25 eta=symmetric -> mean_cv=0.32191 mean_stability=0.46684 (232.9s)
+[fulltext] prior alpha=0.5 eta=auto -> mean_cv=0.32329 mean_stability=0.46641 (226.5s)
+[fulltext] prior alpha=0.5 eta=symmetric -> mean_cv=0.32329 mean_stability=0.46641 (220.7s)
+[fulltext] prior alpha=1.0 eta=auto -> mean_cv=0.32592 mean_stability=0.46537 (127.4s)
+[fulltext] prior alpha=1.0 eta=symmetric -> mean_cv=0.32592 mean_stability=0.46537 (188.6s)
+[fulltext] convergence fits done for passes=10 iterations=200 (22.7s)
+[fulltext] convergence fits done for passes=10 iterations=400 (27.7s)
+[fulltext] convergence fits done for passes=20 iterations=200 (41.0s)
+[fulltext] convergence fits done for passes=30 iterations=200 (61.7s)
+[fulltext] convergence fits done for passes=10 iterations=800 (35.1s)
+[fulltext] convergence fits done for passes=20 iterations=400 (50.8s)
+[fulltext] convergence fits done for passes=50 iterations=200 (116.7s)
+[fulltext] convergence fits done for passes=10 iterations=1200 (41.7s)
+[fulltext] convergence fits done for passes=30 iterations=400 (79.5s)
+[fulltext] convergence fits done for passes=20 iterations=800 (54.6s)
+[fulltext] convergence fits done for passes=50 iterations=400 (129.6s)
+[fulltext] convergence fits done for passes=20 iterations=1200 (55.4s)
+[fulltext] convergence fits done for passes=30 iterations=800 (77.8s)
+[fulltext] convergence fits done for passes=30 iterations=1200 (78.7s)
+[fulltext] convergence fits done for passes=50 iterations=800 (127.5s)
+[fulltext] convergence fits done for passes=50 iterations=1200 (133.7s)
+[fulltext] convergence passes=10 iterations=200 -> JS_vs_next=0.94014 dom_agree_vs_next=0.96162
+[fulltext] convergence passes=10 iterations=400 -> JS_vs_next=0.89518 dom_agree_vs_next=0.91919
+[fulltext] convergence passes=20 iterations=200 -> JS_vs_next=0.95847 dom_agree_vs_next=0.96869
+[fulltext] convergence passes=30 iterations=200 -> JS_vs_next=0.85463 dom_agree_vs_next=0.88384
+[fulltext] convergence passes=10 iterations=800 -> JS_vs_next=0.90868 dom_agree_vs_next=0.93737
+[fulltext] convergence passes=20 iterations=400 -> JS_vs_next=0.8784 dom_agree_vs_next=0.90808
+[fulltext] convergence passes=50 iterations=200 -> JS_vs_next=0.82296 dom_agree_vs_next=0.85253
+[fulltext] convergence passes=10 iterations=1200 -> JS_vs_next=0.8728 dom_agree_vs_next=0.90101
+[fulltext] convergence passes=30 iterations=400 -> JS_vs_next=0.92904 dom_agree_vs_next=0.95556
+[fulltext] convergence passes=20 iterations=800 -> JS_vs_next=0.89312 dom_agree_vs_next=0.92323
+[fulltext] convergence passes=50 iterations=400 -> JS_vs_next=0.88813 dom_agree_vs_next=0.91818
+[fulltext] convergence passes=20 iterations=1200 -> JS_vs_next=0.94835 dom_agree_vs_next=0.95758
+[fulltext] convergence passes=30 iterations=800 -> JS_vs_next=0.97741 dom_agree_vs_next=0.98889
+[fulltext] convergence passes=30 iterations=1200 -> JS_vs_next=0.93942 dom_agree_vs_next=0.95859
+[fulltext] convergence passes=50 iterations=800 -> JS_vs_next=0.97359 dom_agree_vs_next=0.9899
+[fulltext] convergence passes=50 iterations=1200 -> JS_vs_next=None dom_agree_vs_next=None
+[fulltext] STAGE 2 DONE in 66.1 min

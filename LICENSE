@@ -1,10 +1,10 @@
-Code (src/, notebooks/) in this reproducibility package is provided for the purpose of
-reproducing the LDA analysis reported in the associated manuscript ("The Anatomy of a
-Phantom: A Socio-Technical Synthesis of AI Code Hallucinations"). You may use, copy, and
-modify the code for research and reproducibility purposes with attribution to the manuscript.
+Code (src/) in this reproducibility package is provided for the purpose of reproducing the
+LDA analysis reported in the associated manuscript ("The Anatomy of a Phantom: A
+Socio-Technical Synthesis of AI Code Hallucinations"). You may use, copy, and modify the
+code for research and reproducibility purposes with attribution to the manuscript.
 
-Extracted full-text content of the 66 primary studies (data/fulltext_texts/) is derived from
-copyrighted third-party publications and is NOT covered by this license. It is retained
-locally for internal analysis reproducibility only and must not be redistributed; see
-protocol Section 6 ("Do not publicly redistribute copyrighted full text if licensing does not
-allow it.").
+The source PDFs of the 66 primary studies, and full-text content extracted from them
+(produced locally at `extraction/fulltext/` when the pipeline is reproduced), are derived
+from copyrighted third-party publications and are NOT covered by this license. They must
+not be redistributed and are excluded from this repository (see `.gitignore`); obtain the
+source studies independently via the DOIs in `corpus/corpus_manifest.csv`.

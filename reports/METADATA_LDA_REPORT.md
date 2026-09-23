@@ -1,105 +1,132 @@
-# Analysis A — Metadata LDA Report (Title + Abstract + Author Keywords)
+# Metadata LDA Report (Analysis A)
 
-**k=4 is FINAL.** It is the best-supported candidate by quantitative evidence among k∈{2,3,4,5}
-(see `reports/METADATA_FINAL_K_VALIDATION.md`). Blinded human validation is complete
-(`reports/HUMAN_VALIDATION_REPORT.md`) but **did not itself select k=4** — the two raters
-preferred different candidates (k=5 and k=3 respectively); k=4 was retained primarily on
-quantitative-parsimony grounds, with human evaluation as complementary interpretive evidence.
-Topic labels below are researcher-reconciled from both raters' independent labels
-(`reports/TOPIC_LABEL_RECONCILIATION.md`).
+Title + abstract + author keywords (where available) for the 66 primary
+studies. Preprocessed, modelled, and evaluated fully independently of the
+full-text analysis, per the frozen plan.
 
-Corpus: 66 primary studies (5 secondary studies excluded throughout; see
-`corpus/corpus_audit.md`). Representation: title + abstract, with author keywords appended
-where extracted (42/66 studies; 24/66 use title+abstract only — see
-`extraction/extraction_quality_report.md`).
+## 1. Frozen configuration (Stages 1-2)
 
-## Preprocessing (frozen)
+| Parameter | Value |
+|---|---|
+| Domain-term handling | HF-B (generic filler list removed) |
+| Phrase representation | Unigram |
+| Dictionary | no_below=6, no_above=0.4 |
+| Vocabulary size | 208 |
+| alpha | 1.0 |
+| eta | auto |
+| passes / iterations | 20 / 200 |
 
-- Tokenization/lemmatization: spaCy `en_core_web_sm`, POS filter {NOUN, PROPN, VERB, ADJ},
-  standard spaCy English stopwords (see `preprocessing/metadata/preprocessing_meta.json`).
-- One deterministic lemma correction applied corpus-wide (`datum`→`data`); see
-  `preprocessing/lemma_corrections.csv`.
-- Dictionary: `no_below=5`, `no_above=0.50` (vocabulary size 397), selected from a systematic
-  36-cell grid (`results/metadata/stage1_dictionary_threshold_sweep.csv`) via a documented
-  stable-region + parsimony rule (`results/metadata/stage1_selected_config.json`) — **not**
-  the maximum-coherence cell.
-- Training budget: `passes=30`, `iterations=800`, `alpha=auto`, `eta=auto`, frozen via a
-  convergence pilot (`results/metadata/stage2_convergence_pilot.csv`,
-  `stage2_prior_pilot.csv`).
-- Representation is Bag-of-Words counts (the appropriate input for classical probabilistic
-  LDA); TF-IDF was not used as the primary representation.
+Selected from a stable region of 33 eligible dictionary configurations (zero
+empty documents at every one); bigrams and HF-A were both tested and
+rejected because neither cleared the frozen >0.02 coherence / <0.03
+stability-loss retention threshold (`results/metadata/stage1_decision.md`).
+Priors: auto/auto was not within tolerance of the best-C_v prior, so the
+single best prior (alpha=1.0, eta=auto) was used directly, not the
+parsimony default (`results/metadata/stage2_decision.md`). Convergence
+reached at the smallest tested budget (passes=20, iterations=200; JS=0.968,
+dominant-topic agreement=0.978 vs. the next larger grid cell).
 
-## Sensitivity screens
+## 2. Definitive k-sweep (k=2..20, 20 seeds each, 380 fits)
 
-- **Domain-term treatment** (HF-A retain vs. HF-B remove ubiquitous domain terms, at a
-  representative k=10 pilot): mean C_v 0.387 → 0.374; document-assignment ARI=0.096,
-  NMI=0.408 — removing the most ubiquitous domain terms (3 terms) measurably changes document
-  groupings, so the decision to retain all substantive domain terms (HF-A) in the frozen model
-  is a real methodological choice, not inconsequential. See
-  `results/metadata/domain_term_sensitivity.json`.
-- **Phrase treatment** (unigram vs. unigram+bigram, k=10 pilot): mean C_v 0.387 → 0.350; 386
-  bigram phrases discovered (data-driven, not manually forced); document-assignment ARI=0.064
-  (bigrams substantially reshuffle groupings). The frozen model uses unigrams only, since
-  bigrams did not improve coherence, stability, or interpretability enough to justify the
-  added vocabulary complexity for this short-text representation. See
-  `results/metadata/phrase_sensitivity.json`.
+Full curve in `results/metadata/k_sweep_summary.csv`. Coherence rises and
+stability falls roughly monotonically with k; thin/zero-dominance topics are
+essentially absent through k=10 and become severe beyond k≈12 (up to 4
+zero-dominance and 10 very-thin topics at k=20) — see
+`results/metadata/stage4_candidates.md` for the full per-k flag table.
 
-## Definitive k-sweep
+**15 of the 19 tested k values were Pareto-optimal**
+({2,3,4,5,6,7,8,9,10,12,13,14,16,17,18}) — the Pareto criterion alone did
+not isolate a small candidate set; it excluded only 4 dominated k values
+(11, 15, 19, 20). The pre-specified finalist-reduction rule then ranked the
+15 Pareto-optimal k values by cross-seed stability and cut at 4, yielding
+**k=2, 3, 4, 5**. Because cross-seed stability generally decreases as topic
+count increases (visible in `results/metadata/k_sweep_summary.csv`), this
+stability-first reduction rule tends to favour lower-dimensional, more
+parsimonious solutions. This is not treated as a methodological flaw — the
+rule was fixed before the definitive sweep was run — but it is stated
+explicitly here rather than presenting k=2-5 as though the Pareto frontier
+itself had isolated exactly those values.
 
-k = 2–20, 20 seeds each (380 models total), `results/metadata/definitive_ksweep_runs.csv`.
-Cross-seed stability (Hungarian-aligned JS similarity) per k in
-`results/metadata/seed_stability_by_k.csv`. Model selection used a Pareto front over C_v,
-C_NPMI, stability, diversity, redundancy, thin-topic incidence, and zero-dominance count
-(never coherence alone), with parsimony applied only among Pareto-optimal k values
-substantively equivalent (within 0.05 composite score) to the front's best point, at or above
-a documented floor of k=4 (see `protocol/protocol_amendments.md` for why this floor was
-added). Full decision record: `results/metadata/k_selection_decision.json`.
+## 3. Final selected model: k=4
 
-**Selected k = 4** (k=5 was equivalent; both are far below the coherence-maximizing region of
-the sweep, which is not used as a selection criterion on its own).
+**Reason for selection:** k=4 was the unanimous choice of both independent
+human raters after blinded comparison against k=2, k=3, and k=5 (see
+`reports/HUMAN_VALIDATION_REPORT.md`), consistent with its strong standing
+in the quantitative multi-criterion evidence (lowest redundancy among the
+Pareto-reduced finalists after k itself is accounted for, zero thin/zero
+topics, best-balanced topic sizes of the four). This was not a
+highest-coherence selection (k=5 has higher raw C_v among the finalists) nor
+a most-balanced-wins selection — it reflects the totality of evidence per
+plan §18/§34.
 
-Representative model: **structural medoid, seed 14** (mean aligned similarity to the other 19
-seeded k=4 models = 0.690 — not the highest-coherence seed;
-`results/metadata/representative_seed_k04.json`).
+- Structural-medoid seed: **1212** (of 20 fitted seeds at k=4)
+- Mean C_v: **0.3584** (SD 0.0485)
+- Mean C_NPMI: **-0.1638** (SD 0.0146)
+- Cross-seed stability: **0.5815** (SD 0.0513)
+- Topic diversity (top-25): **0.8490**
+- Redundancy (top-20 Jaccard, mean pairwise): **0.0394**; cosine: **0.2771**
+- Dominant-study counts: **[22, 16, 15, 13]** (Topics 0-3); min=13, max=22, ratio=1.69
+- Zero-dominance topics: **0**; topics with <5 dominant studies: **0**
+- Probability-based prevalence: **[0.292, 0.242, 0.242, 0.225]**
+- Normalized entropy: **0.9857**; Gini: **0.106**; CV of dominant counts: **0.235**
+- Largest/smallest topic proportion: **33.3% / 19.7%**
+- Mean assignment confidence (max topic probability): **0.719**; proportion
+  <0.40: 1.5%, 0.40-0.60: 22.7%, >0.60: 75.8%
 
-At the selected k: mean C_v = 0.40 (interpreted only relative to this corpus/sweep, not as an
-externally "high" or "good" value — no external coherence benchmark is claimed), mean C_NPMI
-= −0.10, mean cross-seed JS stability = 0.66, mean topic diversity = 0.84.
+## 4. Robustness (finalist k=4, medoid seed 1212)
 
-## Final topics (Analysis A, k=4, seed=14)
+- **80% subsampling, 100 reps** (medoid seed fixed, sampling seeds 1-100):
+  aligned JS mean=0.812 (SD 0.032), ARI mean=0.806 (SD 0.091), NMI
+  mean=0.813; thin-topic emergence in 2/100 resamples.
+- **Training-effort sensitivity** (passes=20/iter=200 vs. passes=100/iter=2000,
+  same seed/dictionary): JS=0.884, dominant-topic ARI=0.929, NMI=0.918 —
+  strong agreement, the model is not training-budget-limited.
+- **Dictionary-neighbour sensitivity** (no_below=5/no_above=0.4 and
+  no_below=6/no_above=0.5): JS 0.552 and 0.517; dominant-topic ARI 0.236 and
+  0.152. Topic-word structure is moderately but not highly robust to small
+  dictionary changes; document-level assignment is more sensitive still —
+  reported honestly, not described as "robust" (plan §21).
 
-Full packets (top-20 probability terms, top-20 FREX terms, 10 top-loading studies/abstracts,
-prevalence) are in `human_validation/metadata/topic_XX_packet.json` (note: those packets'
-`ai_draft_label` field is the original pre-rating draft, retained there for provenance only —
-superseded by the reconciled labels below; see `reports/TOPIC_LABEL_RECONCILIATION.md`).
-**Labels below are researcher-reconciled after two independent raters completed blinded
-evaluation** (`reports/HUMAN_VALIDATION_REPORT.md`); reconciliation did not select k=4 (the
-raters did not agree on a preferred k — see that report) and did not alter any quantitative
-result.
+Full detail: `results/metadata/subsampling_k4.csv`,
+`training_effort_sensitivity.csv`, `dictionary_sensitivity.csv`.
 
-| Topic | Prevalence | Top probability terms | Final reconciled label |
-|---|---:|---|---|
-| 0 | 0.254 | chatgpt, problem, hallucination, developer, type, copilot, dataset, tool | AI Code Verification, Vulnerability, and Developer Trust |
-| 1 | 0.062 | requirement, prompt, function, input, domain, critical, development, specific | Requirements-Driven Prompting and Code Generation |
-| 2 | 0.322 | chatgpt, student, tool, education, work, provide, assignment, feedback | AI in Programming Education and Adoption |
-| 3 | 0.362 | hallucination, development, api, user, models, propose, complex, challenge | API/Dependency Hallucination Mitigation |
+## 5. Final topics
 
-## Robustness (final model)
+Reconciled labels per `reports/HUMAN_VALIDATION_REPORT.md`; full FREX/top-term/
+highest-loading-study detail in `results/metadata/interpretation_packet_k4.md`.
 
-- **Training-effort sensitivity** (30/800 → 100/2000 passes/iterations): mean topic-word JS
-  similarity 0.957, dominant-topic agreement 98.5% — the frozen budget is well converged.
-  (`results/metadata/training_effort_sensitivity.json`)
-- **80% subsampling, 100 repetitions**: mean topic similarity (JS) = 0.586, mean ARI = 0.129,
-  mean NMI reported alongside in `results/metadata/subsampling_80pct_summary.json`. Topic
-  *structure* (word distributions) is moderately stable under subsampling; document-level
-  *assignment* (ARI) is comparatively fragile — expected at N=66 with only 4 topics, and
-  reported transparently rather than described as "robust."
-- **Dictionary sensitivity** (neighboring no_below/no_above): see
-  `results/metadata/dictionary_sensitivity.csv`.
+**Topic 0 — API/Code Hallucination: Benchmarks and Mitigation** (dominant
+for 22 studies, 29.2% prevalence). Top terms: hallucination, api, propose,
+benchmark, development, prompt, class, requirement. Representative:
+"Towards Mitigating API Hallucination in Code Generated by LLMs..." (S70,
+p=0.936), "De-Hallucinator..." (S26, p=0.925), "CloudAPIBench..." (S51,
+p=0.892).
 
-## Relationship to RQ1–RQ4
+**Topic 1 — AI-Generated Feedback in Programming Education** (dominant for
+16 studies, 24.2% prevalence). Top terms: student, feedback, performance,
+quality, education, learning, course. Representative: "Bridging the
+Theory-Practice Gap..." (S16, p=0.883), "Automating Human Tutor-Style
+Programming Feedback..." (S13, p=0.879).
 
-RQ1–RQ4 manual categories were not used in preprocessing, fitting, k-selection, or labeling.
-Any comparison with the manual synthesis is exploratory and reported only in
-`reports/CROSS_REPRESENTATION_REPORT.md` / `FINAL_LDA_REPORT.md`, after freezing. LDA is a
-complementary exploratory representation, not a validation of the manual mapping.
+**Topic 2 — Developer Trust and Experience with AI Coding Assistants**
+(dominant for 15 studies, 24.2% prevalence). Top terms: tool, copilot,
+assistant, participant, developer, experience, trust, community.
+Representative: "AI chatbots in programming education..." (S06, p=0.943),
+"'It would work for me too'..." (S62, p=0.935).
+
+**Topic 3 — Empirical Code Correctness, Testing, and Non-Determinism**
+(dominant for 13 studies, 22.5% prevalence). Top terms: problem, test,
+solution, issue, correct, dataset, empirical, non[-determinism].
+Representative: "No Need to Lift a Finger Anymore?..." (S50, p=0.942),
+"Fight Fire with Fire..." (S43, p=0.905). Both human raters independently
+flagged this as the least specific of the four topics — a shared limitation
+of generic evaluation vocabulary, not an artifact of the k=4 choice
+specifically (the same pattern recurs in every candidate model's analogous
+topic).
+
+## 6. Complementary, not confirmatory
+
+This analysis provides a data-driven representation of recurring lexical
+structure in the metadata corpus. It is not used to validate RQ1-RQ4, and
+RQ1-RQ4 categories were never consulted in preprocessing, modelling, or
+k-selection.

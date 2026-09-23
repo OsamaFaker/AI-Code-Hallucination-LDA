@@ -1,236 +1,437 @@
-# Dual-Representation LDA Analysis — AI Code Hallucinations (66 Primary Studies)
+# Dual-Representation LDA Analysis — AI Code Hallucinations
 
-Reproducible analysis package for the LDA topic-modeling component (RQ5) of the manuscript
-**"The Anatomy of a Phantom: A Socio-Technical Synthesis of AI Code Hallucinations."**
+## 1. Repository purpose
 
-This repository is frozen. See `FINAL_ANALYSIS_FREEZE.md` for the freeze record and
-`reports/FROZEN_MANUSCRIPT_VALUES.md` for the single authoritative values table the manuscript
-draws from. This README describes only the final analysis as frozen; earlier iterations are
-not discussed here (see `protocol/protocol_amendments.md` for the audit trail of methodology
-corrections made before freezing).
+Reproducibility package for the LDA topic-modeling component (RQ5) of the
+manuscript **"The Anatomy of a Phantom: A Socio-Technical Synthesis of AI
+Code Hallucinations."** It documents the corpus, preprocessing, model
+fitting, topic-number selection, human semantic evaluation, robustness
+analysis, and cross-representation comparison, together with the code and
+frozen data needed to verify every reported number and to reproduce the
+analysis from scratch.
 
-## Study context
+LDA here is a corpus-level characterization of recurring lexical structure.
+It is a complementary line of evidence, not independent validation of the
+manually derived RQ1–RQ4 classifications: those classifications are never
+consulted in preprocessing, model fitting, parameter selection, or k
+selection.
 
-Systematic mapping review of 71 included studies on AI code hallucinations; 66 are primary
-empirical/technical studies and 5 are secondary (survey/review) studies. This LDA analysis
-uses **only the 66 primary studies** — the 5 secondary studies are documented but never enter
-preprocessing, model fitting, selection, robustness analysis, or human validation.
+See `provenance/README.md` for methodological/audit material retained for
+traceability but not used as a source for any value in this README.
 
-## Research purpose
+## 2. Study corpus
 
-To identify, independently of the manually-derived RQ1-RQ4 classification, a data-driven
-topic structure across the 66 primary studies, under two independent text representations, and
-to determine whether/how that structure is sensitive to the choice of representation.
+The systematic mapping review includes **71 studies**: **66 primary** and
+**5 secondary**. The LDA analysis uses the **66 primary studies only** — the
+5 secondary studies are documented but excluded, because they synthesize
+evidence from primary research and are not independent analytical units.
 
-## Metadata analysis (primary RQ5 representation)
+- `corpus/corpus_manifest.csv` — all 71 included studies (study_id,
+  study_category, title, year, doi, included_in_lda).
+- `corpus/primary_studies_manifest.csv` — the 66-study LDA analytical
+  corpus, with PDF checksums and extraction status.
+- `corpus/corpus_audit.md` — corpus construction and integrity checks
+  (duplicate/PDF-match checks, matching method).
 
-Title + abstract + author keywords (title+abstract only where keywords were unavailable,
-24/66 studies). **Final model: k=4, structural-medoid seed 14.** Chosen as primary because
-metadata documents are far more length-homogeneous, and the metadata model shows higher
-cross-seed stability (0.66 vs. 0.54) and diversity (0.84 vs. 0.77) than the full-text model.
+## 3. Analytical design
 
-Final reconciled topics (see "Human validation" below — human raters did not themselves select
-k=4; see `reports/TOPIC_LABEL_RECONCILIATION.md`):
+Two representations of the same 66 studies are built and modeled
+**independently** — separate preprocessing, separate dictionary search,
+separate priors, separate topic-number search, separate robustness
+analysis, and separate human evaluation. They are compared only after both
+are finalized (§15).
 
-1. AI Code Verification, Vulnerability, and Developer Trust
-2. Requirements-Driven Prompting and Code Generation
-3. AI in Programming Education and Adoption
-4. API/Dependency Hallucination Mitigation
+## 4. Metadata representation (primary RQ5 representation)
 
-See `reports/METADATA_LDA_REPORT.md`, `reports/METADATA_FINAL_K_VALIDATION.md`.
+Title, abstract, and author-supplied keywords for each of the 66 studies.
+Where keywords are genuinely unavailable, they are left unavailable — never
+generated or inferred. Source: `corpus/metadata_documents.csv`,
+`corpus/metadata_extraction_report.md`.
 
-## Full-text analysis (secondary representation-sensitivity analysis)
+## 5. Full-text sensitivity representation
 
-Cleaned, section-restricted full text of the same 66 studies (Introduction-Conclusion;
-references/boilerplate/headers removed). **Final model: k=8, structural-medoid seed 2**,
-retained as the most parsimonious representative of a broader near-equivalent region
-(k=8-15) whose topic structure was shown to be persistent, not as a uniquely optimal model.
-Shows a documented, non-trivial sensitivity to document length (see Limitations).
+Cleaned substantive text extracted from the study PDFs (PyMuPDF):
+Introduction, Background/Related Work, Methodology, Results, Discussion,
+and Conclusion, where identifiable. Excluded: references, running
+headers/footers, page numbers, publisher boilerplate, author/affiliation
+blocks, duplicated front matter. Unicode NFKC normalization, dehyphenation
+across line breaks, ligature repair, control-character removal, and
+whitespace normalization are applied consistently across all 66 documents.
+Source: `src/extract_fulltext.py`, `extraction/fulltext_extraction_report.md`.
 
-Final reconciled topics:
+Raw extracted full text is derived from copyrighted third-party
+publications and is **not redistributed** in this repository (see
+`LICENSE`, `.gitignore`); it is produced locally, at `extraction/fulltext/`,
+only when the pipeline is reproduced (§18).
 
-1. Developer Trust and Experience with AI Coding Assistants
-2. Package Hallucination and Supply-Chain Security Risks
-3. Security and Safety-Critical Code Generation Benchmarks
-4. Hallucination Detection and Mitigation Methods
-5. LLM Coding Proficiency and Programming Tasks
-6. Programming Education, Learning, Feedback, and Assessment
-7. Code Quality, Vulnerability, Complexity, and Non-Determinism
-8. Bug Taxonomies and Practitioner-Reported Code Issues
+This representation is a **representation-sensitivity analysis**, not a
+second primary result.
 
-See `reports/FULLTEXT_LDA_REPORT.md`, `reports/FULLTEXT_FINAL_K_VALIDATION.md`.
+## 6. Preprocessing
 
-## Preprocessing
+Implemented in `src/preprocessing.py`, applied identically (deterministically,
+corpus-wide) to both representations:
 
-spaCy (`en_core_web_sm` 3.8.0) tokenization + lemmatization, POS filter {NOUN, PROPN, VERB,
-ADJ}, standard English stopwords, one documented deterministic lemma correction
-(`datum`→`data`). Dictionary thresholds selected independently per representation from a
-systematic 36-cell grid (`no_below`∈{2,3,4,5}, `no_above`∈{0.50,...,1.00}). Integer bag-of-words
-counts (not TF-IDF) are the primary LDA input. See `preprocessing/`, `reports/METADATA_LDA_REPORT.md`.
+- Tokenization, lemmatization, POS tagging, and lowercasing via spaCy
+  `en_core_web_sm` (3.8.0).
+- Retain tokens tagged `NOUN`, `PROPN`, `VERB`, `ADJ`.
+- Remove standard spaCy English stopwords, punctuation, purely numeric
+  tokens, single-character tokens, and tokens with no alphabetic character.
+- No corpus-specific stopwords are introduced interactively or on the basis
+  of observed topic results.
 
-## Model fitting
+Two predefined high-frequency-term conditions are evaluated per
+representation:
 
-gensim `LdaModel`, k=2-20 × 20 seeds per representation (380 models each, 760 total for the
-definitive sweep), frozen training budget (passes=30, iterations=800, alpha=eta=auto) selected
-via a separate convergence pilot. Every model is saved under `models/`.
+- **HF-A**: normal generic cleaning only.
+- **HF-B**: HF-A plus removal of a fixed, corpus-agnostic academic-writing
+  filler list, frozen before the corpus's frequency table was inspected:
+  `paper, study, studies, research, result, results, finding, findings,
+  approach, method, methods, methodology, work, author, authors,
+  researcher, researchers, section, figure, table, example, examples,
+  case, et, al`.
 
-## Model selection
+Unigram and unigram+bigram tokenizations are both evaluated during
+parameter selection. Documents are represented as integer bag-of-words
+counts — TF-IDF and embedding vectors are not used as LDA input.
 
-Joint Pareto front over C_v, C_NPMI, cross-seed stability, diversity, redundancy, thin-topic
-incidence, and zero-dominance count — never coherence alone, never the max-coherence seed.
-Representative model = structural medoid (max mean aligned similarity across seeds). See
-`src/model_selection.py`, `results/{metadata,fulltext}/k_selection_decision.json`,
-`protocol/protocol_amendments.md` for the k-selection rule's amendment history.
+**Final configurations:** Metadata = HF-B + unigram. Full text = HF-A +
+unigram (HF-A and HF-B converge to identical results at the selected
+dictionary threshold).
 
-## Human validation
+## 7. Dictionary selection
 
-Two independent raters, blinded to model identity, k, and any AI-drafted label, rated the
-metadata k-candidates (k=2,3,4,5) and the full-text final topics (k=8) for coherence,
-interpretability, and distinctiveness, and independently proposed labels. **Raters did not
-converge on a preferred metadata k** (Rater 1→k=5, Rater 2→k=3); this is reported, not hidden —
-**human evaluation supported the semantic interpretability of the candidate topic structures
-but did not uniquely determine the preferred number of topics, so k=4 was retained primarily
-on quantitative-parsimony grounds, with human evaluation as complementary interpretive
-evidence** (never "human validation confirmed k=4"). Full-text human evaluation was generally
-positive on coherence (≈4.06/5) and interpretability (≈4.00/5) with somewhat weaker
-distinctiveness (≈3.88/5) for several fine-grained topics. Final topic labels (listed above)
-were subsequently **researcher-reconciled** from both raters' independently proposed labels —
-not claimed as verbatim rater consensus. See `reports/HUMAN_VALIDATION_REPORT.md`,
-`reports/TOPIC_LABEL_RECONCILIATION.md`, `human_validation/` (raw rater files preserved
-unaltered in `human_validation/Human_Result/`).
+For each representation, `no_below ∈ {2,3,4,5,6}` × `no_above ∈
+{0.40,0.50,0.60,0.70,0.75,0.80,0.90,1.00}` (40 candidate dictionaries) is
+evaluated for each preprocessing variant. Selection is a
+**multi-configuration stability assessment**, not a maximum-coherence pick:
+a configuration is eligible only if it has zero empty documents and is not
+an isolated coherence spike relative to its immediate grid neighbours. See
+`results/{metadata,fulltext}/stage1_decision.md`.
 
-## Robustness
+**Final dictionaries:**
 
-Training-effort sensitivity, dictionary-neighbor sensitivity, domain-term (HF-A/B) and
-phrase-detection (unigram/bigram) sensitivity, and 100 repetitions of 80% document
-subsampling, for both representations; full text additionally received a document-length
-diagnostic and length-balanced sensitivity model. See `reports/ROBUSTNESS_REPORT.md`.
+| Representation | no_below | no_above | Vocabulary size |
+|---|---|---|---|
+| Metadata | 6 | 0.40 | 208 |
+| Full text | 6 | 0.40 | 1,503 |
 
-## Cross-representation analysis
+## 8. Seed strategy
 
-Rectangular Hungarian topic alignment (k_A≠k_B), dominant-topic ARI/NMI, and topic-level
-similarity — computed only after both models independently froze. Modest/partial
-correspondence (ARI=0.19, NMI=0.30), described without causal claims. See
-`reports/CROSS_REPRESENTATION_REPORT.md`.
-
-## Repository structure
+Frozen master seed list (`src/stage3_sweep.py`):
 
 ```
-protocol/          frozen methodology + amendment log
-corpus/             66-study manifest and audit
-extraction/         PDF extraction diagnostics
-preprocessing/       tokenization/lemmatization outputs, stopwords, HF-term profiles
-src/                 all analysis code (see below for execution order)
-results/             every run-level metric, frozen values, provenance, validation report
-human_validation/    blinded rating materials + completed rater data + consolidated summaries
-figures/             57 figures (PNG+PDF), registry, SHA-256 checksums
-reports/             all narrative reports and the frozen manuscript-values file
-models/              every fitted LdaModel (760+ for the definitive sweep alone) - NOT in git, see below
-data/                metadata/full-text representations (full-text is NOT redistributed - see LICENSE)
+[42, 101, 202, 303, 404, 505, 606, 707, 808, 909,
+ 1010, 1111, 1212, 1313, 1414, 1515, 1616, 1717, 1818, 1919,
+ 2020, 2121, 2222, 2323, 2424, 2525, 2626, 2727, 2828, 2929]
 ```
 
-### `models/` is intentionally git-ignored
+- **Pilot stages**: the first 5 seeds `[42, 101, 202, 303, 404]`.
+- **Definitive topic-number search**: the first 20 seeds.
 
-`models/` (~203MB — every one of the 760+ fitted `LdaModel` objects from the definitive sweep,
-plus pilots/robustness/sensitivity fits) is excluded from version control via `.gitignore` and
-is **not** stored with Git LFS. It is fully regenerable, deterministically, from the frozen
-corpus, preprocessing configuration, seeds, final k, code, and pinned environment — there is
-nothing in `models/` that isn't reproducible from what *is* committed. To regenerate the two
-final models specifically (the ones referenced throughout `results/` and `reports/`):
+## 9. Model fitting
+
+Definitive search: `k = 2, 3, …, 20` (19 values) × 20 seeds =
+**380 independently seeded models per representation**
+(`results/{metadata,fulltext}/k_sweep_by_seed.csv`, 380 rows each).
+`gensim.models.LdaModel` (single-threaded) throughout, for strict
+reproducibility under a fixed seed.
+
+Standard models use **20 passes / 200 iterations**.
+
+| Representation | alpha | eta |
+|---|---|---|
+| Metadata | 1.0 | auto |
+| Full text | auto | auto |
+
+## 10. Topic-number selection
+
+Final k is **not** selected by maximum C_v alone. Every candidate k is
+evaluated on a joint diagnostic set: C_v, C_NPMI, cross-seed stability,
+topic diversity, inter-topic redundancy, topic prevalence, dominant-study
+distribution, zero/thin-topic occurrence, and parsimony
+(`results/{metadata,fulltext}/k_sweep_summary.csv`, `stage4_candidates.md`).
+
+For each k, the 20 seeded models' full topic-word probability distributions
+are pairwise Hungarian-aligned and compared by Jensen-Shannon similarity.
+The **structural medoid** — the seed with the greatest mean aligned
+similarity to the other 19 seeds, never the highest-coherence seed — is
+used as that k's representative model.
+
+Each k is Pareto-screened across the diagnostic set. When more than four k
+values remain Pareto-optimal, the pre-specified rule ranks them by
+cross-seed stability (descending) and keeps the top four, ties broken by
+smaller k (parsimony tie-break). For both representations this yields:
+
+**k ∈ {2, 3, 4, 5}**, evaluated in further detail.
+
+## 11. Human semantic evaluation
+
+Two raters (one a project author) independently score anonymized,
+randomly-ordered candidate models, blinded to model identity, random seed,
+parameter configuration, all quantitative model-selection metrics, topic
+prevalence, dominant-study counts, and the numerical k label. (The number
+of topics visible in a complete candidate model is necessarily observable.)
+Raters assessed coherence, interpretability, distinctiveness, and
+specificity, and independently proposed descriptive topic labels.
+
+Human assessment is **complementary evidence**, integrated with the
+quantitative criteria in §10 — not proof of a uniquely correct topic
+structure, and never resolved by majority vote (n=2 raters).
+
+Full scoring, blinding protocol, and reconciliation:
+`reports/HUMAN_VALIDATION_REPORT.md`; raw per-rater scores in
+`human_validation/Rater1.md` and `human_validation/Rater2.md`.
+
+## 12. Final metadata model
+
+| | |
+|---|---|
+| k | 4 |
+| Structural-medoid seed | **1212** |
+| Dictionary | no_below=6, no_above=0.40, vocabulary=208 |
+| Priors | alpha=1.0, eta=auto |
+| Training | passes=20, iterations=200 |
+| Mean C_v (SD) | 0.3584 (0.0485) |
+| Mean C_NPMI (SD) | -0.1638 (0.0146) |
+| Mean cross-seed stability (SD) | 0.5815 (0.0513) |
+| Topic diversity (top-25) | 0.8490 |
+| Zero-dominance / thin topics | 0 / 0 |
+
+Both human raters independently preferred the metadata k=4 solution
+(unanimous).
+
+| ID | Topic | Dominant studies | Prevalence |
+|---|---|---:|---:|
+| T0 | API/Code Hallucination: Benchmarks and Mitigation | 22 | 29.2% |
+| T1 | AI-Generated Feedback in Programming Education | 16 | 24.2% |
+| T2 | Developer Trust and Experience with AI Coding Assistants | 15 | 24.2% |
+| T3 | Empirical Code Correctness, Testing, and Non-Determinism | 13 | 22.5% |
+
+Prevalence is the mean document-topic probability across all 66 studies —
+a distinct measure from the dominant-study counts (studies for which a
+topic has the single highest probability). Topic membership is
+probabilistic throughout. Full detail: `reports/METADATA_LDA_REPORT.md`.
+
+## 13. Final full-text model
+
+| | |
+|---|---|
+| k | 4 |
+| Structural-medoid seed | **505** |
+| Dictionary | no_below=6, no_above=0.40, vocabulary=1,503 |
+| Priors | alpha=auto, eta=auto |
+| Training | passes=20, iterations=200 |
+| Mean C_v (SD) | 0.2957 (0.0271) |
+| Mean C_NPMI (SD) | -0.2512 (0.0166) |
+| Mean cross-seed stability (SD) | 0.5913 (0.0296) |
+| Topic diversity (top-25) | 0.9070 |
+| Zero-dominance / thin topics | 0 / 0 |
+
+Human assessment was **not unanimous**: one rater preferred k=4; the other
+preferred k=5, and identified k=3 as a parsimonious alternative. k=4 is
+retained as the **conservative multi-criterion solution** — lowest
+redundancy among the disputed finalists, markedly stronger training-effort
+robustness, and perfect thin-topic safety under subsampling — **not
+presented as uniquely superior**. k=5 remains a credible alternative.
+
+| ID | Topic | Dominant studies | Prevalence |
+|---|---|---:|---:|
+| FT0 | Programming Education: Instruction, Grading, and Trust | 17 | 26.6% |
+| FT1 | Code Repair, Verification, and Determinism Benchmarking | 8 | 13.5% |
+| FT2 | Practitioner Perspectives on Package Hallucination and Security Risk | 16 | 22.7% |
+| FT3 | Iterative and Retrieval-Based Hallucination Mitigation | 25 | 37.2% |
+
+Full detail: `reports/FULLTEXT_LDA_REPORT.md`.
+
+## 14. Robustness analyses
+
+All checks run on each representation's finalist model (fixed
+structural-medoid seed and configuration). Full detail:
+`reports/ROBUSTNESS_REPORT.md`.
+
+**80% document subsampling** (no replacement, 100 repetitions):
+
+| | Metadata | Full text |
+|---|---:|---:|
+| Aligned topic-word JS similarity, mean (SD) | 0.812 (0.032) | 0.810 (0.038) |
+| Dominant-assignment ARI, mean (SD) | 0.806 (0.091) | 0.799 (0.099) |
+
+Interpreted as **substantial but incomplete** stability.
+
+**Increased training effort** (passes=100, iterations=2000):
+
+| | Metadata | Full text |
+|---|---:|---:|
+| Dominant-assignment ARI | 0.929 | 0.856 |
+
+**Dictionary-neighbour sensitivity**: dominant document assignments are
+**more sensitive** than topic-word structure. Observed ARI ≈ 0.15–0.28,
+topic-word JS similarity ≈ 0.52–0.57. Treated as an important sensitivity,
+not downplayed.
+
+**Full-text length sensitivity**: Pearson r=0.358 (p=0.0031) between raw
+document length and dominant-topic assignment confidence. Length-balanced
+sensitivity model: JS=0.938, ARI=0.945, NMI=0.936.
+
+## 15. Cross-representation analysis
+
+Computed only after both representations' models were independently
+finalized. Full detail: `reports/CROSS_REPRESENTATION_REPORT.md`.
+
+- Document-level agreement: **ARI = 0.2384, NMI = 0.2738**.
+- 10,000-repetition permutation test: none of the 10,000 permuted
+  assignments equalled or exceeded the observed agreement (empirical
+  p ≈ 0.0001).
+- Metadata T0 → Full-text FT3: 17/22 studies = 77.3%. Metadata T1 →
+  Full-text FT0: 9/16 studies = 56.3%. Metadata T2 and T3 show more
+  **distributed correspondence** across multiple full-text topics.
+- Vocabulary overlap: 208 (metadata) vs. 1,503 (full text) terms, 19 shared
+  (9.1% of metadata vocabulary, 1.3% of full-text vocabulary), accounting
+  for only ~2–10% of matched-topic probability mass.
+
+**Interpretation:** the two representations show partial correspondence but
+representation-dependent thematic granularity. Neither representation is
+treated as uniquely revealing the true topic structure.
+
+## 16. Repository structure
+
+```
+corpus/              71-study manifest, 66-study LDA corpus, extraction reports
+extraction/           full-text extraction diagnostics (raw text is not redistributed)
+preprocessing/        lemmatization audit reports
+src/                  all analysis code (see §17-18 for execution order)
+results/              every run-level metric and frozen numerical output
+human_validation/     blinded rating materials and both raters' completed scores
+figures/               figures (PNG+PDF) and the figure index
+reports/               narrative reports; reports/FROZEN_MANUSCRIPT_VALUES.md is
+                       the single canonical values table every other report agrees with
+provenance/            methodological/audit records retained for traceability only
+                       (not a source for reproduction or manuscript values)
+models/                every fitted LdaModel; git-ignored, regenerable (see §18)
+```
+
+## 17. Verify frozen outputs
+
+A lightweight check that the committed result files, reports, and figures
+are internally consistent with each other and with
+`reports/FROZEN_MANUSCRIPT_VALUES.md`. It recomputes simple aggregates
+(means, SDs, row/column counts) directly from the already-frozen CSV/JSON
+files already in this repository, checks the eight final topic labels are
+present, and scans reader-facing files for known-conflicting configuration
+values.
+
+**This is not a reproduction of the LDA pipeline** — it does not refit any
+model or re-run preprocessing, and completes in seconds.
 
 ```bash
-.venv/Scripts/python src/definitive_k_sweep.py metadata 5 0.50 30 800 --alpha auto --eta auto --kmax 20
-.venv/Scripts/python src/definitive_k_sweep.py fulltext 4 0.75 30 800 --alpha auto --eta auto --kmax 20
+python src/verify_frozen_outputs.py
 ```
 
-This regenerates all 380 seeded models per representation (k=2-20 × 20 seeds), including the
-frozen medoid seeds (metadata seed 14, full-text seed 2) at `models/metadata/k04_seed14.model`
-and `models/fulltext/k08_seed02.model`. See the full ordered pipeline below to regenerate
-everything else these models feed into.
+## 18. Reproduce the analysis from frozen inputs
 
-## Reproduction
-
-Environment (Python 3.11; see `reports/ENVIRONMENT_SNAPSHOT.md` for exact pinned versions):
+Full pipeline, in order. Every command loops over both representations by
+default unless a representation is given as an argument.
 
 ```bash
-uv venv --python 3.11 .venv
-uv pip install --python .venv -r requirements.txt
-.venv/Scripts/python -m spacy download en_core_web_sm
+# Environment (§19)
+python -m venv .venv && .venv/Scripts/activate   # or .venv/bin/activate
+pip install -r requirements.txt
+
+# Stage 0 — corpus and text extraction (deterministic; no LDA fitting)
+python src/corpus_audit.py
+python src/extract_metadata.py
+python src/extract_fulltext.py
+python src/doc_length_audit.py
+python src/run_lemma_audits.py
+
+# Stage 1 — preprocessing x dictionary grid search, then frozen-rule selection
+python src/stage1_sweep.py
+python src/stage1_select.py
+
+# Stage 2 — priors and convergence search, then frozen-rule selection
+python src/stage2_sweep.py
+python src/stage2_select.py
+
+# Stage 3 — definitive k=2..20 sweep, 20 seeds each (380 fits/representation)
+# COMPUTATIONALLY EXPENSIVE: this is the long-running step.
+python src/stage3_sweep.py
+
+# Stage 4 — diagnostics, Pareto screening, finalist reduction (k in {2,3,4,5})
+python src/stage4_select.py
+
+# Stage 5 — robustness (subsampling, training-effort, dictionary-neighbour;
+#           length-sensitivity is full-text only). Also long-running.
+python src/stage5_robustness.py
+python src/stage5_length_sensitivity.py
+
+# Stage 6 — interpretation packets and blinded human-evaluation packets
+python src/stage6_packets.py
+
+# [Human evaluation happens here — see human_validation/, §11. Both raters'
+#  scores are already recorded in human_validation/Rater1.md and Rater2.md.]
+
+# Stage 7 — cross-representation comparison (vocabulary-intersection method)
+python src/stage7_cross_representation_v2.py
+
+# Figures
+python src/make_manuscript_figures.py
 ```
 
-Pipeline, in order (every command below was actually run to produce this repository's frozen
-outputs):
+Stage 3 (the definitive k-sweep) and Stage 5 (robustness) are the
+computationally expensive steps; every other stage completes quickly.
+Reproducing the full pipeline requires the source PDFs of the 66 primary
+studies, obtained independently via the DOIs in `corpus/corpus_manifest.csv`
+(not redistributed here — see `LICENSE`).
+
+A documentation-only run of §17 is **not** equivalent to this reproduction:
+it verifies the already-committed outputs are consistent, but does not
+refit any model.
+
+## 19. Environment
+
+| | |
+|---|---|
+| Python | 3.11.15 (see `.python-version`) |
+| gensim | 4.4.0 |
+| spaCy | 3.8.16 (`en_core_web_sm` 3.8.0) |
+| PyMuPDF | 1.28.2 |
+| scikit-learn 1.9.1 · scipy 1.17.1 · numpy 2.4.6 · pandas 3.0.5 · openpyxl 3.1.5 · matplotlib 3.11.2 |
+
+`requirements.txt` pins Python packages only (pip does not pin the Python
+interpreter itself). `.python-version` and `environment.yml` record the
+Python version. Installing from `requirements.txt` (or `environment.yml`)
+installs the exact pinned `en_core_web_sm==3.8.0` wheel directly — this
+repository never uses a bare `spacy download en_core_web_sm` command, which
+would silently fetch an arbitrary later model version.
 
 ```bash
-# Corpus + extraction + preprocessing
-.venv/Scripts/python src/corpus_audit.py
-.venv/Scripts/python src/extraction.py
-.venv/Scripts/python src/preprocess_corpus.py
-.venv/Scripts/python src/lemma_quality_audit.py
-.venv/Scripts/python src/hf_terms.py
+# venv + pip
+python -m venv .venv
+.venv/Scripts/activate      # Windows; .venv/bin/activate on macOS/Linux
+pip install -r requirements.txt
 
-# Stage 1: dictionary-threshold grid + selection (per representation)
-.venv/Scripts/python src/stage1_dictionary_sweep.py metadata
-.venv/Scripts/python src/stage1_dictionary_sweep.py fulltext
-.venv/Scripts/python src/select_stage1_config.py metadata
-.venv/Scripts/python src/select_stage1_config.py fulltext
-
-# Stage 2: convergence/prior pilot (per representation)
-.venv/Scripts/python src/stage2_convergence_pilot.py metadata 5 0.50
-.venv/Scripts/python src/stage2_convergence_pilot.py fulltext 4 0.75
-
-# Domain-term / phrase sensitivity (per representation)
-.venv/Scripts/python src/domain_term_sensitivity.py metadata 5 0.50 30 800
-.venv/Scripts/python src/domain_term_sensitivity.py fulltext 4 0.75 30 800
-.venv/Scripts/python src/phrase_sensitivity.py metadata 5 0.50 30 800
-.venv/Scripts/python src/phrase_sensitivity.py fulltext 4 0.75 30 800
-
-# Definitive k=2-20 x 20-seed sweep (per representation; the expensive step)
-.venv/Scripts/python src/definitive_k_sweep.py metadata 5 0.50 30 800 --alpha auto --eta auto --kmax 20
-.venv/Scripts/python src/definitive_k_sweep.py fulltext 4 0.75 30 800 --alpha auto --eta auto --kmax 20
-
-# Stability, selection, medoid seed (per representation)
-.venv/Scripts/python src/cross_seed_stability.py metadata
-.venv/Scripts/python src/cross_seed_stability.py fulltext
-.venv/Scripts/python src/model_selection.py metadata
-.venv/Scripts/python src/model_selection.py fulltext
-.venv/Scripts/python src/representative_seed.py metadata 4
-.venv/Scripts/python src/representative_seed.py fulltext 8
-
-# k=2-5 metadata candidate comparison + k=8-15 full-text cross-k persistence
-.venv/Scripts/python src/candidate_k_comparison.py metadata 2,3,4,5 5 0.50 k2_k5_candidate_comparison.csv
-.venv/Scripts/python src/candidate_k_comparison.py fulltext 8,9,12,13,14,15 4 0.75 fulltext_k_candidate_comparison.csv
-.venv/Scripts/python src/cross_k_persistence.py
-
-# Human-validation materials (blinded packets + rating sheets)
-.venv/Scripts/python src/human_validation_packets.py metadata 4 14 5 0.50
-.venv/Scripts/python src/human_validation_packets.py fulltext 8 2 4 0.75
-.venv/Scripts/python src/blinded_candidate_packets.py metadata 2,3,4,5 5 0.50
-.venv/Scripts/python src/intrusion_tests.py metadata 5 0.50
-# (raters complete the sheets outside this pipeline; results consolidated by:)
-.venv/Scripts/python src/human_validation_analysis.py
-
-# Robustness (per representation)
-.venv/Scripts/python src/robustness.py subsample metadata 5 0.50 30 800 4 14 --model_path models/metadata/k04_seed14.model
-.venv/Scripts/python src/robustness.py subsample fulltext 4 0.75 30 800 8 2 --model_path models/fulltext/k08_seed02.model
-.venv/Scripts/python src/fulltext_length_diagnostics.py 4 0.75 8 30 800 2
-
-# Cross-representation comparison
-.venv/Scripts/python src/cross_representation.py 4 14 8 2 5 0.50 4 0.75
-
-# Figures, freeze, provenance, validation
-.venv/Scripts/python src/generate_all_figures.py
-.venv/Scripts/python src/generate_all_figures_batch2.py
-.venv/Scripts/python src/generate_all_figures_batch3.py
-.venv/Scripts/python src/freeze_values.py
-.venv/Scripts/python src/build_provenance.py
-.venv/Scripts/python src/validate_repository.py
+# or conda/mamba
+conda env create -f environment.yml
 ```
 
-The definitive k-sweep steps are the most compute-intensive (~9 and ~21 minutes respectively
-on a 20-core machine with `ProcessPoolExecutor(max_workers=12)`); everything else completes in
-well under a minute each.
+## 20. Limitations
 
-## Citation
+- LDA does not validate, and is not designed to validate, the manually
+  derived RQ1–RQ4 categories.
+- No single coherence metric alone proves model quality; k=4 was selected
+  through the joint diagnostic set in §10–11.
+- k=4 is not presented as the objectively true topic number for either
+  representation — for full text in particular, k=5 remains a credible,
+  documented alternative.
+- Metadata and full text are not claimed to recover the same latent
+  structure; correspondence is modest and partly distributed (§15).
+- The permutation test's statistical significance supports that
+  cross-representation agreement exceeds chance — it does not by itself
+  imply strong agreement; ARI=0.238/NMI=0.274 are modest.
+- Document-level topic assignments in both representations are only
+  moderately robust to small, plausible dictionary-threshold changes (§14).
+
+## 21. Citation
 
 See `CITATION.cff`.

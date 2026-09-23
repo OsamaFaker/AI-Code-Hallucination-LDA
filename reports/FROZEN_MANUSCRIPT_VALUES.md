@@ -1,154 +1,124 @@
 # Frozen Manuscript Values
 
-**This is the single authoritative source for the subsequent RQ5/methodology rewrite. Do not
-pull numbers from any other document once this file exists.** Every value cites its repository
-source path. This is a values freeze only — RQ5 prose has not been rewritten in this task.
+Single authoritative source for every number eventually reported in the
+paper. Values here are copied from the underlying CSV/MD outputs (cited
+inline); if a discrepancy is ever found between this file and a source CSV,
+the CSV is authoritative and this file must be corrected to match, not the
+reverse.
 
-## Corpus
+## Reproducibility
 
-- Final N = **66** primary studies. 5 secondary studies documented and excluded from every LDA
-  stage. Source: `corpus/primary_studies_manifest.csv`, `corpus/corpus_audit.md`.
+| | |
+|---|---|
+| Python | 3.11.15 |
+| gensim | 4.4.0 |
+| spaCy | 3.8.16 (en_core_web_sm 3.8.0) |
+| PyMuPDF | 1.28.2 |
+| scikit-learn | 1.9.1 |
+| scipy | 1.17.1 |
+| numpy | 2.4.6 |
+| pandas | 3.0.5 |
+| openpyxl | 3.1.5 |
+| Operating environment | Windows 11, isolated `.venv` (not system Python) |
+| Corpus | 66 primary studies; SHA-256 checksums in `corpus/corpus_audit.csv` |
+| Master seed list | [42,101,202,303,404,505,606,707,808,909,1010,1111,1212,1313,1414,1515,1616,1717,1818,1919,2020,2121,2222,2323,2424,2525,2626,2727,2828,2929] |
+| Pilot seeds (Stage 1-2) | first 5: [42,101,202,303,404] |
+| Definitive seeds (Stage 3) | first 20 of master list |
+| Subsampling sampling-seeds | integers 1-100 (fixed `numpy.random.default_rng`) |
+| Pilot k-set | {5, 10, 15} |
 
-## Metadata analysis (primary RQ5 representation)
+## Metadata (Analysis A) — FINAL k=4
 
-| Value | Result | Source |
+| Item | Value | Source |
 |---|---|---|
-| Representation | Title + Abstract + Author Keywords (Title+Abstract only for 24/66 studies) | `data/metadata_representation.csv` |
-| Dictionary | no_below=5, no_above=0.50, vocab=397 | `results/metadata/stage1_selected_config.json` |
-| Training budget | passes=30, iterations=800, alpha=eta=auto | `results/metadata/stage2_frozen_training_config.json` |
-| Final k | **4** | `results/metadata/k_selection_decision.json` |
-| Structural-medoid seed | **14** (mean similarity 0.690) | `results/metadata/representative_seed_k04.json` |
-| Mean C_v at k=4 | 0.4035 | `results/metadata/definitive_ksweep_runs.csv` |
-| Mean C_NPMI | -0.1042 | `results/metadata/definitive_ksweep_runs.csv` |
-| Mean cross-seed JS stability | 0.6610 | `results/metadata/seed_stability_by_k.csv` |
-| Mean topic diversity | 0.8425 | `results/metadata/definitive_ksweep_runs.csv` |
-| 80% subsampling topic similarity (JS) | 0.5858 | `results/metadata/subsampling_80pct_100reps.csv` |
-| 80% subsampling ARI | 0.1287 | `results/metadata/subsampling_80pct_100reps.csv` |
-| Training-effort sensitivity | JS=0.9573, dominant agreement=98.5% | `results/metadata/training_effort_sensitivity.json` |
+| Selected k | 4 | `results/metadata/stage4_candidates.md`, `HUMAN_VALIDATION_REPORT.md` |
+| Selection reason | Unanimous human-rater preference + strongest redundancy/robustness among finalists | `HUMAN_VALIDATION_REPORT.md` |
+| Structural-medoid seed | 1212 | `results/metadata/k_sweep_summary.csv` |
+| Dictionary | no_below=6, no_above=0.4, vocab=208 | `results/metadata/stage1_decision.md` |
+| Domain-term handling / phrase rep. | HF-B / unigram | `results/metadata/stage1_decision.md` |
+| alpha / eta | 1.0 / auto | `results/metadata/stage2_decision.md` |
+| passes / iterations | 20 / 200 | `results/metadata/stage2_decision.md` |
+| Mean C_v (SD) | 0.3584 (0.0485) | `results/metadata/k_sweep_summary.csv` |
+| Mean C_NPMI (SD) | -0.1638 (0.0146) | ibid. |
+| Cross-seed stability (SD) | 0.5815 (0.0513) | ibid. |
+| Topic diversity (top-25) | 0.8490 | ibid. |
+| Redundancy (Jaccard / cosine) | 0.0394 / 0.2771 | ibid. |
+| Dominant-study counts | [22, 16, 15, 13] | ibid. |
+| Min / max dominant count | 13 / 22 | ibid. |
+| Probabilistic prevalence | [0.292, 0.242, 0.242, 0.225] | ibid. |
+| Normalized entropy | 0.9857 | ibid. |
+| CV / Gini (dominant counts) | 0.2347 / 0.1061 | ibid. |
+| Mean assignment confidence | 0.7193 | ibid. |
+| Subsampling JS / ARI / NMI | 0.812 / 0.806 / 0.813 | `results/metadata/subsampling_k4.csv` |
+| Training-effort JS / ARI / NMI | 0.884 / 0.929 / 0.918 | `results/metadata/training_effort_sensitivity.csv` |
+| Dictionary sensitivity (2 neighbours) | JS 0.552/0.517; ARI 0.236/0.152 | `results/metadata/dictionary_sensitivity.csv` |
 
-## Metadata k-selection rationale (factual summary)
+## Full text (Analysis B) — FINAL k=4
 
-k=2 and k=3 both show a "mega-topic" (71-73% of the corpus in one topic) and are judged
-insufficient. k=4 has the most balanced dominant-topic split of any candidate (21/1/21/23) and
-no mega-topic. k=5 does not improve on k=4 by any quantitative measure and re-introduces a
-thin topic. k=4 is the most defensible quantitative-parsimony compromise. Full detail:
-`reports/METADATA_FINAL_K_VALIDATION.md`.
-
-## Metadata human-validation result (factual summary)
-
-Two independent raters, blinded to model identity and k, rated candidates k=2,3,4,5.
-**They did not agree on a preferred k** (Rater 1 → k=5; Rater 2 → k=3). Combined mean overall
-ratings: k=2: 3.58/5, k=3: 4.17/5 (highest), k=4: 3.88/5, k=5: 3.97/5. k=4 was rated
-interpretable by both raters but was neither rater's first choice. Intrusion tests: 16/16
-correct across both raters (2/2 for Rater 1, who completed only 2 of 14 items; 14/14 for
-Rater 2). **Human validation did not confirm k=4** — it is used as complementary
-interpretability evidence, not a decisive criterion. Full detail:
-`reports/HUMAN_VALIDATION_REPORT.md`, `reports/METADATA_FINAL_K_VALIDATION.md`.
-
-## Final metadata topic labels
-
-Researcher-reconciled from both raters' independently proposed labels (not verbatim rater
-consensus; see `reports/TOPIC_LABEL_RECONCILIATION.md`). Source:
-`human_validation/FINAL_TOPIC_LABELS.csv`.
-
-1. T0: AI Code Verification, Vulnerability, and Developer Trust
-2. T1: Requirements-Driven Prompting and Code Generation
-3. T2: AI in Programming Education and Adoption
-4. T3: API/Dependency Hallucination Mitigation
-
-## Full-text analysis (secondary representation-sensitivity analysis)
-
-| Value | Result | Source |
+| Item | Value | Source |
 |---|---|---|
-| Representation | Cleaned, section-restricted full text (Intro-Conclusion) | `data/fulltext_representation_manifest.csv` |
-| Dictionary | no_below=4, no_above=0.75, vocab=2626 | `results/fulltext/stage1_selected_config.json` |
-| Training budget | passes=30, iterations=800, alpha=eta=auto | `results/fulltext/stage2_frozen_training_config.json` |
-| Final k | **8** | `results/fulltext/k_selection_decision.json` |
-| Structural-medoid seed | **2** (mean similarity 0.554) | `results/fulltext/representative_seed_k08.json` |
-| Mean C_v at k=8 | 0.3958 | `results/fulltext/definitive_ksweep_runs.csv` |
-| Mean C_NPMI | -0.0432 | `results/fulltext/definitive_ksweep_runs.csv` |
-| Mean cross-seed JS stability | 0.5432 | `results/fulltext/seed_stability_by_k.csv` |
-| Mean topic diversity | 0.7669 | `results/fulltext/definitive_ksweep_runs.csv` |
-| 80% subsampling topic similarity (JS) | 0.5151 | `results/fulltext/subsampling_80pct_100reps.csv` |
-| 80% subsampling ARI | 0.2192 | `results/fulltext/subsampling_80pct_100reps.csv` |
-| Training-effort sensitivity | JS=0.9023, dominant agreement=93.9% | `results/fulltext/training_effort_sensitivity.json` |
-
-## Full-text cross-k persistence (factual summary)
-
-Near-equivalent candidate region: k∈{8,9,12,13,14,15}. Cross-k Hungarian alignment of k=8's
-topics against each higher k: **6/8 topics highly persistent** (mean JS similarity ≥0.55
-across k=9-15), **2/8 moderately persistent** (T2 security-benchmark, T4
-exercises/training; 0.40-0.55), none unstable. Higher-k topics predominantly subdivide rather
-than replace k=8's structure. **k=8 is described as "the most parsimonious representation of a
-broader region of quantitatively comparable and thematically persistent solutions," never as
-"optimal" or "best."** Full detail: `reports/FULLTEXT_FINAL_K_VALIDATION.md`,
-`results/fulltext/cross_k_topic_persistence.csv`.
-
-## Full-text human validation (factual summary)
-
-Two independent raters, blinded to AI-drafted labels, rated all 8 final topics. Combined:
-**mean coherence ≈4.06/5, mean interpretability ≈4.00/5, mean distinctiveness ≈3.88/5.**
-Strongest topic: T5 (programming education, 4.83/5). Weakest: T4 (programming
-exercises/training, 3.17/5). The two topics with only moderate quantitative persistence (T2,
-T4) also show the weakest human-rated distinctiveness — quantitative and human evidence agree
-on which topics are least well-resolved. **This should be reported as generally positive
-coherence/interpretability evidence with weaker distinctiveness evidence for several
-fine-grained topics — not as failed validation, and not as proof of 8 mutually exclusive
-categories.** Full detail: `reports/HUMAN_VALIDATION_REPORT.md`.
-
-## Final full-text topic labels
-
-Researcher-reconciled from both raters' independently proposed labels. Source:
-`human_validation/FINAL_TOPIC_LABELS.csv`.
-
-1. T0: Developer Trust and Experience with AI Coding Assistants
-2. T1: Package Hallucination and Supply-Chain Security Risks
-3. T2: Security and Safety-Critical Code Generation Benchmarks
-4. T3: Hallucination Detection and Mitigation Methods
-5. T4: LLM Coding Proficiency and Programming Tasks
-6. T5: Programming Education, Learning, Feedback, and Assessment
-7. T6: Code Quality, Vulnerability, Complexity, and Non-Determinism
-8. T7: Bug Taxonomies and Practitioner-Reported Code Issues
-
-## Full-text length sensitivity (factual summary)
-
-Document length varies ~11.7x across the 66 full texts. Weak-to-moderate association between
-length and topic-assignment confidence: **r=0.249, p=0.043**. A length-balanced sensitivity
-model (per-document token cap) agrees with the full model on only **33.3% of dominant-topic
-assignments** (JS similarity 0.446 to the full model) — materially lower than the
-training-effort/dictionary robustness checks. **This is a genuine limitation of the full-text
-analysis and is not hidden or softened.** Source: `results/fulltext/length_diagnostics.json`,
-`results/fulltext/length_balanced_sensitivity.json`.
+| Selected k | 4 | `results/fulltext/stage4_candidates.md`, `HUMAN_VALIDATION_REPORT.md` |
+| Selection reason | Rater 1's top choice + strongest redundancy/training-effort robustness; Rater 2 preferred k=5 (documented disagreement) | `HUMAN_VALIDATION_REPORT.md` |
+| Structural-medoid seed | 505 | `results/fulltext/k_sweep_summary.csv` |
+| Dictionary | no_below=6, no_above=0.4, vocab=1503 | `results/fulltext/stage1_decision.md` |
+| Domain-term handling / phrase rep. | HF-A / unigram (HF-A = HF-B at this threshold) | `results/fulltext/stage1_decision.md` |
+| alpha / eta | auto / auto | `results/fulltext/stage2_decision.md` |
+| passes / iterations | 20 / 200 | `results/fulltext/stage2_decision.md` |
+| Mean C_v (SD) | 0.2957 (0.0271) | `results/fulltext/k_sweep_summary.csv` |
+| Mean C_NPMI (SD) | -0.2512 (0.0166) | ibid. |
+| Cross-seed stability (SD) | 0.5913 (0.0296) | ibid. |
+| Topic diversity (top-25) | 0.9070 | ibid. |
+| Redundancy (Jaccard / cosine) | 0.0261 / 0.2922 | ibid. |
+| Dominant-study counts | [17, 8, 16, 25] | ibid. |
+| Min / max dominant count | 8 / 25 | ibid. |
+| Probabilistic prevalence | [0.266, 0.135, 0.227, 0.372] | ibid. |
+| Normalized entropy | 0.9496 | ibid. |
+| CV / Gini (dominant counts) | 0.4214 / 0.1970 | ibid. |
+| Mean assignment confidence | 0.8448 | ibid. |
+| Subsampling JS / ARI / NMI | 0.810 / 0.799 / 0.799 | `results/fulltext/subsampling_k4.csv` |
+| Training-effort JS / ARI / NMI | 0.905 / 0.856 / 0.865 | `results/fulltext/training_effort_sensitivity.csv` |
+| Dictionary sensitivity (2 neighbours) | JS 0.569/0.516; ARI 0.284/0.230 | `results/fulltext/dictionary_sensitivity.csv` |
+| Length-confidence correlation (Pearson r, p) | 0.358, 0.0031 | `results/fulltext/length_sensitivity_correlation.csv` |
+| Length-balanced vs. original (JS/ARI/NMI) | 0.938 / 0.945 / 0.936 | `results/fulltext/length_sensitivity_comparison.csv` |
+| Documents length-balanced | 2 / 66 (cap = 15,500 tokens) | `extraction/document_length_audit.md` |
 
 ## Cross-representation comparison
 
-k_A=4, k_B=8 (not forced to agree). **ARI=0.191, NMI=0.298** on dominant-topic assignment
-across all 66 shared studies — described as **modest/partial correspondence**, never as strong
-convergence. All 4 metadata topics have some full-text counterpart (strongest: education↔
-education JS=0.233; API-hallucination↔API-hallucination JS=0.207); 4 full-text topics have no
-metadata counterpart. Differences **may reflect** representation content, differing k,
-document-length sensitivity (full text only), or stochastic variation — this analysis does not
-and cannot statistically decompose which factor dominates. Full text is treated as a
-**secondary representation-sensitivity analysis**, not an equally-weighted alternative to the
-metadata analysis, based on the robustness asymmetry above (not on topic count). Source:
-`results/cross_representation/topic_alignment.json`,
-`results/cross_representation/dominant_topic_contingency_matrix.csv`.
+| Item | Value | Source |
+|---|---|---|
+| Document-level ARI / NMI | 0.2384 / 0.2738 | `results/cross_representation/intersection_analysis.csv`, `reports/CROSS_REPRESENTATION_REPORT.md` |
+| Strongest topic correspondence | meta0↔ft3 (hallucination-mitigation), 17/22 studies (77.3%) | `results/cross_representation/contingency_matrix.csv` |
+| Second correspondence | meta1↔ft0 (education), 9/16 studies (56.3%) | ibid. |
+| Topics with distributed correspondence | meta2 (developer trust): 46.7%/46.7%/6.7% split across ft0/ft2/ft1; meta3 (correctness/testing): 38.5%/30.8%/30.8% split across ft3/ft1/ft2 | ibid. |
 
-## Limitations (factual, for the manuscript limitations paragraph)
+### Cross-representation comparison — shared-vocabulary analysis
 
-1. Document-level topic assignment is comparatively fragile under 80% subsampling for both
-   representations (ARI 0.13 metadata / 0.22 full text), even though topic-word structure is
-   more stable (JS 0.59 / 0.52).
-2. Full-text topic structure shows material sensitivity to document length (see above) — not
-   present in the metadata model (documents are far more length-homogeneous by construction).
-3. Coherence values (C_v≈0.40 both representations) are descriptive only; no external benchmark
-   is invoked, and coherence/stability/any visualization is never treated as independent
-   validation.
-4. Metadata k=4 is a quantitative-parsimony compromise not confirmed by either individual human
-   rater (who disagreed with each other); full-text k=8 is the parsimonious representative of a
-   broader persistent region, not a uniquely optimal solution.
-5. Final topic labels are researcher-reconciled from the two human raters' independent
-   proposals, not verbatim rater consensus (`reports/TOPIC_LABEL_RECONCILIATION.md`).
-6. This LDA analysis is statistically independent of the manual RQ1-RQ4 classification; it was
-   not informed by RQ1-RQ4 at any stage before both models were frozen, and does not validate
-   that classification.
+| Item | Value | Source |
+|---|---|---|
+| Metadata vocabulary size | 208 | `results/cross_representation/intersection_analysis.csv` |
+| Full-text vocabulary size | 1,503 | ibid. |
+| Shared vocabulary (intersection) size | **19** | ibid. |
+| % of metadata vocabulary shared | 9.13% | ibid. |
+| % of full-text vocabulary shared | 1.26% | ibid. |
+| Per-topic shared-vocab coverage (raw, pre-renorm) | meta: 0.029-0.096; ft: 0.021-0.101 | ibid. |
+| JS similarity (matched pairs) | 0.449-0.562 | ibid. |
+| Cosine similarity (matched pairs) | 0.458-0.821 | ibid. |
+| Top-10 Jaccard (matched pairs) | 0.250-0.667 | ibid. |
+| Top-20 Jaccard (matched pairs) | 1.000 (near-vacuous at 19-term intersection — see report) | ibid. |
+| Permutation test (10,000 reps, seed=42) | p(ARI) < 0.0001, p(NMI) < 0.0001 | `results/cross_representation/permutation_test.csv` |
+
+## Final topic labels
+
+See `reports/HUMAN_VALIDATION_REPORT.md` §"Reconciled final topic labels"
+for the full reconciled label set (both representations, both raters'
+proposed labels shown alongside the reconciled label). Not duplicated here
+to avoid a second source of truth for label text — that section is
+authoritative for labels; this file is authoritative for numbers.
+
+## Human validation
+
+| | Metadata | Full text |
+|---|---|---|
+| Raters | 2 (independent, blinded) | 2 (independent, blinded) |
+| Preference agreement | Unanimous (k=4) | Disagreed (Rater 1: k=4; Rater 2: k=5, k=3 runner-up) |
+| Final k after reconciliation | 4 | 4 (documented disagreement, not majority vote) |

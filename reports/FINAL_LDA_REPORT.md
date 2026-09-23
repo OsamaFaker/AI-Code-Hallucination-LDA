@@ -1,140 +1,131 @@
-# Final LDA Report — Dual-Representation Re-Analysis of 66 Primary Studies (RQ5)
+# Final LDA Report
 
-**Manuscript:** "The Anatomy of a Phantom: A Socio-Technical Synthesis of AI Code Hallucinations."
-
-This report consolidates the complete, prospectively-protocolled, data-driven LDA re-analysis.
-Full detail is in `reports/METADATA_LDA_REPORT.md`, `FULLTEXT_LDA_REPORT.md`,
-`CROSS_REPRESENTATION_REPORT.md`, `ROBUSTNESS_REPORT.md`, and every cited `results/`/`data/`/
-`preprocessing/` file. Every number below is traceable to a generated file (no manually typed
-result); see `results/validation_report.txt` for automated consistency checks and
-`reports/FINAL_MANUSCRIPT_TRANSFER_TABLE.md` for the manuscript-ready numbers table.
+Top-level synthesis. Full detail in `METADATA_LDA_REPORT.md`,
+`FULLTEXT_LDA_REPORT.md`, `ROBUSTNESS_REPORT.md`,
+`HUMAN_VALIDATION_REPORT.md`, `CROSS_REPRESENTATION_REPORT.md`, and
+`FROZEN_MANUSCRIPT_VALUES.md` (the authoritative numbers table).
 
 ## What was done
 
-- **Corpus:** exactly 66 primary studies (5 secondary studies documented and excluded
-  throughout — `corpus/corpus_audit.md`).
-- **Two independent representations**, each with its own frozen preprocessing
-  (`protocol/LDA_66_dual_representation_protocol.md`, hashed at
-  `protocol/protocol_sha256.txt`), its own systematic dictionary-threshold grid (36 cells ×
-  pilot k × 5 seeds), its own training-budget/prior pilot, its own domain-term and phrase
-  sensitivity screens, and its own definitive sweep (k=2–20 × 20 seeds = 380 models each, 760
-  total for the definitive stage alone; every model saved under `models/`).
-- **Model selection** used a joint Pareto-front + documented-equivalence + parsimony rule
-  (never coherence alone, never the max-coherence seed) — see
-  `results/{rep}/k_selection_decision.json` and the amendment log
-  (`protocol/protocol_amendments.md`) for two transparent mid-run corrections: first, after the
-  rule initially selected a degenerate k=2 solution for the metadata representation; second,
-  after the numeric k≥4 floor introduced by that first correction was itself judged to need
-  independent justification and was replaced by a descriptive, candidate-by-candidate
-  admissibility comparison (`reports/METADATA_FINAL_K_VALIDATION.md`) plus a cross-k
-  topic-persistence analysis for full text (`reports/FULLTEXT_FINAL_K_VALIDATION.md`) and
-  completed blinded human validation (see below). **k=4 (metadata) and k=8 (full text) are
-  FINAL.**
-- **Cross-seed stability**, **structural-medoid seed selection**, **80%×100 subsampling**,
-  **training-effort**, **dictionary**, **phrase**, and **domain-term sensitivity** were all
-  run for both representations; full-text additionally received a **document-length
-  diagnostic and length-balanced sensitivity model** (Section 24).
-- **Human validation** is complete: two independent raters, blinded to model identity, k, and
-  any AI-drafted label, rated every candidate/final topic
-  (`reports/HUMAN_VALIDATION_REPORT.md`). For metadata, the two raters preferred different k
-  values from each other and from k=4 — **human validation did not confirm k=4**; k=4 was
-  retained primarily on quantitative-parsimony grounds. For full text, human ratings
-  corroborate the quantitative cross-k persistence result (combined coherence ≈4.06/5,
-  interpretability ≈4.00/5, distinctiveness ≈3.88/5). Final topic labels were subsequently
-  **researcher-reconciled** from both raters' independently proposed labels
-  (`reports/TOPIC_LABEL_RECONCILIATION.md`, `human_validation/FINAL_TOPIC_LABELS.csv`) — not
-  claimed as verbatim rater consensus. Raw rater files are preserved unaltered in
-  `human_validation/Human_Result/`.
+Two fully independent LDA analyses of the same 66 primary studies —
+metadata (title+abstract+keywords) and full text — each with its own
+preprocessing, dictionary selection, priors, training budget, and
+definitive k=2-20 sweep (20 seeds each), following a staged analysis
+protocol whose parameter grids, seed lists, model-selection criteria, and
+robustness procedures were fixed before the definitive topic-number search
+(`reports/PRE_EXECUTION_ANALYSIS_PLAN.md`). Every threshold used for model
+selection (dictionary stable-region rule, bigram/domain-term retention
+rule, convergence rule, prior-comparability rule, Pareto reduction rule)
+was fixed before any k-sweep result was observed, and none were changed
+afterward.
 
-## Headline results
+## Outcome
 
-| | Analysis A (Metadata) | Analysis B (Full text) |
-|---|---:|---:|
-| Selected k | **4** | **8** |
-| Vocabulary size | 397 | 2,626 |
-| Representative (medoid) seed | 14 | 2 |
-| Mean C_v / C_NPMI at selected k | 0.40 / −0.10 | 0.40 / −0.04 |
-| Mean cross-seed stability (JS) | 0.66 | 0.54 |
-| Mean topic diversity | 0.84 | 0.77 |
-| 80%-subsampling mean topic similarity (JS) / ARI | 0.59 / 0.13 | 0.52 / 0.22 |
+Both representations independently landed on final finalist sets of
+k∈{2,3,4,5} — but this reduction came from a pre-specified
+stability-ranked cutoff applied *after* Pareto filtering, not from Pareto
+dominance alone: 15/19 metadata k values and all 19/19 full-text k values
+were themselves Pareto-optimal (see `METADATA_LDA_REPORT.md` §2,
+`FULLTEXT_LDA_REPORT.md` §2). Because cross-seed stability generally
+decreases with topic count, the stability-ranked cutoff mechanically favours
+smaller k among the finalists presented to raters — a property of the
+pre-specified rule, disclosed here rather than left implicit. Both
+representations were resolved to **k=4** — but by different evidentiary
+paths, honestly reported:
 
-k_A ≠ k_B is a legitimate, expected result (protocol Section 20/26), not forced to agree.
-Coherence values are reported descriptively and never characterized as "high," "strong," or
-"excellent" — no external coherence benchmark for this domain/corpus size is invoked.
+- **Metadata**: two raters, scoring independently and blind to model
+  identity/configuration/metrics, unanimously preferred k=4, consistent
+  with its quantitative standing (lowest redundancy among the finalists,
+  zero thin/zero-dominance topics, best topic-size balance).
+- **Full text**: the two raters *disagreed* (Rater 1: k=4; Rater 2: k=5,
+  with k=3 as a parsimonious runner-up). k=4 was **retained as the more
+  conservative multi-criterion solution, not because it was demonstrated
+  clearly superior to k=5** — k=5 remained a credible alternative, with
+  higher raw coherence, stronger subsampling ARI/NMI, and a highly-specific
+  competitive-programming topic absent at k=4. k=4 was preferred for its
+  lowest redundancy among the disputed finalists, its markedly stronger
+  training-effort robustness, and its perfect thin-topic safety under
+  subsampling (k=5 showed fragility in 7/100 resamples), combined with
+  Rater 1's endorsement and Rater 2's explicit non-rejection of k=4 as a
+  reasonable model (positioned as a middle ground, not a poor one). Full
+  reconciliation: `FULLTEXT_LDA_REPORT.md`, `HUMAN_VALIDATION_REPORT.md`.
 
-**Final reconciled topic labels** (`reports/TOPIC_LABEL_RECONCILIATION.md`):
-
-| Metadata (k=4) | Full text (k=8) |
-|---|---|
-| T0: AI Code Verification, Vulnerability, and Developer Trust | T0: Developer Trust and Experience with AI Coding Assistants |
-| T1: Requirements-Driven Prompting and Code Generation | T1: Package Hallucination and Supply-Chain Security Risks |
-| T2: AI in Programming Education and Adoption | T2: Security and Safety-Critical Code Generation Benchmarks |
-| T3: API/Dependency Hallucination Mitigation | T3: Hallucination Detection and Mitigation Methods |
-| | T4: LLM Coding Proficiency and Programming Tasks |
-| | T5: Programming Education, Learning, Feedback, and Assessment |
-| | T6: Code Quality, Vulnerability, Complexity, and Non-Determinism |
-| | T7: Bug Taxonomies and Practitioner-Reported Code Issues |
+That both representations land on the same k is a **post-hoc observation
+from two independently-run pipelines**, not a designed outcome — nothing in
+either pipeline constrained k to match the other (plan §1). It should be
+read as one data point of convergence, not proof of a single "true" k.
 
 ## Cross-representation relationship
 
-All four metadata topics show partial correspondence with a full-text topic, most clearly for
-**API/Dependency Hallucination Mitigation** (metadata T3 ↔ full-text T3) and **AI in
-Programming Education and Adoption** (metadata T2 ↔ full-text T5, "Programming Education,
-Learning, Feedback, and Assessment") — themes plausibly visible even from titles/abstracts.
-Full text additionally surfaces four topics with no metadata counterpart — **Developer Trust
-and Experience with AI Coding Assistants** (T0), **Package Hallucination and Supply-Chain
-Security Risks** (T1), **LLM Coding Proficiency and Programming Tasks** (T4), and **Bug
-Taxonomies and Practitioner-Reported Code Issues** (T7) — which *may* reflect content only
-available at the methodology/results/discussion
-level, but this **cannot be statistically distinguished** from the effect of full text's larger
-selected k or its documented sensitivity to document length (see below); we do not claim a
-causal explanation. Overall document-assignment agreement across representations is modest
-(ARI=0.19, NMI=0.30), and even the closest-matching topic pairs show only moderate similarity
-(JS similarity 0.18–0.23). Given this and the robustness asymmetry below, **we treat the
-metadata analysis as the primary RQ5 result and the full-text analysis as a secondary
-representation-sensitivity check**, not two equally-weighted alternatives. Full detail:
-`reports/CROSS_REPRESENTATION_REPORT.md`.
+Document-level agreement between the two final models is **modest**
+(ARI=0.238, NMI=0.274). A 10,000-repetition permutation test (fixed seed,
+full-text labels permuted against fixed metadata labels) found both
+observed values exceed all 10,000 permuted values (empirical p<0.0001 for
+each) — this is the evidence for any claim that the agreement exceeds
+chance; the claim is not made from the positive ARI value alone. Word-level
+topic-word comparison, corrected to use the two representations' shared
+vocabulary (19 terms; 9.1% of metadata's 208-term vocabulary, 1.3% of
+full-text's 1,503-term vocabulary), shows each matched topic pair drawing
+only 2-10% of its probability mass from that shared vocabulary — low
+coverage that warrants cautious interpretation of the resulting
+similarity figures (`CROSS_REPRESENTATION_REPORT.md` §3).
 
-## Key limitation: full-text length sensitivity
+Two of the four metadata topics (hallucination/mitigation; education/
+feedback) correspond strongly to a single full-text topic each (77% and
+56% study concentration in the dominant-topic contingency matrix,
+respectively); the other two (developer trust; correctness/testing) show a
+**distributed, partial one-to-many correspondence** across multiple
+full-text topics rather than concentration in one. This pattern is
+**consistent with representation-dependent thematic granularity** —
+differences may reflect document representation, independently selected
+vocabularies of very different size, stochastic model variation, and
+differences in how themes are lexically expressed in short metadata versus
+substantive full text. This is not stated as a proven causal explanation,
+and neither representation is described as more complete or more correct
+than the other. Full detail: `CROSS_REPRESENTATION_REPORT.md`.
 
-The most consequential robustness finding is that the full-text model shows a non-trivial
-sensitivity to document length (length-balanced sensitivity model: only 33% dominant-topic
-agreement with the full model; length weakly correlates with topic-assignment confidence,
-r=0.25, p=0.043). Some of the metadata/full-text divergence documented above may partly
-reflect this length sensitivity rather than a pure granularity effect. This is reported as an
-open limitation, not resolved by re-weighting or re-selecting k. See
-`reports/ROBUSTNESS_REPORT.md`.
+## Robustness posture (both final models)
 
-## Relationship to the manual RQ1–RQ4 synthesis
+Neither final model is presented as unconditionally robust. Both show
+strong agreement under a substantially increased training budget (100
+passes/2,000 iterations vs. the frozen 20 passes/200 iterations — five
+times the passes, ten times the iterations) and no zero-dominance or thin
+topics at the full-corpus fit. Both show only moderate topic-word
+robustness (JS 0.52-0.57) and **substantially more sensitive**
+document-assignment robustness (ARI 0.15-0.28) to single-step dictionary
+threshold changes — kept as a visible limitation, not downplayed — and to
+20% document removal (ARI≈0.80 under subsampling: substantial but
+incomplete agreement, not near-perfect). Full text additionally shows a
+statistically significant length→confidence correlation (r=0.358,
+p=0.003), alongside topic structure that remains largely preserved under a
+length-balancing correction (JS=0.938, ARI=0.945) — both findings are
+reported together; neither is used to claim the model is insensitive to
+document length. All of this is reported explicitly per
+`ROBUSTNESS_REPORT.md` — none of it was grounds to discard k=4 in either
+representation, since the same pattern was checked and found comparable
+across the competing finalists.
 
-RQ1–RQ4 categories were not used at any stage before both models were frozen (protocol
-Section 30/20). The LDA analysis provides a **complementary exploratory representation** of
-thematic structure; it does not, and is not claimed to, validate the manual mapping. Any
-qualitative resemblance between LDA topics and RQ1–RQ4 categories (e.g., the API-hallucination
-topic's overlap with RQ2/RQ3 causal and mitigation categories) should be read as a
-cross-check of *coverage*, not as independent statistical confirmation.
+## What this analysis does not claim
 
-## What remains before manuscript inclusion
+- It does not validate, and was not designed to validate, the manually
+  derived RQ1-RQ4 categories (never consulted in preprocessing, modelling,
+  or k-selection). It is offered as a complementary exploratory analysis
+  and as evidence of interpretability, not proof of a "true" topic
+  structure.
+- It does not claim full text "reveals" themes metadata misses, or vice
+  versa — differences are attributed to representation, vocabulary-size
+  effects, stochastic variation, and thematic-granularity differences
+  consistent with, but not proven to be caused by, the representation
+  change (see `CROSS_REPRESENTATION_REPORT.md`).
+- It does not claim k=4 is uniquely, provably optimal for either
+  representation — the full-text choice in particular rests on a
+  documented, reasoned reconciliation of real rater disagreement, not
+  unanimous consensus, and k=5 remains a credible, documented alternative.
+- Human evaluation is treated as evidence that supports the selected
+  solution's interpretability, not as proof that it is the correct one.
 
-Blinded human validation (metadata k-candidates and full-text final topics), label
-reconciliation, and repository freezing are now **complete** — see
-`reports/HUMAN_VALIDATION_REPORT.md`, `reports/TOPIC_LABEL_RECONCILIATION.md`,
-`FINAL_ANALYSIS_FREEZE.md`. What remains is out of scope for this repository-freeze task:
+## Manuscript-ready text
 
-1. **RQ5/methodology manuscript prose rewrite** — to be done as a separate subsequent task,
-   drawing only from `reports/FROZEN_MANUSCRIPT_VALUES.md`,
-   `human_validation/FINAL_TOPIC_LABELS.csv`, `reports/HUMAN_VALIDATION_REPORT.md`,
-   `reports/FIGURE_INDEX.md`, and the frozen figures.
-2. Optional: NMF/BERTopic exploratory cross-check (protocol Section 27) was not run in this
-   pass; it is explicitly optional and would only be used to assess recurrence of broad themes
-   under different modeling assumptions, never to select the reported LDA result.
-3. Reviewer-response matrix with full point-by-point mapping:
-   `reports/REVIEWER_LDA_RESPONSE_MATRIX.md`.
-4. Final decision table: `reports/FINAL_K_DECISION_TABLE.md`.
-
-## Traceability
-
-Every quantitative claim in this report cites a specific file under `results/`, `data/`,
-`preprocessing/`, or `human_validation/`. `results/validation_report.txt` records automated
-checks (study counts, model counts, seed counts, medoid-seed consistency, etc.), all passing
-at generation time.
+See `reports/MANUSCRIPT_TEXT.md` for the methodology paragraph, RQ5 results
+paragraph, robustness paragraph, limitations paragraph, and reviewer-response
+paragraph.

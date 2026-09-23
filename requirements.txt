@@ -1,16 +1,11 @@
-# Requires Python 3.11 (a local uv-managed .venv was used; see README / environment.yml).
-# Exact versions actually used to produce the frozen results (see reports/ENVIRONMENT_SNAPSHOT.md).
 gensim==4.4.0
 spacy==3.8.16
 en_core_web_sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl
 pymupdf==1.28.2
-nltk==3.10.3
-pyLDAvis==3.4.1
-pandas==3.0.5
+
 numpy==2.4.6
+pandas==3.0.5
 scipy==1.17.1
 scikit-learn==1.9.1
-matplotlib==3.11.2
-seaborn==0.13.2
 openpyxl==3.1.5
-tabulate==0.10.0
+matplotlib==3.11.2

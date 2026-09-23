@@ -1,0 +1,2 @@
+observed_ari,observed_nmi,perm_ari_mean,perm_ari_sd,perm_nmi_mean,perm_nmi_sd,p_ari,p_nmi,seed,n_permutations
+0.2384,0.2738,-0.0002,0.0214,0.0563,0.0262,9.999000099990002e-05,9.999000099990002e-05,42,10000

@@ -1,5 +1,0 @@
-blinded_model,rater_id,contains_redundant_topics,merges_different_themes,splits_one_theme_unnecessarily,every_topic_substantively_meaningful,notes
-C,Rater1,0.0,1.0,0.0,0.0,Merges safety-critical requirements with hallucinations. Too broad.
-B,Rater1,0.0,1.0,0.0,1.0,"Better balance, but slightly compresses developer workflows, vulnerabilities, and hallucinations."
-D,Rater1,0.0,0.0,1.0,1.0,"Good coverage, though it splits hallucinations and vulnerabilities which are related."
-A,Rater1,0.0,0.0,0.0,1.0,Excellent granularity. Isolates distinct areas without unnecessary splitting.

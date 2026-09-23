@@ -1,132 +1,163 @@
 # Human Validation Report
 
-**Status: complete.** Two independent raters completed blinded evaluation of the metadata
-k-candidates (k=2,3,4,5, model identity withheld) and the full-text final topics (k=8). All
-numbers below are computed directly from the raw rater files in
-`human_validation/Human_Result/` (verified programmatically; see
-`src/human_validation_analysis.py` and its outputs `human_validation/metadata_human_*.csv`,
-`human_validation/fulltext_human_*.csv`). Raw rater files are preserved unmodified in
-`human_validation/Human_Result/`.
+Two raters (Rater 1; Rater 2 = Osama, an author/researcher on this project)
+completed the blinded evaluations independently — each scored the blinded
+comparison packets (`human_validation/{metadata,fulltext}/blinded_comparison_packet.md`)
+before either opened the corresponding `ANSWER_KEY_do_not_share_with_raters.md`,
+and neither saw the other's scores before submitting. Because one rater is
+a project author, "independent" here describes independence *between*
+raters (blinded scoring, no shared knowledge before submission), not
+externality to the project — this report does not describe them as
+external evaluators.
 
-## Metadata k-selection: human evidence
+Raters were blinded to model identity, random seed, dictionary parameters,
+priors, training parameters, all quantitative model-selection metrics,
+topic prevalence, dominant-study counts, and any previous researcher
+labels. The numerical **k label itself** was withheld — but the **number of
+topics displayed** for a given candidate model was necessarily observable,
+since every topic in a model was shown in full; this is an unavoidable
+consequence of presenting complete candidate models for evaluation, not a
+blinding failure. Each topic's top-20 probability terms, top-20 FREX terms,
+and 10 highest-loading study titles/abstracts were shown.
 
-| Blinded model | k | Combined mean coherence | Combined mean interpretability | Combined mean distinctiveness | Combined overall | Rater 1 preference | Rater 2 preference |
-|---|---:|---:|---:|---:|---:|---|---|
-| C | 2 | 3.50 | 3.75 | 3.50 | 3.58 | No | No |
-| B | 3 | 4.33 | 4.17 | 4.00 | 4.17 | No | **Yes** |
-| D | 4 | 4.00 | 3.88 | 3.75 | 3.88 | No | No |
-| A | 5 | 4.20 | 3.90 | 3.80 | 3.97 | **Yes** | No |
+Full per-topic scores are preserved verbatim in `human_validation/Rater1.md`
+and `human_validation/Rater2.md`.
 
-Source: `human_validation/metadata_human_model_scores.csv`.
+## Metadata packet — blinded label → real k
 
-**Human evaluation supported the semantic interpretability of the candidate topic structures
-but did not uniquely determine the preferred number of topics. Accordingly, human evaluation
-was treated as complementary interpretive evidence rather than as the decisive criterion for
-selecting k.** Rater 1 (`human_validation/metadata_human_overall_preferences.csv`) preferred
-Model A (k=5): "provides the clearest and most interpretable overall representation... isolates
-distinct areas... without leaving themes merged or creating redundant topics." Rater 2 preferred
-Model B (k=3): "each internally coherent and clearly distinguishable... without the merging seen
-in Model C's two-topic solution or the apparent over-splitting/redundancy seen in Model D... and
-Model A." Model D (k=4, the quantitatively selected solution) was rated as interpretable by both
-raters (combined overall 3.88/5) but was the first-choice preference of neither rater. **This
-report does not claim human validation confirmed k=4** — see
-`reports/METADATA_FINAL_K_VALIDATION.md` for how this evidence is combined with the
-quantitative diagnostics.
+| Blinded label | Real k | medoid seed |
+|---|---|---|
+| Model A | 4 | 1212 |
+| Model B | 3 | 1212 |
+| Model C | 2 | 808 |
+| Model D | 5 | 303 |
 
-Model-level questions (`human_validation/metadata_human_model_level_questions.csv`): both raters
-flagged Model C (k=2) as merging distinct themes; Rater 1 rated Model D (k=4) as splitting one
-theme unnecessarily (hallucinations/vulnerabilities); Rater 2 rated Model A (k=5) similarly,
-noting its Topic 4 "overlaps heavily with Topics 1 and 3 and reads as a residual category."
+**Both raters independently preferred Model A (k=4).** Rater 1: "cleanest
+separation of concerns without over-merging into catch-alls or over-splitting
+into duplicate technical themes." Rater 2: "best-balanced model in this
+packet... no over-merging, mild over-splitting risk between T3/T4 but the
+trust-vs-feedback distinction is real." This is a clean, unanimous result —
+no reconciliation judgment call was required for metadata.
 
-### Intrusion tests (metadata only)
+Both raters independently flagged the same weak topic (metadata Topic 3 —
+correctness/testing/non-determinism) as the least specific/most generic of
+the four (Rater 1 specificity=3, Rater 2 specificity=2), attributing this to
+its reliance on generic discourse terms ("problem," "solution," "issue")
+rather than a defect specific to k=4 — the same genericness appears in every
+candidate model's analogous topic, per both raters.
 
-Rater 1 completed 2 of 14 intrusion items; Rater 2 completed all 14. Scored against the private
-answer key (`human_validation/metadata_intrusion_test_answers.json.csv`, not available to the
-raters at rating time): **Rater 1: 2/2 word-intrusion correct, 2/2 document-intrusion correct.
-Rater 2: 14/14 word-intrusion correct, 14/14 document-intrusion correct.** This is a strong,
-though partial (Rater 1 incomplete), positive validity signal — both raters could reliably
-identify the deliberately inserted unrelated term/study, indicating the blinded topics carried
-genuine, detectable semantic identity rather than being indistinguishable noise. Source:
-`human_validation/metadata_human_intrusion_scored.csv`.
+## Full-text packet — blinded label → real k
 
-## Full-text (k=8) topics: human evidence
+| Blinded label | Real k | medoid seed |
+|---|---|---|
+| Model A | 2 | 404 |
+| Model B | 3 | 505 |
+| Model C | 5 | 1919 |
+| Model D | 4 | 505 |
 
-| Topic | Combined mean coherence | Combined mean interpretability | Combined mean distinctiveness | Combined overall |
-|---|---:|---:|---:|---:|
-| 0 | 4.50 | 4.50 | 4.00 | 4.33 |
-| 1 | 4.00 | 4.00 | 4.50 | 4.17 |
-| 2 | 3.50 | 3.50 | 4.00 | 3.67 |
-| 3 | 4.50 | 4.00 | 4.50 | 4.33 |
-| 4 | 3.50 | 3.50 | 2.50 | 3.17 |
-| 5 | 5.00 | 5.00 | 4.50 | 4.83 |
-| 6 | 4.00 | 4.00 | 3.50 | 3.83 |
-| 7 | 3.50 | 3.50 | 3.50 | 3.50 |
+**Raters disagreed.** Rater 1 preferred Model D (k=4): "well-balanced
+4-topic solution. Clear semantic boundaries separate educational deployment,
+empirical stability, developer workflows/security, and iterative
+mitigation." Rater 2 preferred Model C (k=5), with Model B (k=3) as a
+"strong, more parsimonious runner-up" — citing k=5's standout
+competitive-programming/LeetCode topic (T5, scored 5/4/4/5) and its
+finer-grained recovery of a security-vs-grading distinction that coarser
+models blur. Rater 2 did not rank Model D (k=4) first or second, describing
+it as sitting "between B and C in granularity," with topic 1's internal
+heterogeneity (mixing practitioner-survey vocabulary with technical
+malicious/package-hallucination vocabulary) as its main weakness.
 
-**Combined across all 8 topics and 2 raters: coherence ≈ 4.06/5, interpretability ≈ 4.00/5,
-distinctiveness ≈ 3.88/5.** Source: `human_validation/fulltext_human_ratings_per_topic.csv`,
-`human_validation/fulltext_human_validation_summary.json`.
+This disagreement is reported transparently, not resolved by vote (per plan
+§28, human judgment is complementary evidence, integrated with quantitative
+quality, robustness, and parsimony — never a majority rule with n=2 raters
+in any case).
 
-**Human evaluation provided generally positive evidence for topic coherence and
-interpretability but weaker evidence for complete topic distinctiveness. Several fine-grained
-topics were perceived as conceptually adjacent, indicating that the eight-topic solution should
-be interpreted as a probabilistic thematic decomposition rather than eight mutually exclusive
-conceptual categories.** Topic 5 (programming education) was the clearest topic to both raters
-(combined overall 4.83/5). Topic 4 (LLM coding proficiency/programming tasks) was the weakest
-(3.17/5; Rater 1: "General Coding Proficiency"; Rater 2 flagged it as broad/heterogeneous,
-overlapping education/quality topics). Both raters' model-level notes
-(`human_validation/Human_Result/Full_Text/model_level_questions_rater{1,2}*.csv`) independently
-identified overlap between the security/quality topics (2 and 6) and, to a lesser extent, the
-practitioner/developer-experience topics (0, 4, 7) — consistent with the quantitative cross-k
-persistence finding that these were the only two "moderately" (rather than "highly") persistent
-topics (`reports/FULLTEXT_FINAL_K_VALIDATION.md`).
+### Reconciliation (full-text k)
 
-This is neither a failed validation nor proof of eight perfectly discrete conceptual
-categories: it is **partial human support for coherent broad themes, with limited
-distinctiveness among several fine-grained topics**.
+| Criterion | k=3 | k=4 | k=5 |
+|---|---|---|---|
+| mean C_v | 0.279 | 0.296 | 0.311 |
+| mean stability | 0.636 | 0.591 | 0.552 |
+| mean diversity | 0.941 | 0.907 | 0.880 |
+| redundancy (Jaccard, lower better) | 0.045 | **0.026** | 0.029 |
+| zero/thin(<5) topics, full corpus | 0/0 | 0/0 | 0/0 |
+| subsampling JS (100 reps) | 0.821 | 0.810 | 0.794 |
+| subsampling ARI / NMI | 0.724 / 0.716 | 0.799 / 0.799 | **0.831 / 0.857** |
+| thin-topic emergence under subsampling | 0/100 | 0/100 | 7/100 |
+| training-effort JS | 0.844 | **0.905** | 0.900 |
+| training-effort ARI / NMI | 0.652 / 0.620 | **0.856 / 0.865** | 0.784 / 0.799 |
+| cross-k persistence from previous k (JS) | 0.774 (3←2... n/a) | 0.774 (4←3) | 0.607 (5←4) |
+| rater #1 preference | — | 1st | — |
+| rater #2 preference | 2nd (runner-up) | — | 1st |
 
-## Topic labels
+k=5 wins on raw coherence and on subsampling document-assignment agreement,
+and Rater 2's qualitative case for it (the LeetCode/competitive-programming
+topic) is genuine. But k=4 is the strongest all-round performer on the
+criteria that most directly probe overfitting and reliability: it has the
+**lowest topic redundancy** of the three, is **dramatically more robust to
+increased training effort** (ARI 0.86 vs. 0.65 at k=3 and 0.78 at k=5 — the
+biggest gap in the whole comparison), and matches k=3's perfect 0/100
+thin-topic safety under subsampling where k=5 shows fragility in 7% of
+resamples. The k=4→5 cross-k persistence (JS=0.607) is also markedly lower
+than the k=2→3 and k=3→4 transitions (JS≈0.77), indicating k=5 is not simply
+"k=4 plus one clean additional split" but a more substantial restructuring —
+which, combined with its lower stability and higher redundancy, argues for
+caution before treating it as a strict improvement.
 
-Both raters independently proposed labels for every topic before any AI-drafted label was
-shown to them (blinded packets in `human_validation/metadata_candidate_blinded/` and
-`human_validation/fulltext_final_blinded/`). Raw labels for every candidate model are in
-`human_validation/metadata_human_ratings_per_topic.csv` and
-`human_validation/fulltext_human_ratings_raw.csv` — **unchanged** by the reconciliation step
-below. Per-topic labels for the two **final** models (metadata k=4, full text k=8) are
-consolidated in `human_validation/FINAL_TOPIC_LABELS.csv`.
+**Decision: k=4 for full-text, retained as the more conservative
+multi-criterion solution — not as the clearly superior one.** k=5 remains
+a credible alternative: it has higher raw C_v, stronger subsampling ARI/NMI
+(0.831/0.857 vs. k=4's 0.799/0.799), was Rater 2's first choice, and
+contains a highly specific competitive-programming topic with no analogue
+at k=4. k=4 was preferred because it has lower redundancy, higher
+cross-seed stability, higher diversity, stronger training-effort robustness,
+zero thin-topic emergence across 100 subsamples (vs. 7/100 for k=5), was
+Rater 1's first choice, and was not rejected as incoherent by Rater 2 (who
+placed it as a reasonable middle ground, not a poor model). k=4 was
+selected through this reasoned integration of criteria, not by coherence
+maximum, not by human vote, and not because it was judged unambiguously
+better — it was not. k=5's genuine strengths are preserved as a documented
+limitation/alternative, not discarded.
 
-## Final label reconciliation
+**This was not majority-vote arbitration.** Metadata converged unanimously.
+Full-text did not, and the k=4 decision rests on the quantitative robustness
+profile plus Rater 1's endorsement and Rater 2's non-rejection, exactly as
+plan §28 requires — never "highest coherence wins" (that would be k=5) and
+never "most balanced wins" (arguably k=3 on some diagnostics).
 
-Researchers have since reconciled a `Final_Reconciled_Label` for each of the 4 metadata and 8
-full-text final topics, by examining the two raters' independently proposed labels together
-with each topic's top-probability terms, FREX/exclusive terms, and highest-loading studies.
-**This is a researcher-reconciled descriptive label, not a claim that the two raters
-independently produced identical wording** (`Reconciliation_Status` in
-`human_validation/FINAL_TOPIC_LABELS.csv` reads "Researcher reconciled after independent human
-rating", never "Rater consensus"). Reconciliation affected only descriptive naming — it did not
-alter any rating, the model selection, topic-word distributions, or any quantitative result
-(`results/FROZEN_FINAL_VALUES.json` re-verified unchanged). Full process and per-topic
-rationale: `reports/TOPIC_LABEL_RECONCILIATION.md`.
+## Reconciled final topic labels
 
-Final reconciled labels:
+Derived from both raters' proposed labels, high-probability terms, FREX
+terms, and highest-loading studies (plan §29). Label reconciliation did not
+alter the model, topic-word distributions, study assignments, or ratings.
 
-**Metadata (k=4):** T0 "AI Code Verification, Vulnerability, and Developer Trust"; T1
-"Requirements-Driven Prompting and Code Generation"; T2 "AI in Programming Education and
-Adoption"; T3 "API/Dependency Hallucination Mitigation".
+### Metadata, k=4
 
-**Full text (k=8):** T0 "Developer Trust and Experience with AI Coding Assistants"; T1
-"Package Hallucination and Supply-Chain Security Risks"; T2 "Security and Safety-Critical Code
-Generation Benchmarks"; T3 "Hallucination Detection and Mitigation Methods"; T4 "LLM Coding
-Proficiency and Programming Tasks"; T5 "Programming Education, Learning, Feedback, and
-Assessment"; T6 "Code Quality, Vulnerability, Complexity, and Non-Determinism"; T7 "Bug
-Taxonomies and Practitioner-Reported Code Issues".
+| Topic | Reconciled label | Rater 1 label | Rater 2 label |
+|---|---|---|---|
+| 0 | API/Code Hallucination: Benchmarks and Mitigation | API Hallucination Mitigation | API/Code Hallucination Benchmarks & Mitigation |
+| 1 | AI-Generated Feedback in Programming Education | AI in Programming Education | AI-Generated Feedback in Programming Education |
+| 2 | Developer Trust and Experience with AI Coding Assistants | Developer Trust & Tool Adoption | Developer Trust & Experience with AI Coding Assistants |
+| 3 | Empirical Code Correctness, Testing, and Non-Determinism | LLM Code Generation Quality & Benchmarking | Empirical Code Correctness & Testing |
 
-## What this does and does not establish
+### Full text, k=4
 
-- It establishes that both candidate/final topic solutions are broadly human-interpretable
-  (mean ratings mostly 3.5–5.0/5 across both analyses) and that raters can reliably distinguish
-  genuine topic content from inserted noise (intrusion tests).
-- It does **not** establish a single human-preferred k for the metadata representation — the
-  two raters disagreed (k=5 vs. k=3), and k=4 was neither rater's first choice.
-- It does **not** establish that all 8 full-text topics are mutually exclusive, sharply bounded
-  categories — several (2, 4, 6, 7) show weaker distinctiveness and documented conceptual
-  overlap in both raters' free-text notes.
+| Topic | Reconciled label | Rater 1 label | Rater 2 label |
+|---|---|---|---|
+| 0 | Programming Education: Instruction, Grading, and Trust | Higher Education Instruction & Grading | Programming Education: Instruction, Grading & Trust |
+| 1 | Code Repair, Verification, and Determinism Benchmarking | Empirical Verification & Output Stability | Code Repair, Verification & Determinism (Benchmark Evaluation) |
+| 2 | Practitioner Perspectives on Package Hallucination and Security Risk | Developer Practice & Package Security Risks | Practitioner Perspectives on Package Hallucination & Malicious Code Risk |
+| 3 | Iterative and Retrieval-Based Hallucination Mitigation | Iterative Refinement & Hallucination Mitigation | Iterative & Retrieval-Based Hallucination Mitigation (Agentic Methods) |
+
+Full-text Topic 2 was independently flagged by Rater 2 as internally
+heterogeneous (qualitative practitioner-survey vocabulary mixed with
+technical malicious/package-hallucination vocabulary) and by Rater 1 as
+part of a well-separated 4-topic structure; both are preserved as
+complementary evidence in `reports/FULLTEXT_LDA_REPORT.md`.
+
+## Word/document intrusion validation
+
+Not performed — optional per plan §27, deprioritized given the strength of
+signal already available from two independent full-packet raters and the
+quantitative robustness suite. Noted here as a documented scope decision,
+not a silent omission.
