@@ -1,0 +1,96 @@
+﻿[metadata] Stage 5: k=2 medoid_seed=808
+[metadata] k=2 training-effort sensitivity: {'k': 2, 'js_similarity': 0.9238, 'dominant_topic_agreement_ari': 0.71565, 'dominant_topic_agreement_nmi': 0.68224}
+[metadata] k=2 dictionary sensitivity: 2 neighbours checked
+[metadata] Stage 5: k=3 medoid_seed=1212
+[metadata] k=3 subsampling 10/100 js=0.900 ari=0.881 nmi=0.888 (0.2s)
+[metadata] k=3 subsampling 20/100 js=0.842 ari=0.891 nmi=0.867 (0.2s)
+[metadata] k=3 subsampling 30/100 js=0.841 ari=0.776 nmi=0.757 (0.2s)
+[metadata] k=3 subsampling 40/100 js=0.876 ari=0.780 nmi=0.758 (0.2s)
+[metadata] k=3 subsampling 50/100 js=0.851 ari=0.723 nmi=0.712 (0.2s)
+[metadata] k=3 subsampling 60/100 js=0.827 ari=0.731 nmi=0.725 (0.2s)
+[metadata] k=3 subsampling 70/100 js=0.808 ari=0.738 nmi=0.696 (0.2s)
+[metadata] k=3 subsampling 80/100 js=0.833 ari=0.692 nmi=0.687 (0.2s)
+[metadata] k=3 subsampling 90/100 js=0.846 ari=0.843 nmi=0.826 (0.2s)
+[metadata] k=3 subsampling 100/100 js=0.844 ari=0.841 nmi=0.826 (0.2s)
+[metadata] k=3 training-effort sensitivity: {'k': 3, 'js_similarity': 0.88082, 'dominant_topic_agreement_ari': 0.83048, 'dominant_topic_agreement_nmi': 0.79605}
+[metadata] k=3 dictionary sensitivity: 2 neighbours checked
+[metadata] Stage 5: k=4 medoid_seed=1212
+[metadata] k=4 subsampling 10/100 js=0.836 ari=0.843 nmi=0.857 (0.2s)
+[metadata] k=4 subsampling 20/100 js=0.823 ari=0.891 nmi=0.900 (0.2s)
+[metadata] k=4 subsampling 30/100 js=0.819 ari=0.758 nmi=0.799 (0.2s)
+[metadata] k=4 subsampling 40/100 js=0.829 ari=0.856 nmi=0.855 (0.2s)
+[metadata] k=4 subsampling 50/100 js=0.838 ari=0.914 nmi=0.903 (0.2s)
+[metadata] k=4 subsampling 60/100 js=0.798 ari=0.781 nmi=0.780 (0.2s)
+[metadata] k=4 subsampling 70/100 js=0.815 ari=0.808 nmi=0.800 (0.2s)
+[metadata] k=4 subsampling 80/100 js=0.840 ari=0.915 nmi=0.905 (0.2s)
+[metadata] k=4 subsampling 90/100 js=0.740 ari=0.713 nmi=0.740 (0.2s)
+[metadata] k=4 subsampling 100/100 js=0.855 ari=0.900 nmi=0.902 (0.2s)
+[metadata] k=4 training-effort sensitivity: {'k': 4, 'js_similarity': 0.88412, 'dominant_topic_agreement_ari': 0.92889, 'dominant_topic_agreement_nmi': 0.91822}
+[metadata] k=4 dictionary sensitivity: 2 neighbours checked
+[metadata] Stage 5: k=5 medoid_seed=303
+[metadata] k=5 subsampling 10/100 js=0.884 ari=0.945 nmi=0.954 (0.2s)
+[metadata] k=5 subsampling 20/100 js=0.740 ari=0.688 nmi=0.699 (0.2s)
+[metadata] k=5 subsampling 30/100 js=0.695 ari=0.771 nmi=0.727 (0.2s)
+[metadata] k=5 subsampling 40/100 js=0.878 ari=0.903 nmi=0.913 (0.2s)
+[metadata] k=5 subsampling 50/100 js=0.755 ari=0.713 nmi=0.705 (0.2s)
+[metadata] k=5 subsampling 60/100 js=0.769 ari=0.667 nmi=0.691 (0.2s)
+[metadata] k=5 subsampling 70/100 js=0.802 ari=0.758 nmi=0.775 (0.2s)
+[metadata] k=5 subsampling 80/100 js=0.711 ari=0.796 nmi=0.765 (0.2s)
+[metadata] k=5 subsampling 90/100 js=0.692 ari=0.712 nmi=0.730 (0.2s)
+[metadata] k=5 subsampling 100/100 js=0.775 ari=0.669 nmi=0.694 (0.2s)
+[metadata] k=5 training-effort sensitivity: {'k': 5, 'js_similarity': 0.84657, 'dominant_topic_agreement_ari': 0.81711, 'dominant_topic_agreement_nmi': 0.82053}
+[metadata] k=5 dictionary sensitivity: 2 neighbours checked
+[metadata] STAGE 5 (subsampling + training-effort + dictionary sensitivity) DONE
+[fulltext] Stage 5: k=2 medoid_seed=404
+[fulltext] k=2 subsampling 10/100 js=0.868 ari=0.652 nmi=0.552 (1.9s)
+[fulltext] k=2 subsampling 20/100 js=0.881 ari=0.782 nmi=0.738 (2.1s)
+[fulltext] k=2 subsampling 30/100 js=0.849 ari=0.652 nmi=0.563 (2.0s)
+[fulltext] k=2 subsampling 40/100 js=0.858 ari=0.716 nmi=0.610 (1.8s)
+[fulltext] k=2 subsampling 50/100 js=0.860 ari=0.533 nmi=0.477 (1.9s)
+[fulltext] k=2 subsampling 60/100 js=0.853 ari=0.591 nmi=0.496 (2.1s)
+[fulltext] k=2 subsampling 70/100 js=0.869 ari=0.925 nmi=0.882 (2.0s)
+[fulltext] k=2 subsampling 80/100 js=0.848 ari=0.591 nmi=0.516 (1.8s)
+[fulltext] k=2 subsampling 90/100 js=0.833 ari=0.478 nmi=0.437 (1.8s)
+[fulltext] k=2 subsampling 100/100 js=0.859 ari=0.591 nmi=0.493 (1.8s)
+[fulltext] k=2 training-effort sensitivity: {'k': 2, 'js_similarity': 0.89843, 'dominant_topic_agreement_ari': 0.66432, 'dominant_topic_agreement_nmi': 0.55847}
+[fulltext] k=2 dictionary sensitivity: 2 neighbours checked
+[fulltext] Stage 5: k=3 medoid_seed=505
+[fulltext] k=3 subsampling 10/100 js=0.789 ari=0.579 nmi=0.539 (2.3s)
+[fulltext] k=3 subsampling 20/100 js=0.861 ari=1.000 nmi=1.000 (2.2s)
+[fulltext] k=3 subsampling 30/100 js=0.766 ari=0.423 nmi=0.432 (2.4s)
+[fulltext] k=3 subsampling 40/100 js=0.802 ari=0.667 nmi=0.685 (2.4s)
+[fulltext] k=3 subsampling 50/100 js=0.824 ari=0.688 nmi=0.641 (2.1s)
+[fulltext] k=3 subsampling 60/100 js=0.809 ari=0.814 nmi=0.764 (2.4s)
+[fulltext] k=3 subsampling 70/100 js=0.830 ari=0.692 nmi=0.660 (0.4s)
+[fulltext] k=3 subsampling 80/100 js=0.735 ari=0.332 nmi=0.405 (0.4s)
+[fulltext] k=3 subsampling 90/100 js=0.724 ari=0.350 nmi=0.374 (0.4s)
+[fulltext] k=3 subsampling 100/100 js=0.848 ari=1.000 nmi=1.000 (0.5s)
+[fulltext] k=3 training-effort sensitivity: {'k': 3, 'js_similarity': 0.84438, 'dominant_topic_agreement_ari': 0.65176, 'dominant_topic_agreement_nmi': 0.62045}
+[fulltext] k=3 dictionary sensitivity: 2 neighbours checked
+[fulltext] Stage 5: k=4 medoid_seed=505
+[fulltext] k=4 subsampling 10/100 js=0.783 ari=0.750 nmi=0.748 (0.5s)
+[fulltext] k=4 subsampling 20/100 js=0.781 ari=0.677 nmi=0.713 (2.2s)
+[fulltext] k=4 subsampling 30/100 js=0.774 ari=0.858 nmi=0.813 (2.3s)
+[fulltext] k=4 subsampling 40/100 js=0.794 ari=0.650 nmi=0.671 (0.4s)
+[fulltext] k=4 subsampling 50/100 js=0.824 ari=0.838 nmi=0.823 (0.5s)
+[fulltext] k=4 subsampling 60/100 js=0.781 ari=0.635 nmi=0.612 (0.5s)
+[fulltext] k=4 subsampling 70/100 js=0.812 ari=0.842 nmi=0.823 (0.5s)
+[fulltext] k=4 subsampling 80/100 js=0.793 ari=0.854 nmi=0.844 (0.5s)
+[fulltext] k=4 subsampling 90/100 js=0.717 ari=0.724 nmi=0.729 (0.5s)
+[fulltext] k=4 subsampling 100/100 js=0.832 ari=0.826 nmi=0.855 (0.5s)
+[fulltext] k=4 training-effort sensitivity: {'k': 4, 'js_similarity': 0.90475, 'dominant_topic_agreement_ari': 0.85616, 'dominant_topic_agreement_nmi': 0.86494}
+[fulltext] k=4 dictionary sensitivity: 2 neighbours checked
+[fulltext] Stage 5: k=5 medoid_seed=1919
+[fulltext] k=5 subsampling 10/100 js=0.811 ari=0.864 nmi=0.881 (0.6s)
+[fulltext] k=5 subsampling 20/100 js=0.821 ari=0.822 nmi=0.834 (0.5s)
+[fulltext] k=5 subsampling 30/100 js=0.781 ari=0.730 nmi=0.788 (0.5s)
+[fulltext] k=5 subsampling 40/100 js=0.749 ari=0.644 nmi=0.722 (0.5s)
+[fulltext] k=5 subsampling 50/100 js=0.798 ari=0.892 nmi=0.911 (0.6s)
+[fulltext] k=5 subsampling 60/100 js=0.790 ari=0.866 nmi=0.877 (0.6s)
+[fulltext] k=5 subsampling 70/100 js=0.819 ari=0.893 nmi=0.913 (0.5s)
+[fulltext] k=5 subsampling 80/100 js=0.755 ari=0.876 nmi=0.878 (0.5s)
+[fulltext] k=5 subsampling 90/100 js=0.704 ari=0.690 nmi=0.765 (0.5s)
+[fulltext] k=5 subsampling 100/100 js=0.803 ari=0.913 nmi=0.918 (0.5s)
+[fulltext] k=5 training-effort sensitivity: {'k': 5, 'js_similarity': 0.89979, 'dominant_topic_agreement_ari': 0.78379, 'dominant_topic_agreement_nmi': 0.79946}
+[fulltext] k=5 dictionary sensitivity: 2 neighbours checked
+[fulltext] STAGE 5 (subsampling + training-effort + dictionary sensitivity) DONE

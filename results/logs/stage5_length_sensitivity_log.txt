@@ -1,0 +1,10 @@
+﻿warning: The `fitz` API is deprecated and will be removed in future. Use `import pymupdf` instead.
+Frozen length cap: 15500 tokens
+2/66 documents exceeded the cap and were length-balanced
+k=2: length-confidence pearson_r=0.161 (p=0.1964), balanced-vs-original JS=0.960 ARI=0.939 NMI=0.901
+k=3: length-confidence pearson_r=0.446 (p=0.0002), balanced-vs-original JS=0.955 ARI=0.915 NMI=0.906
+k=4: length-confidence pearson_r=0.358 (p=0.0031), balanced-vs-original JS=0.938 ARI=0.945 NMI=0.936
+k=5: length-confidence pearson_r=0.341 (p=0.0051), balanced-vs-original JS=0.920 ARI=0.903 NMI=0.910
+Wrote C:\Users\osama\Desktop\SMR_Major Revision\Final Copy\LDA\results\fulltext\length_sensitivity_correlation.csv
+Wrote C:\Users\osama\Desktop\SMR_Major Revision\Final Copy\LDA\results\fulltext\length_sensitivity_comparison.csv
+2/66 documents length-balanced at cap=15500

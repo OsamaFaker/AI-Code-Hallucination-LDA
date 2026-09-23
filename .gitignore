@@ -1,10 +1,11 @@
-# Copyrighted extracted full text - must not be redistributed (protocol Section 6)
-data/fulltext_texts/
+# Copyrighted extracted full text - must not be redistributed (see LICENSE)
+extraction/fulltext/
+66_Primery_Study/
 
 # Local environment
 .venv/
 __pycache__/
 *.pyc
 
-# Saved model artifacts (large, regenerable from protocol + seeds)
+# Saved model artifacts (large, regenerable from the frozen seeds and configuration)
 models/
